@@ -281,8 +281,9 @@ class FirstPagesController extends Controller
 
     public function status_pesanan() { 
         $title_user = 'Status Pesanan';
+        $user_login = Auth::user()->id;
 
-        $data_pesanan = DataPesanan::orderby('created_at','DESC')->get();
+        $data_pesanan = DataPesanan::orderby('created_at','DESC')->where('user_id', $user_login)->get();
 
         return view('users.status_pesanan', compact('title_user','data_pesanan'));
     }

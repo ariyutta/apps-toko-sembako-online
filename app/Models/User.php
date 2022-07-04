@@ -53,4 +53,8 @@ class User extends Authenticatable
     public function keranjang() {
         return $this->hasOne(DataKeranjang::class, 'user_id');
     }
+
+    public function pesanan() {
+        return $this->hasOne(DataPesanan::class, 'user_id');
+    }
 }

@@ -19,4 +19,8 @@ class DataBarang extends Model
     public function keranjang() {
         return $this->hasOne(DataKeranjang::class, 'id', 'barang_id');
     }
+
+    public function pesanan() {
+        return $this->hasOne(DataPesanan::class, 'id', 'barang_id');
+    }
 }

@@ -41,9 +41,34 @@
     <!-- form-upload init -->
     <script src="{{ asset('assets_us/js/pages/form-fileupload.init.js') }}"></script>
 
+    <script src="{{ asset('assets/libs/select2/select2.min.js') }}"></script>
+
+    <!-- datatable js -->
+    <script src="{{ asset('assets_us/libs/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/dataTables.keyTable.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/datatables/dataTables.select.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/pdfmake/vfs_fonts.js') }}"></script>
+
     <script>
         $("#checkAll").click(function(){
             $('input:checkbox').not(this).prop('checked', this.checked);
+        });
+
+        $(document).ready(function() {
+            $('#provinsi').select2();
+        });
+
+        $(document).ready(function() {
+            $('#kota').select2();
         });
 
         function confirm_checkout() {

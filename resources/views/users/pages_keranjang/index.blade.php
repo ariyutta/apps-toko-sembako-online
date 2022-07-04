@@ -14,14 +14,14 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card-box shadow">
-                <p><span style="color: orange; font-weight:bold">Perhatian!</span><br> 
+                <p class="container"><span style="color: orange; font-weight:bold">Perhatian!</span><br> 
                     Harap untuk melakukan pengecekan terhadap barang yang ingin dibeli.</p>
                 <div class="table-responsive container">
-                    <table class="table table-bordered nowrap">
+                    <table class="table table-bordered nowrap table-sm">
                         <thead>
                             <tr class="text-center">
                                 <th>
-                                    <input id="checkAll" class="check-all" type="checkbox" aria-label="Checkbox for following text input">
+                                    No.
                                 </th>
                                 <th>Lampiran</th>
                                 <th>Nama Barang</th>
@@ -34,7 +34,7 @@
                             @foreach ($data_keranjang as $item)
                                 <tr class="text-center">
                                     <td style="padding-top: 45px">
-                                        <input id="checkAll" class="check-item" name="selector[]" type="checkbox" value="{{ $item->id }}">
+                                        {{ $loop->iteration }}
                                     </td>
                                     <td>
                                         <img src="{{ asset('gambar_barang/'.$item->gambar_barang) }}" alt="default.png" height="100px">
@@ -43,7 +43,6 @@
                                     <td style="padding-top: 45px">{{ $item->jumlah_barang }}</td>
                                     <td style="padding-top: 45px">{{ 'Rp. '.number_format($item->jumlah_harga , 0, ",", "."); }}</td>
                                     <td style="padding-top: 40px">
-                                        <button style="font-weight: bold" href="#" class="btn btn-success btn-sm">Checkout</button>
                                         <button style="font-weight: bold" onclick="confirm_hapus_keranjang({{ $item->id }})" class="btn btn-danger btn-sm">Hapus</button>
                                     </td>
                                 </tr>

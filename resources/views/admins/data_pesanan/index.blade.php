@@ -24,22 +24,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>KD-001</td>
-                                        <td>Arbi Yudatama</td>
-                                        <td>JNT Express</td>
-                                        <td>Rp. 34.000</td>
-                                        <td><span style="font-size: 14px" class="badge badge-warning">Belum diterima</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>KD-001</td>
-                                        <td>Arbi Yudatama</td>
-                                        <td>JNT Express</td>
-                                        <td>Rp. 34.000</td>
-                                        <td><span style="font-size: 14px" class="badge badge-warning">Belum diterima</span></td>
-                                    </tr>
+                                    @foreach ($data_pesanan as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->barang->kode_barang }}</td>
+                                            <td>{{ $item->user->name }}</td>
+                                            <td>{{ $item->jenis_pengiriman_id }}</td>
+                                            <td>{{ $item->total_harga_seluruh }}</td>
+                                            <td><span style="font-size: 14px" class="badge badge-warning">Belum diterima</span></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -1,5 +1,9 @@
 @extends('layouts.main_user')
 
+@section('css')
+    
+@endsection
+
 @section('title')
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
@@ -16,7 +20,7 @@
             <div class="card-box shadow">
                 <p><span style="color: orange; font-weight:bold">Perhatian!</span><br> Apabila barang yang telah dikirim sudah sampai tujuan, harap untuk melakukan konfirmasi jika barang sudah diterima.</p>
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table id="datatable" class="table table-bordered nowrap">
                         <thead>
                             <tr class="text-center">
                                 <th>No.</th>
@@ -28,18 +32,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
-                                <td>1</td>
-                                <td>Minyak Goreng</td>
-                                <td>5</td>
-                                <td>20 Juni 2022</td>
-                                <td>
-                                    <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
-                                </td>
-                                <td>
-                                    <a href="{{ url('dashboard/konfirmasi_pesanan') }}" class="btn btn-success btn-sm">Konfirmasi</a>
-                                </td>
-                            </tr>
+                            @foreach ($data_pesanan as $item)
+                                <tr class="text-center">
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->barang->nama_barang }}</td>
+                                    <td>5</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>
+                                        <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('dashboard/konfirmasi_pesanan') }}" class="btn btn-success btn-sm">Konfirmasi</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

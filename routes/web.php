@@ -74,7 +74,7 @@ Route::group(['middleware' =>['auth', 'role:user']], function() {
     Route::get('dashboard/status_pesanan', [App\Http\Controllers\FirstPagesController::class, 'status_pesanan'])->name('status_pesanan');
     Route::get('dashboard/konfirmasi_pesanan', [App\Http\Controllers\FirstPagesController::class, 'konfirmasi_pesanan'])->name('konfirmasi_pesanan');
     Route::get('dashboard/submit_pembayaran', [App\Http\Controllers\FirstPagesController::class, 'submit_pembayaran'])->name('submit_pembayaran');
-    Route::get('dashboard/submit_checkout', [App\Http\Controllers\FirstPagesController::class, 'submit_checkout'])->name('submit_checkout');
+    Route::post('dashboard/submit_checkout', [App\Http\Controllers\FirstPagesController::class, 'submit_checkout'])->name('submit_checkout');
 
     Route::post('dashboard/tambah_keranjang/{id}', [App\Http\Controllers\FirstPagesController::class, 'tambah_keranjang'])->name('tambah_keranjang');
     Route::get('dashboard/hapus_keranjang/{id_keranjang}', [App\Http\Controllers\FirstPagesController::class, 'hapus_keranjang'])->name('hapus_keranjang');

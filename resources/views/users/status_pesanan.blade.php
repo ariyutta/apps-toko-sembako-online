@@ -27,7 +27,7 @@
                                 <th>Nama Barang</th>
                                 <th>Jumlah</th>
                                 <th>Tanggal Pemesanan</th>
-                                <th>Status Pesanan</th>
+                                <th>Status Pembayaran</th>
                                 <th>Konfirmasi Terima Barang</th>
                             </tr>
                         </thead>
@@ -39,9 +39,9 @@
                                     <td>{{ $item->jumlah_item }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>
-                                        @if($item->status_pesanan == 1)
+                                        @if($item->status_pembayaran == 1)
                                             <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
-                                        @elseif($item->status_pesanan == 0)
+                                        @elseif($item->status_pembayaran == 0)
                                             <span style="font-size: 14px" class="badge badge-success">Sudah Lunas</span>
                                         @endif
                                     </td>

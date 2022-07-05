@@ -25,6 +25,6 @@
     <link href="{{ asset('assets_us/libs/datatables/buttons.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets_us/libs/datatables/select.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('assets/libs/select2/select2.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets_us/libs/select2/select2.min.css')}}" rel="stylesheet" type="text/css" />
     @yield('css')
 </head>

@@ -42,7 +42,7 @@
                                         <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
                                     </td>
                                     <td>
-                                        <a href="{{ url('dashboard/konfirmasi_pesanan') }}" class="btn btn-success btn-sm">Konfirmasi</a>
+                                        <a href="{{ url('dashboard/status_pesanan/detail/'. $item->id) }}" class="btn btn-primary btn-sm"><i class="far fa-eye mr-1"></i> Lihat</a>
                                     </td>
                                 </tr>
                             @endforeach

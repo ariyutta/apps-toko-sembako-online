@@ -75,7 +75,7 @@
                       </div>
 
                     <div class="form-group">
-                      <table id="datatable" class="table table-bordered table-sm">
+                      <table id="datatable" class="table table-striped table-sm ">
                         <thead>
                           <tr>
                             <th>No.</th>
@@ -99,9 +99,6 @@
                           @endforeach
                         </tbody>
                       </table>
-                      <div class="d-flex justify-content-center">
-                        {{ $get_keranjang->links() }}
-                      </div>
                     </div>
 
                     <div class="form-group">

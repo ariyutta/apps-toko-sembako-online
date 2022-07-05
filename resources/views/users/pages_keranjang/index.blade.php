@@ -17,7 +17,7 @@
                 <p class="container"><span style="color: orange; font-weight:bold">Perhatian!</span><br> 
                     Harap untuk melakukan pengecekan terhadap barang yang ingin dibeli.</p>
                 <div class="table-responsive container">
-                    <table class="table table-bordered nowrap table-sm">
+                    <table id="datatable" class="table table-bordered nowrap table-sm dt-responsive">
                         <thead>
                             <tr class="text-center">
                                 <th>
@@ -59,10 +59,7 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <div class="d-flex justify-content-center">
-                        {{ $data_keranjang->links() }}
-                    </div>
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-end mt-2 mb-2">
                         <button type="submit" style="font-weight: bold" onclick="confirm_checkout()" class="btn btn-success mr-1 mt-1">Checkout</button>
                         <a style="font-weight: bold" href="{{ url('dashboard') }}" class="btn btn-secondary mt-1">Kembali</a>
                     </div>

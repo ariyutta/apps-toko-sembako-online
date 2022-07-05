@@ -26,7 +26,7 @@
                             Tambah Data
                           </button>
                         <div class="table-responsive mt-3">
-                            <table id="datatable" class="table table-striped nowrap">
+                            <table id="datatable" class="table table-bordered nowrap table-sm">
                                 <thead>
                                     <tr>
                                         <th>No</th>

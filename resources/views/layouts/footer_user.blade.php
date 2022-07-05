@@ -21,7 +21,7 @@
     <script src="{{ asset('assets_us/js/vendor.min.js') }}"></script>
 
     <!-- knob plugin -->
-    <script src="{{ asset('assets_us/libs/jquery-knob/jquery.knob.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets_us/libs/jquery-knob/jquery.knob.min.js') }}"></script> --}}
 
     <!--Morris Chart-->
     <script src="{{ asset('assets_us/libs/morris-js/morris.min.js') }}"></script>
@@ -41,7 +41,7 @@
     <!-- form-upload init -->
     <script src="{{ asset('assets_us/js/pages/form-fileupload.init.js') }}"></script>
 
-    <script src="{{ asset('assets/libs/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('assets_us/libs/select2/select2.min.js') }}"></script>
 
     <!-- datatable js -->
     <script src="{{ asset('assets_us/libs/datatables/jquery.dataTables.min.js') }}"></script>
@@ -58,11 +58,10 @@
     <script src="{{ asset('assets_us/libs/pdfmake/pdfmake.min.js') }}"></script>
     <script src="{{ asset('assets_us/libs/pdfmake/vfs_fonts.js') }}"></script>
 
-    <script>
-        $("#checkAll").click(function(){
-            $('input:checkbox').not(this).prop('checked', this.checked);
-        });
+    <!-- Datatables init -->
+    <script src="{{ asset('assets_us/js/pages/datatables.init.js') }}"></script>
 
+    <script>
         $(document).ready(function() {
             $('#provinsi').select2();
         });

@@ -12,7 +12,7 @@
                             Tambah Data
                           </button>
                         <div class="table-responsive mt-3">
-                            <table id="datatable" class="table table-striped nowrap">
+                            <table id="datatable" class="table table-striped nowrap table-sm">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -29,8 +29,14 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->barang->kode_barang }}</td>
                                             <td>{{ $item->user->name }}</td>
-                                            <td>{{ $item->jenis_pengiriman_id }}</td>
-                                            <td>{{ $item->total_harga_seluruh }}</td>
+                                            <td>
+                                                @if($item->jenis_pengiriman_id == 'jne')
+                                                    JNE
+                                                @elseif($item->jenis_pengiriman_id == 'jnt')
+                                                    JNT Express
+                                                @endif
+                                            </td>
+                                            <td>{{ 'Rp. '.number_format($item->total_harga_seluruh, 0, ",", "."); }}</td>
                                             <td><span style="font-size: 14px" class="badge badge-warning">Belum diterima</span></td>
                                         </tr>
                                     @endforeach

@@ -25,30 +25,29 @@
                         <fieldset disabled="disabled">
                             <textarea class="form-control mt-1 mb-3" id="deskripsi_barang" name="deskripsi_barang" rows="5">{{ $data->keterangan }}</textarea>
                         </fieldset>
-                        <form action="#" method="POST">
+                        <form action="{{ url('dashboard/tambah_keranjang/'.$data->id) }}" method="POST">
                             {{ csrf_field() }}
-                            <input type="hidden" name="id_pengaduan" value="#">
                             <fieldset disabled="disabled">
                                 <div class="form-group row">
                                     <label for="stok_tersedia" class="col-sm-3 col-form-label">Stok Tersedia</label>
                                     <div class="col-sm-2">
-                                      <input type="disabled" class="form-control" id="stok_tersedia" name="stok_tersedia" value="{{ $data->stok }}">
+                                    <input type="disabled" class="form-control" id="stok_tersedia" name="stok_tersedia" value="{{ $data->stok }}">
                                     </div>
-                                  </div>
+                                </div>
                             </fieldset>
                             <div class="form-group row">
-                                <label for="tambah_pesanan" class="col-sm-3 col-form-label">Tambah Pesanan</label>
+                                <label for="jumlah_barang" class="col-sm-3 col-form-label">Tambah Pesanan</label>
                                 <div class="col-sm-3">
-                                  <input type="number" class="form-control" id="tambah_pesanan" name="tambah_pesanan" placeholder="0 - 999">
+                                <input type="number" class="form-control" id="jumlah_barang" name="jumlah_barang" placeholder="0 - 999">
                                 </div>
-                              </div>
+                            </div>
                             <fieldset disabled="disabled">
                                 <div class="form-group row">
                                     <label for="terjual" class="col-sm-3 col-form-label">Terjual</label>
                                     <div class="col-sm-2">
-                                      <input type="disabled" class="form-control" id="terjual" name="terjual" value="20">
+                                    <input type="disabled" class="form-control" id="terjual" name="terjual" value="20">
                                     </div>
-                                  </div>
+                                </div>
                             </fieldset>
                             <hr>
                             <div class="d-flex justify-content-center">

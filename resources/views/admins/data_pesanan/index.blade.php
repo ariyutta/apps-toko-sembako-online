@@ -21,9 +21,6 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambahKategori">
-                            Tambah Data
-                          </button>
                         <div class="table-responsive mt-3">
                             <table id="datatable" class="table table-striped nowrap table-sm">
                                 <thead>

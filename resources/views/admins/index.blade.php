@@ -101,7 +101,7 @@
                     </div>
                     <div class="col-4">
                         <div class="d-flex justify-content-end">
-                            <h1>0</h1>
+                            <h1>{{ $jml_pesanan }}</h1>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@
                 <h4>Verifikasi Pembayaran</h4>
                 <hr>
                 <div class="table-responsive">
-                    <table id="datatable" class="table table-bordered table-sm nowrap">
+                    <table id="datatable" class="table table-striped table-sm nowrap">
                         <thead>
                             <tr>
                                 <th>No.</th>

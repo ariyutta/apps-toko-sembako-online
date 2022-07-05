@@ -1,4 +1,17 @@
 @extends('layouts.main')
+@section('css')
+  <style>
+    .table tr th {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .table tr td {
+      text-align: center;
+      vertical-align: middle;
+    }
+  </style>
+@endsection
 
 @section('content')
     <div class="row">
@@ -27,7 +40,7 @@
                                     @foreach ($data_pesanan as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->barang->kode_barang }}</td>
+                                            <td>{{ 'KDP-'.$item->kode_pesanan }}</td>
                                             <td>{{ $item->user->name }}</td>
                                             <td>
                                                 @if($item->jenis_pengiriman_id == 'jne')

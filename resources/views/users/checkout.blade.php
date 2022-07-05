@@ -34,7 +34,7 @@
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="provinsi">Provinsi</label>
-                        <select id="provinsi" name="provinsi" class="form-control" required>
+                        <select id="provinsi" name="provinsi" class="form-control form-control-sm" required>
                             <option value="*">-- Pilih Provinsi --</option>
                             @foreach ($provinsi as $item)
                               <option value="{{ $item->id }}">{{ $item->nama_wilayah }}</option>
@@ -43,7 +43,7 @@
                       </div>
                       <div class="form-group col-md-6">
                         <label for="kota">Kota</label>
-                        <select id="kota" name="kota" class="form-control" required>
+                        <select id="kota" name="kota" class="form-control form-control-sm" required>
                             <option value="*">-- Pilih Kota --</option>
                             @foreach ($kota as $item)
                               <option value="{{ $item->id }}">{{ $item->nama_wilayah }}</option>
@@ -53,21 +53,21 @@
                     </div>
                     <div class="form-group">
                       <label for="no_telp">Nomor Telepon</label>
-                      <input type="text" class="form-control" id="no_telp" name="no_telp" placeholder="Masukkan Nomor Telepon" required>
+                      <input type="text" class="form-control form-control-sm" id="no_telp" name="no_telp" placeholder="Masukkan Nomor Telepon" required>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat Lengkap</label>
-                        <textarea class="form-control" id="alamat" name="alamat" rows="5" required></textarea>
+                        <textarea class="form-control form-control-sm" id="alamat" name="alamat" rows="5" required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="pesan">Pesan</label>
-                        <textarea class="form-control" id="pesan" name="pesan" rows="5" required></textarea>
+                        <textarea class="form-control form-control-sm" id="pesan" name="pesan" rows="5" required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="jenis_pengiriman">Jenis Pengiriman</label>
-                        <select id="jenis_pengiriman" name="jenis_pengiriman" class="form-control" required>
+                        <select id="jenis_pengiriman" name="jenis_pengiriman" class="form-control form-control-sm" required>
                             <option value="">-- Pilih Jenis Pengiriman --</option>
                             <option value="jne">JNE</option>
                             <option value="jnt">JNT Express</option>
@@ -107,19 +107,19 @@
                                 <div class="form-group row mt-2">
                                     <label for="total" class="col-sm-2 col-form-label">Total</label>
                                     <div class="col-sm-3">
-                                      <input type="text" class="form-control" id="total" name="total" value="{{ 'Rp. '.number_format($total , 0, ",", "."); }}">
+                                      <input type="text" class="form-control form-control-sm" id="total" name="total" value="{{ 'Rp. '.number_format($total , 0, ",", "."); }}">
                                     </div>
                                   </div>
                                   <div class="form-group row">
                                     <label for="ongkos_kirim" class="col-sm-2 col-form-label">Ongkos Kirim</label>
                                     <div class="col-sm-3">
-                                      <input type="text" class="form-control" id="ongkos_kirim" name="ongkos_kirim" value="{{ 'Rp. '.number_format($ongkos_kirim , 0, ",", "."); }}">
+                                      <input type="text" class="form-control form-control-sm" id="ongkos_kirim" name="ongkos_kirim" value="{{ 'Rp. '.number_format($ongkos_kirim , 0, ",", "."); }}">
                                     </div>
                                   </div>
                                   <div class="form-group row mt-2">
                                     <label for="total_harga" class="col-sm-2 col-form-label">Total Harga</label>
                                     <div class="col-sm-3">
-                                      <input type="text" class="form-control" id="total_harga" name="total_harga" value="{{ 'Rp. '.number_format($total_all , 0, ",", "."); }}">
+                                      <input type="text" class="form-control form-control-sm" id="total_harga" name="total_harga" value="{{ 'Rp. '.number_format($total_all , 0, ",", "."); }}">
                                     </div>
                                   </div>
                             </fieldset>
@@ -127,7 +127,7 @@
                     </div>
                     <hr>
                     <div class="d-flex justify-content-center">
-                      <button style="font-weight: bold" type="submit" class="btn btn-success mr-2">Selesai</button>
+                      <button style="font-weight: bold" type="submit" onclick="mulai_pesanan()" class="btn btn-success mr-2">Mulai Pesanan</button>
                         <a style="font-weight: bold" href="{{ url('dashboard/keranjang') }}" class="btn btn-secondary">Batalkan</a>
                     </div>
                   </form>

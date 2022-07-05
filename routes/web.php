@@ -39,9 +39,11 @@ Route::group(['middleware' =>['auth']], function() {
 
     Route::get('dashboard/admins/data_pesanan', [App\Http\Controllers\DataPesananController::class, 'data_pesanan'])->name('data_pesanan');
 
-    Route::get('dashboard/admins/verifikasi_pembayaran', [App\Http\Controllers\HomeController::class, 'verifikasi_pembayaran'])->name('verifikasi_pembayaran');
+    Route::get('dashboard/admins/verifikasi_pembayaran', [App\Http\Controllers\DataPembayaranController::class, 'verifikasi_pembayaran'])->name('verifikasi_pembayaran');
+    Route::get('dashboard/admins/verifikasi_pembayaran/verif/{id}', [App\Http\Controllers\DataPembayaranController::class, 'verif_bayar'])->name('verif_bayar');
+    Route::get('dashboard/admins/verifikasi_pembayaran/batal/{id}', [App\Http\Controllers\DataPembayaranController::class, 'batal_verif'])->name('batal_verif');
 
-    Route::get('dashboard/admins/laporan', [App\Http\Controllers\HomeController::class, 'laporan'])->name('laporan');
+    Route::get('dashboard/admins/laporan', [App\Http\Controllers\DataLaporanController::class, 'laporan'])->name('laporan');
 });
 
 // Untuk Login Administrator

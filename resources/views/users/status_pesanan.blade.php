@@ -36,10 +36,14 @@
                                 <tr class="text-center">
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->barang->nama_barang }}</td>
-                                    <td>5</td>
+                                    <td>{{ $item->jumlah_item }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>
-                                        <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
+                                        @if($item->status_pesanan == 1)
+                                            <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
+                                        @elseif($item->status_pesanan == 0)
+                                            <span style="font-size: 14px" class="badge badge-success">Sudah Lunas</span>
+                                        @endif
                                     </td>
                                     <td>
                                         <a href="{{ url('dashboard/status_pesanan/detail/'. $item->id) }}" class="btn btn-primary btn-sm"><i class="far fa-eye mr-1"></i> Lihat</a>

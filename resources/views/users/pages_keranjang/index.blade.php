@@ -59,10 +59,12 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <div class="d-flex justify-content-end mt-2 mb-2">
-                        <button type="submit" style="font-weight: bold" onclick="confirm_checkout()" class="btn btn-success mr-1 mt-1">Checkout</button>
-                        <a style="font-weight: bold" href="{{ url('dashboard') }}" class="btn btn-secondary mt-1">Kembali</a>
-                    </div>
+                    @if($total_keranjang != Null)
+                        <div class="d-flex justify-content-end mt-2 mb-2">
+                            <button type="submit" style="font-weight: bold" onclick="confirm_checkout()" class="btn btn-success mr-1 mt-1">Checkout</button>
+                            <a style="font-weight: bold" href="{{ url('dashboard') }}" class="btn btn-secondary mt-1">Kembali</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

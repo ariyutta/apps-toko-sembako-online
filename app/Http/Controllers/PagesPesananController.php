@@ -14,8 +14,8 @@ class PagesPesananController extends Controller
 
         $data_pesanan = DataPesanan::orderby('created_at','DESC')->where([
             'user_id'=> $user_login,
-            ['status_pesanan','!=', 0],
-        ])->get();
+            ['status_pesanan','!=', 0],])
+            ->get();
 
         return view('users.status_pesanan', compact('title_user','data_pesanan'));
     }

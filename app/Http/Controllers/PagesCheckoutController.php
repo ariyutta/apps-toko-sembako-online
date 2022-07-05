@@ -65,11 +65,11 @@ class PagesCheckoutController extends Controller
                     'created_at' => $jam_hari_ini,
                     'updated_at' => $jam_hari_ini
                 );
+            }
 
-            DB::table('data_pesanan')->insert($data_pesanan);
-            
-            Alert::success('Berhasil', 'Selamat barang anda telah di Checkout!');
-            return redirect('dashboard/status_pesanan');
-        }
+        DB::table('data_pesanan')->insert($data_pesanan);
+        
+        Alert::success('Berhasil', 'Selamat barang anda telah di checkout!');
+        return redirect('dashboard/status_pesanan');
     }
 }

@@ -11,7 +11,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                {{ __('You are logged in!') }}
+                {{ __('Sedang Menunggu Lanjutan Mock Up Berikutnya! Jangan lupa kasih skema mock up nya yaa..') }}
             </div>
         </div>
     </div>

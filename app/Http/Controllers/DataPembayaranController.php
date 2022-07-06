@@ -19,7 +19,7 @@ class DataPembayaranController extends Controller
         $data = DataPesanan::find($id);
 
         $data->update([
-            'status_pembayaran' => 0
+            'status_pembayaran' => 1
         ]);
 
         Alert::success('Berhasil', 'Pembayaran pada Kode Pesanan KDP-'.$data->kode_pesanan.' sudah berhasil diverifikasi!');
@@ -30,7 +30,7 @@ class DataPembayaranController extends Controller
         $data = DataPesanan::find($id);
 
         $data->update([
-            'status_pembayaran' => 1
+            'status_pembayaran' => 0
         ]);
 
         Alert::success('Berhasil', 'Pembayaran pada Kode Pesanan KDP-'.$data->kode_pesanan.' sudah dibatalkan!');

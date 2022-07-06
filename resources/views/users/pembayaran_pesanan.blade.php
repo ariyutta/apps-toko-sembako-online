@@ -4,8 +4,8 @@
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
             <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Rekomendasi</a></li>
-            <li class="breadcrumb-item"><a href="{{ url('dashboard/keranjang') }}">Keranjang</a></li>
-            <li class="breadcrumb-item"><a href="{{ url('dashboard/checkout') }}">Checkout Pesanan</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('dashboard/status_pesanan') }}">Status Pesanan</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('dashboard/status_pesanan/detail/'.$data_pesanan->id) }}">Detail Pesanan</a></li>
             <li class="breadcrumb-item active">{{ $title_user }}</li>
         </ol>
     </div>
@@ -21,7 +21,7 @@
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-3 col-form-label">Total Harga Bayar</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="inputEmail3" value="Rp. 120.000">
+                              <input type="text" class="form-control" id="inputEmail3" value="{{ 'Rp. '.number_format($total_pesanan , 0, ",", "."); }}">
                             </div>
                           </div>
                           <div class="form-group row">
@@ -41,7 +41,7 @@
                         <label for="tombol" class="col-sm-3 form-label"></label>
                         <div class="col-sm-9">
                             <button button="submit" onclick="submit_pembayaran()" class="btn btn-success" style="font-weight: bold">Kirim</button>
-                            <a href="{{ url('dashboard/checkout') }}" class="btn btn-secondary" style="font-weight: bold">Batalkan</a>
+                            <a href="{{ url('dashboard/status_pesanan/detail/'.$data_pesanan->id) }}" class="btn btn-secondary" style="font-weight: bold">Batalkan</a>
                         </div>
                     </div>
                 </form>

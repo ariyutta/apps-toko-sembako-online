@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataPesanan;
+use App\Models\DataPesananDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,8 +23,9 @@ class PagesPesananController extends Controller
         $user_login = Auth::user()->id;
 
         $data_pesanan = DataPesanan::find($id);
+        $total_pesanan = DataPesananDetail::where('pesanan_id', $data_pesanan->id)->sum('total_harga_barang');
 
-        return view('users.detail_status_pesanan', compact('title_user','data_pesanan'));
+        return view('users.detail_status_pesanan', compact('title_user','data_pesanan','total_pesanan'));
     }
 
     public function konfirmasi_pesanan() { 

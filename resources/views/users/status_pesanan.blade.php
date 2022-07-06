@@ -36,7 +36,7 @@
                                 <tr class="text-center">
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->kode_pesanan }}</td>
-                                    <td>{{ $item->tanggal }}</td>
+                                    <td>{{ $item->created_at->translatedFormat('d F Y | H:i').' WIB' }}</td>
                                     <td>{{ $item->jumlah_harga }}</td>
                                     <td>
                                         @if($item->status_pembayaran == 0)

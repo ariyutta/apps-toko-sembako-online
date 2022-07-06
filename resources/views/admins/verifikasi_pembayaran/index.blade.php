@@ -45,16 +45,16 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($item->status_pembayaran == 1)
+                                        @if($item->status_pembayaran == 0)
                                             <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
-                                        @elseif($item->status_pembayaran == 0)
+                                        @elseif($item->status_pembayaran == 1)
                                             <span style="font-size: 14px" class="badge badge-success">Sudah Lunas</span>
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        @if($item->status_pembayaran == 1)
+                                        @if($item->status_pembayaran == 0)
                                             <a href="{{ url('dashboard/admins/verifikasi_pembayaran/verif/'.$item->id) }}" class="btn btn-purple btn-sm">Verifikasi</a>
-                                        @elseif($item->status_pembayaran == 0)
+                                        @elseif($item->status_pembayaran == 1)
                                             <a href="{{ url('dashboard/admins/verifikasi_pembayaran/batal/'.$item->id) }}" class="btn btn-danger btn-sm">Batalkan</a>
                                         @endif
                                     </td>

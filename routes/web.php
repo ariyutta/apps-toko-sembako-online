@@ -87,7 +87,7 @@ Route::group(['middleware' =>['auth', 'role:user']], function() {
     Route::get('dashboard/perawatan_rambut/detail/{id}', [App\Http\Controllers\FirstPagesController::class, 'detail_perawatan_rambut'])->name('detail_perawatan_rambut');
 
     // Halaman Pembayaran
-    Route::get('dashboard/pembayaran_pesanan', [App\Http\Controllers\PagesPembayaranController::class, 'pembayaran_pesanan'])->name('pembayaran_pesanan');
+    Route::get('dashboard/pembayaran_pesanan/{id}', [App\Http\Controllers\PagesPembayaranController::class, 'pembayaran_pesanan'])->name('pembayaran_pesanan');
     Route::get('dashboard/submit_pembayaran', [App\Http\Controllers\PagesPembayaranController::class, 'submit_pembayaran'])->name('submit_pembayaran');
     
     // Halaman Pesanan

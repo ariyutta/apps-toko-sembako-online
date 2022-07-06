@@ -10,7 +10,6 @@ use App\Models\DataWilayah;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PagesCheckoutController extends Controller
@@ -40,7 +39,6 @@ class PagesCheckoutController extends Controller
     public function submit_checkout(Request $request) {
         $user_login = Auth::user();
         $tanggal = Carbon::now();
-        $keranjang = DataKeranjang::where('user_id', Auth::user()->id)->where('status_keranjang', 1)->first();
         $keranjang_get = DataKeranjang::where('user_id', Auth::user()->id)->where('status_keranjang', 1)->get();
 
         $pesanan = new DataPesanan;
@@ -52,12 +50,8 @@ class PagesCheckoutController extends Controller
         $pesanan->kode_pesanan = 'KDP-'.mt_rand(100, 999);
         $pesanan->save();
 
-        // Simpan Data inputan Keranjang ke Pesanan Detail
+        // Simpan Data Inputan Keranjang ke Pesanan Detail
         $pesanan_baru = DataPesanan::where('user_id', Auth::user()->id)->where('status_pesanan', 0)->orderby('created_at','DESC')->first();
-
-        // Cek Pesanan Detail
-        // $cek_pesanan_detail = DataPesananDetail::where('barang_id', $keranjang->barang_id)->where('pesanan_id', $pesanan_baru->id)->first();
-        // if(empty($cek_pesanan_detail)) {
             foreach($keranjang_get as $cart) {
                 $pesanan_detail = new DataPesananDetail();
                 $pesanan_detail->barang_id = $cart->barang_id;
@@ -66,34 +60,20 @@ class PagesCheckoutController extends Controller
                 $pesanan_detail->total_harga_barang = $cart->jumlah_harga;
                 $pesanan_detail->save();
             }
-        // }
-        // else {
-        //     $pesanan_detail = DataPesananDetail::where('barang_id', $keranjang->barang_id)->where('pesanan_id', $pesanan_baru->id)->first();
-
-        //     $pesanan_detail->jumlah_item = $pesanan_detail->jumlah_item+$request->jumlah_barang;
-
-        //     // Harga Sekarang
-        //     $harga_pesanan_detail_baru = $keranjang->jumlah_harga;
-        //     $pesanan_detail->total_harga_barang = $pesanan_detail->total_harga_barang+$harga_pesanan_detail_baru;
-        //     $pesanan_detail->update();
-        // }
-
-        // $keranjang = DataKeranjang::where('user_id', Auth::user()->id)->where('status_keranjang', 1)->first();
-        // $keranjang_id = $pesanan->id;
-        // $pesanan->status = 1;
-        // $pesanan->update();
 
         $pesanan_details = DataPesananDetail::where('pesanan_id', $pesanan->id)->get();
-        foreach ($pesanan_details as $pesanan_detail) {
-            $barang = DataBarang::where('id', $pesanan_detail->barang_id)->first();
-            $barang->stok = $barang->stok - $pesanan_detail->jumlah_item;
-            $barang->terjual = $barang->terjual + $pesanan_detail->jumlah_item;
-            $barang->update();
-        }
-
-        // $status_pesan = DataPesanan::where('user_id', Auth::user()->id)->where('status_pesanan', 0)->first();
-        // $status_pesan->status_pesanan = 1;
-        // $status_pesan->update();
+            foreach ($pesanan_details as $pesanan_detail) {
+                $barang = DataBarang::where('id', $pesanan_detail->barang_id)->first();
+                $barang->stok = $barang->stok - $pesanan_detail->jumlah_item;
+                $barang->terjual = $barang->terjual + $pesanan_detail->jumlah_item;
+                $barang->update();
+            }
+        
+        $status_wishlist = DataKeranjang::where('user_id', Auth::user()->id)->where('status_keranjang', 1)->get();
+            foreach($status_wishlist as $del_wish) {
+                $del_wish->status_keranjang = 0;
+                $del_wish->update();
+            }
         
         Alert::success('Berhasil', 'Selamat barang anda berhasil dipesan!');
         return redirect('dashboard/status_pesanan');

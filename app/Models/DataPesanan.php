@@ -13,10 +13,10 @@ class DataPesanan extends Model
     protected $guarded = [];
 
     public function user() {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id','id');
     }
 
-    public function barang() {
-        return $this->belongsTo(DataBarang::class, 'barang_id', 'id');
+    public function pesanan_detail() {
+        return $this->hasMany(DataPesananDetail::class, 'pesanan_id', 'id');
     }
 }

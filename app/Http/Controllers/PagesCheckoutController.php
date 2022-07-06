@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataBarang;
 use App\Models\DataKeranjang;
+use App\Models\DataPesanan;
+use App\Models\DataPesananDetail;
 use App\Models\DataWilayah;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -35,41 +39,63 @@ class PagesCheckoutController extends Controller
 
     public function submit_checkout(Request $request) {
         $user_login = Auth::user();
+        $tanggal = Carbon::now();
+        $keranjang = DataKeranjang::where('user_id', Auth::user()->id)->where('status_keranjang', 1)->first();
+        $keranjang_get = DataKeranjang::where('user_id', Auth::user()->id)->where('status_keranjang', 1)->get();
 
-        // Update Multi Pesanan
-        $query = DataKeranjang::where([
-            'user_id'=> $user_login->id,
-            'status_keranjang' => 1,
-        ])->get();
+        $pesanan = new DataPesanan;
+        $pesanan->user_id = $user_login->id;
+        $pesanan->tanggal = $tanggal;
+        $pesanan->status_pesanan = 0;
+        $pesanan->status_pembayaran = 0;
+        $pesanan->jumlah_harga = 0;
+        $pesanan->kode_pesanan = 'KDP-'.mt_rand(100, 999);
+        $pesanan->save();
 
-        $jam_hari_ini = date('Y-m-d H:i:s');
+        // Simpan Data inputan Keranjang ke Pesanan Detail
+        $pesanan_baru = DataPesanan::where('user_id', Auth::user()->id)->where('status_pesanan', 0)->orderby('created_at','DESC')->first();
 
-            foreach($query as $list) {
-                $data_pesanan[] = array(
-                    'user_id'   => $user_login->id,
-                    'barang_id' => $list->barang_id,
-                    'nama_barang' => $list->barang->nama_barang,
-                    'jumlah_item' => $list->jumlah_barang,
-                    'provinsi_id' => $request->provinsi,
-                    'kota_id' => $request->kota,
-                    'no_telp' => $request->no_telp,
-                    'alamat' => $request->alamat,
-                    'pesan' => $request->pesan,
-                    'jenis_pengiriman_id' => $request->jenis_pengiriman,
-                    'total_harga_barang' => $list->barang->harga_jual,
-                    'ongkos_kirim' => $list->barang->harga_jual * 0.5 / 100,
-                    'total_harga_seluruh' => $list->barang->harga_jual + ($list->barang->harga_jual * 0.5 / 100),
-                    'status_pesanan' => 1,
-                    'status_pembayaran' => 1,
-                    'kode_pesanan' => mt_rand(100, 999),
-                    'created_at' => $jam_hari_ini,
-                    'updated_at' => $jam_hari_ini
-                );
+        // Cek Pesanan Detail
+        // $cek_pesanan_detail = DataPesananDetail::where('barang_id', $keranjang->barang_id)->where('pesanan_id', $pesanan_baru->id)->first();
+        // if(empty($cek_pesanan_detail)) {
+            foreach($keranjang_get as $cart) {
+                $pesanan_detail = new DataPesananDetail();
+                $pesanan_detail->barang_id = $cart->barang_id;
+                $pesanan_detail->pesanan_id = $pesanan_baru->id;
+                $pesanan_detail->jumlah_item = $cart->jumlah_barang;
+                $pesanan_detail->total_harga_barang = $cart->jumlah_harga;
+                $pesanan_detail->save();
             }
+        // }
+        // else {
+        //     $pesanan_detail = DataPesananDetail::where('barang_id', $keranjang->barang_id)->where('pesanan_id', $pesanan_baru->id)->first();
 
-        DB::table('data_pesanan')->insert($data_pesanan);
+        //     $pesanan_detail->jumlah_item = $pesanan_detail->jumlah_item+$request->jumlah_barang;
+
+        //     // Harga Sekarang
+        //     $harga_pesanan_detail_baru = $keranjang->jumlah_harga;
+        //     $pesanan_detail->total_harga_barang = $pesanan_detail->total_harga_barang+$harga_pesanan_detail_baru;
+        //     $pesanan_detail->update();
+        // }
+
+        // $keranjang = DataKeranjang::where('user_id', Auth::user()->id)->where('status_keranjang', 1)->first();
+        // $keranjang_id = $pesanan->id;
+        // $pesanan->status = 1;
+        // $pesanan->update();
+
+        $pesanan_details = DataPesananDetail::where('pesanan_id', $pesanan->id)->get();
+        foreach ($pesanan_details as $pesanan_detail) {
+            $barang = DataBarang::where('id', $pesanan_detail->barang_id)->first();
+            $barang->stok = $barang->stok - $pesanan_detail->jumlah_item;
+            $barang->terjual = $barang->terjual + $pesanan_detail->jumlah_item;
+            $barang->update();
+        }
+
+        // $status_pesan = DataPesanan::where('user_id', Auth::user()->id)->where('status_pesanan', 0)->first();
+        // $status_pesan->status_pesanan = 1;
+        // $status_pesan->update();
         
-        Alert::success('Berhasil', 'Selamat barang anda telah di checkout!');
+        Alert::success('Berhasil', 'Selamat barang anda berhasil dipesan!');
         return redirect('dashboard/status_pesanan');
     }
 }

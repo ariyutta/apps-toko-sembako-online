@@ -12,10 +12,7 @@ class PagesPesananController extends Controller
         $title_user = 'Status Pesanan';
         $user_login = Auth::user()->id;
 
-        $data_pesanan = DataPesanan::orderby('created_at','DESC')->where([
-            'user_id'=> $user_login,
-            ['status_pesanan','!=', 0],])
-            ->get();
+        $data_pesanan = DataPesanan::where('user_id', Auth::user()->id)->where('status_pesanan', '!=',1)->get();
 
         return view('users.status_pesanan', compact('title_user','data_pesanan'));
     }

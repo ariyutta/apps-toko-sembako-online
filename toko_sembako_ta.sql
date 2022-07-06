@@ -11,7 +11,7 @@
  Target Server Version : 100424
  File Encoding         : 65001
 
- Date: 05/07/2022 22:04:10
+ Date: 06/07/2022 16:44:04
 */
 
 SET NAMES utf8mb4;
@@ -42,20 +42,20 @@ CREATE TABLE `data_barang`  (
 -- ----------------------------
 -- Records of data_barang
 -- ----------------------------
-INSERT INTO `data_barang` VALUES (1, 'BP-001', 'Minyak Goreng', 1, 10, 3, 20000, 25000, 'Test', '1656850712_117.jpg', '2022-07-03 10:10:55', '2022-07-03 16:21:24');
-INSERT INTO `data_barang` VALUES (2, 'BP-002', 'Beras 30 Kg', 1, 12, 3, 200000, 230000, 'sdasdad', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', '2022-07-03 10:16:57', '2022-07-05 04:51:14');
-INSERT INTO `data_barang` VALUES (7, 'MI-001', 'Indomie Goreng', 2, 40, 3, 3000, 3500, 'Bebas', '1656851837_0b951821-47f1-41cc-9329-9a53ac55b60e.jpg', '2022-07-03 12:37:18', '2022-07-03 12:37:18');
-INSERT INTO `data_barang` VALUES (8, 'MI-002', 'Super Bubur', 2, 15, 3, 3000, 4000, 'Bebas', '1656851877_bubur-instan.webp', '2022-07-03 12:37:57', '2022-07-03 16:10:03');
-INSERT INTO `data_barang` VALUES (9, 'MR-001', 'Monde Snack', 3, 10, 3, 10000, 12000, 'Bebas', '1656851966_ac4ac31dfb659aa143c2bb3f4d49fb68.jpg_720x720q80.jpg_.webp', '2022-07-03 12:39:26', '2022-07-03 12:39:26');
-INSERT INTO `data_barang` VALUES (10, 'MR-002', 'Nextar Choco', 3, 20, 3, 5000, 7000, 'Bebas', '1656852004_Nextar-Choco-Brownies.jpg', '2022-07-03 12:40:04', '2022-07-03 12:40:04');
-INSERT INTO `data_barang` VALUES (11, 'M-001', 'Pulpy Orange', 4, 35, 3, 5000, 6000, 'Bebas', '1656852083_f7efa42cf4a260e2c6dbc25478a2fb8b.jfif', '2022-07-03 12:41:24', '2022-07-03 12:41:24');
-INSERT INTO `data_barang` VALUES (12, 'M-002', 'Olatte', 4, 12, 3, 6000, 7000, 'Bebas', '1656852115_20089805_1.jpg', '2022-07-03 12:41:56', '2022-07-03 12:41:56');
-INSERT INTO `data_barang` VALUES (13, 'KR-001', 'Soklin Lantai', 5, 22, 3, 10000, 12000, 'Bebas', '1656852210_1631601937_61404511c88a8.png', '2022-07-03 12:43:30', '2022-07-04 06:16:32');
-INSERT INTO `data_barang` VALUES (14, 'KR-002', 'Mama Lemon 500ml', 5, 6, 3, 7000, 8000, 'Bebas', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', '2022-07-03 12:44:10', '2022-07-03 15:18:19');
-INSERT INTO `data_barang` VALUES (15, 'PT-001', 'Joyce Parfume', 6, 12, 3, 25000, 30000, 'Bebas', '1656852335_download.jfif', '2022-07-03 12:45:35', '2022-07-04 06:15:26');
-INSERT INTO `data_barang` VALUES (16, 'PT-002', 'Noah Parfume', 6, 20, 3, 40000, 45000, 'Bebas', '1656852375_1646808353.jpg', '2022-07-03 12:46:15', '2022-07-03 12:46:15');
-INSERT INTO `data_barang` VALUES (17, 'PR-001', 'Sampo Pantene Botol', 7, 15, 3, 10000, 12000, 'Bebas', '1656852450_DMR_SH.png', '2022-07-03 12:47:32', '2022-07-04 05:32:55');
-INSERT INTO `data_barang` VALUES (18, 'PR-002', 'Sampo Lifebouy Botol', 7, 20, 3, 10000, 15000, 'Bebas', '1656852498_1634391-8999999033149-01.png.rendition.380.380.webp', '2022-07-03 12:48:18', '2022-07-04 05:24:08');
+INSERT INTO `data_barang` VALUES (1, 'BP-001', 'Minyak Goreng', 1, 100, 0, 20000, 25000, 'Test', '1656850712_117.jpg', '2022-07-03 10:10:55', '2022-07-03 16:21:24');
+INSERT INTO `data_barang` VALUES (2, 'BP-002', 'Beras 30 Kg', 1, 100, 0, 200000, 230000, 'sdasdad', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', '2022-07-03 10:16:57', '2022-07-05 04:51:14');
+INSERT INTO `data_barang` VALUES (7, 'MI-001', 'Indomie Goreng', 2, 100, 0, 3000, 3500, 'Bebas', '1656851837_0b951821-47f1-41cc-9329-9a53ac55b60e.jpg', '2022-07-03 12:37:18', '2022-07-03 12:37:18');
+INSERT INTO `data_barang` VALUES (8, 'MI-002', 'Super Bubur', 2, 100, 0, 3000, 4000, 'Bebas', '1656851877_bubur-instan.webp', '2022-07-03 12:37:57', '2022-07-03 16:10:03');
+INSERT INTO `data_barang` VALUES (9, 'MR-001', 'Monde Snack', 3, 100, 0, 10000, 12000, 'Bebas', '1656851966_ac4ac31dfb659aa143c2bb3f4d49fb68.jpg_720x720q80.jpg_.webp', '2022-07-03 12:39:26', '2022-07-03 12:39:26');
+INSERT INTO `data_barang` VALUES (10, 'MR-002', 'Nextar Choco', 3, 100, 0, 5000, 7000, 'Bebas', '1656852004_Nextar-Choco-Brownies.jpg', '2022-07-03 12:40:04', '2022-07-03 12:40:04');
+INSERT INTO `data_barang` VALUES (11, 'M-001', 'Pulpy Orange', 4, 100, 0, 5000, 6000, 'Bebas', '1656852083_f7efa42cf4a260e2c6dbc25478a2fb8b.jfif', '2022-07-03 12:41:24', '2022-07-03 12:41:24');
+INSERT INTO `data_barang` VALUES (12, 'M-002', 'Olatte', 4, 100, 0, 6000, 7000, 'Bebas', '1656852115_20089805_1.jpg', '2022-07-03 12:41:56', '2022-07-03 12:41:56');
+INSERT INTO `data_barang` VALUES (13, 'KR-001', 'Soklin Lantai', 5, 96, 4, 10000, 12000, 'Bebas', '1656852210_1631601937_61404511c88a8.png', '2022-07-03 12:43:30', '2022-07-06 09:36:12');
+INSERT INTO `data_barang` VALUES (14, 'KR-002', 'Mama Lemon 500ml', 5, 80, 20, 7000, 8000, 'Bebas', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', '2022-07-03 12:44:10', '2022-07-06 09:36:12');
+INSERT INTO `data_barang` VALUES (15, 'PT-001', 'Joyce Parfume', 6, 100, 0, 25000, 30000, 'Bebas', '1656852335_download.jfif', '2022-07-03 12:45:35', '2022-07-04 06:15:26');
+INSERT INTO `data_barang` VALUES (16, 'PT-002', 'Noah Parfume', 6, 80, 20, 40000, 45000, 'Bebas', '1656852375_1646808353.jpg', '2022-07-03 12:46:15', '2022-07-06 09:36:12');
+INSERT INTO `data_barang` VALUES (17, 'PR-001', 'Sampo Pantene Botol', 7, 100, 0, 10000, 12000, 'Bebas', '1656852450_DMR_SH.png', '2022-07-03 12:47:32', '2022-07-04 05:32:55');
+INSERT INTO `data_barang` VALUES (18, 'PR-002', 'Sampo Lifebouy Botol', 7, 100, 0, 10000, 15000, 'Bebas', '1656852498_1634391-8999999033149-01.png.rendition.380.380.webp', '2022-07-03 12:48:18', '2022-07-04 05:24:08');
 
 -- ----------------------------
 -- Table structure for data_kategori
@@ -99,7 +99,7 @@ CREATE TABLE `data_keranjang`  (
   INDEX `user_id`(`user_id`) USING BTREE,
   INDEX `barang_id`(`barang_id`) USING BTREE,
   CONSTRAINT `data_keranjang_ibfk_1` FOREIGN KEY (`barang_id`) REFERENCES `data_barang` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_keranjang
@@ -111,8 +111,9 @@ INSERT INTO `data_keranjang` VALUES (23, 2, 17, 'Sampo Pantene Botol', '16568524
 INSERT INTO `data_keranjang` VALUES (25, 2, 16, 'Noah Parfume', '1656852375_1646808353.jpg', 2, 90000, 0, '2022-07-04 12:01:40', '2022-07-04 13:17:49');
 INSERT INTO `data_keranjang` VALUES (26, 2, 18, 'Sampo Lifebouy Botol', '1656852498_1634391-8999999033149-01.png.rendition.380.380.webp', 2, 30000, 0, '2022-07-04 12:21:19', '2022-07-04 13:20:22');
 INSERT INTO `data_keranjang` VALUES (27, 2, 16, 'Noah Parfume', '1656852375_1646808353.jpg', 3, 135000, 0, '2022-07-04 12:21:32', '2022-07-04 13:21:47');
-INSERT INTO `data_keranjang` VALUES (39, 2, 14, 'Mama Lemon 500ml', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', 2, 16000, 1, '2022-07-05 12:49:37', '2022-07-05 12:49:37');
 INSERT INTO `data_keranjang` VALUES (40, 2, 13, 'Soklin Lantai', '1656852210_1631601937_61404511c88a8.png', 1, 12000, 1, '2022-07-05 13:07:41', '2022-07-05 13:07:41');
+INSERT INTO `data_keranjang` VALUES (44, 2, 14, 'Mama Lemon 500ml', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', 5, 40000, 1, '2022-07-06 05:13:37', '2022-07-06 05:13:37');
+INSERT INTO `data_keranjang` VALUES (45, 2, 16, 'Noah Parfume', '1656852375_1646808353.jpg', 5, 225000, 1, '2022-07-06 05:14:03', '2022-07-06 05:14:03');
 
 -- ----------------------------
 -- Table structure for data_pemasok
@@ -141,37 +142,54 @@ DROP TABLE IF EXISTS `data_pesanan`;
 CREATE TABLE `data_pesanan`  (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `user_id` bigint NULL DEFAULT NULL,
-  `barang_id` bigint NULL DEFAULT NULL,
-  `nama_barang` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `jumlah_item` int NULL DEFAULT NULL,
-  `provinsi_id` bigint NULL DEFAULT NULL,
-  `kota_id` bigint NULL DEFAULT NULL,
-  `no_telp` varchar(17) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `alamat` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `pesan` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `jenis_pengiriman_id` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `total_harga_barang` int NULL DEFAULT NULL,
-  `ongkos_kirim` int NULL DEFAULT NULL,
-  `total_harga_seluruh` int NULL DEFAULT NULL,
-  `no_rekening` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `gambar_pembayaran` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kode_pesanan` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
   `status_pesanan` int NULL DEFAULT NULL,
   `status_pembayaran` int NULL DEFAULT NULL,
-  `kode_pesanan` int NULL DEFAULT NULL,
+  `jumlah_harga` int NULL DEFAULT NULL,
   `created_at` datetime NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `user_id`(`user_id`) USING BTREE,
-  INDEX `barang_id`(`barang_id`) USING BTREE,
-  INDEX `provinsi_id`(`provinsi_id`) USING BTREE,
-  INDEX `kota_id`(`kota_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 320 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_pesanan
 -- ----------------------------
-INSERT INTO `data_pesanan` VALUES (318, 2, 14, 'Mama Lemon 500ml', 2, 2, 15, '089633771396', 'terter', 'tre', 'jnt', 8000, 40, 8040, NULL, NULL, 1, 1, 674, '2022-07-05 14:03:18', '2022-07-05 15:03:27');
-INSERT INTO `data_pesanan` VALUES (319, 2, 13, 'Soklin Lantai', 1, 2, 15, '089633771396', 'terter', 'tre', 'jnt', 12000, 60, 12060, NULL, NULL, 1, 1, 949, '2022-07-05 14:03:18', '2022-07-05 14:53:52');
+INSERT INTO `data_pesanan` VALUES (21, 2, 'KDP-596', '2022-07-06', 0, 0, 0, '2022-07-06 09:33:10', '2022-07-06 09:33:10');
+INSERT INTO `data_pesanan` VALUES (22, 2, 'KDP-520', '2022-07-06', 0, 0, 0, '2022-07-06 09:34:52', '2022-07-06 09:34:52');
+INSERT INTO `data_pesanan` VALUES (23, 2, 'KDP-987', '2022-07-06', 0, 0, 0, '2022-07-06 09:36:12', '2022-07-06 09:36:12');
+
+-- ----------------------------
+-- Table structure for data_pesanan_detail
+-- ----------------------------
+DROP TABLE IF EXISTS `data_pesanan_detail`;
+CREATE TABLE `data_pesanan_detail`  (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `pesanan_id` bigint NULL DEFAULT NULL,
+  `barang_id` bigint NULL DEFAULT NULL,
+  `nama_barang` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `jumlah_item` int NULL DEFAULT NULL,
+  `total_harga_barang` int NULL DEFAULT NULL,
+  `ongkos_kirim` int NULL DEFAULT NULL,
+  `total_harga_seluruh` int NULL DEFAULT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `barang_id`(`barang_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 349 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of data_pesanan_detail
+-- ----------------------------
+INSERT INTO `data_pesanan_detail` VALUES (340, 21, 13, NULL, 1, 12000, NULL, NULL, '2022-07-06 09:33:10', '2022-07-06 09:33:10');
+INSERT INTO `data_pesanan_detail` VALUES (341, 21, 14, NULL, 5, 40000, NULL, NULL, '2022-07-06 09:33:10', '2022-07-06 09:33:10');
+INSERT INTO `data_pesanan_detail` VALUES (342, 21, 16, NULL, 5, 225000, NULL, NULL, '2022-07-06 09:33:10', '2022-07-06 09:33:10');
+INSERT INTO `data_pesanan_detail` VALUES (343, 21, 13, NULL, 1, 12000, NULL, NULL, '2022-07-06 09:34:52', '2022-07-06 09:34:52');
+INSERT INTO `data_pesanan_detail` VALUES (344, 21, 14, NULL, 5, 40000, NULL, NULL, '2022-07-06 09:34:52', '2022-07-06 09:34:52');
+INSERT INTO `data_pesanan_detail` VALUES (345, 21, 16, NULL, 5, 225000, NULL, NULL, '2022-07-06 09:34:52', '2022-07-06 09:34:52');
+INSERT INTO `data_pesanan_detail` VALUES (346, 23, 13, NULL, 1, 12000, NULL, NULL, '2022-07-06 09:36:12', '2022-07-06 09:36:12');
+INSERT INTO `data_pesanan_detail` VALUES (347, 23, 14, NULL, 5, 40000, NULL, NULL, '2022-07-06 09:36:12', '2022-07-06 09:36:12');
+INSERT INTO `data_pesanan_detail` VALUES (348, 23, 16, NULL, 5, 225000, NULL, NULL, '2022-07-06 09:36:12', '2022-07-06 09:36:12');
 
 -- ----------------------------
 -- Table structure for data_wilayah
@@ -8024,7 +8042,7 @@ CREATE TABLE `password_resets`  (
 -- ----------------------------
 -- Records of password_resets
 -- ----------------------------
-INSERT INTO `password_resets` VALUES ('arbi.yudatama@student.untan.ac.id', '$2y$10$9kGOgoyN7Cdm97al9YvYVeMqlNHQ8Ms3AGoyn2KZABH4mDIpqqhJi', '2022-07-04 21:43:06');
+INSERT INTO `password_resets` VALUES ('arbi.yudatama@student.untan.ac.id', '$2y$10$9kGOgoyN7Cdm97al9YvYVeMqlNHQ8Ms3AGoyn2KZABH4mDIpqqhJi', '2022-07-05 04:43:06');
 
 -- ----------------------------
 -- Table structure for permission_role
@@ -8096,16 +8114,16 @@ CREATE TABLE `permissions`  (
 -- ----------------------------
 -- Records of permissions
 -- ----------------------------
-INSERT INTO `permissions` VALUES (1, 'users-create', 'Create Users', 'Create Users', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (2, 'users-read', 'Read Users', 'Read Users', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (3, 'users-update', 'Update Users', 'Update Users', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (4, 'users-delete', 'Delete Users', 'Delete Users', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (5, 'payments-create', 'Create Payments', 'Create Payments', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (6, 'payments-read', 'Read Payments', 'Read Payments', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (7, 'payments-update', 'Update Payments', 'Update Payments', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (8, 'payments-delete', 'Delete Payments', 'Delete Payments', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (9, 'profile-read', 'Read Profile', 'Read Profile', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `permissions` VALUES (10, 'profile-update', 'Update Profile', 'Update Profile', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
+INSERT INTO `permissions` VALUES (1, 'users-create', 'Create Users', 'Create Users', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (2, 'users-read', 'Read Users', 'Read Users', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (3, 'users-update', 'Update Users', 'Update Users', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (4, 'users-delete', 'Delete Users', 'Delete Users', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (5, 'payments-create', 'Create Payments', 'Create Payments', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (6, 'payments-read', 'Read Payments', 'Read Payments', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (7, 'payments-update', 'Update Payments', 'Update Payments', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (8, 'payments-delete', 'Delete Payments', 'Delete Payments', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (9, 'profile-read', 'Read Profile', 'Read Profile', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `permissions` VALUES (10, 'profile-update', 'Update Profile', 'Update Profile', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
 
 -- ----------------------------
 -- Table structure for role_user
@@ -8145,9 +8163,9 @@ CREATE TABLE `roles`  (
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
-INSERT INTO `roles` VALUES (1, 'developer', 'Developer', 'Developer', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `roles` VALUES (2, 'administrator', 'Administrator', 'Administrator', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
-INSERT INTO `roles` VALUES (3, 'user', 'User', 'User', '2022-07-02 02:47:29', '2022-07-02 02:47:29');
+INSERT INTO `roles` VALUES (1, 'developer', 'Developer', 'Developer', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `roles` VALUES (2, 'administrator', 'Administrator', 'Administrator', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `roles` VALUES (3, 'user', 'User', 'User', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
 
 -- ----------------------------
 -- Table structure for users
@@ -8169,8 +8187,8 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'Arbi Yudatama', 'arbi.yudatama@student.untan.ac.id', NULL, '$2y$10$vCUhYckZcWluh8JF/fYVjOITpFDNjYdiKVPxzHO95EG9aXo4xGN/q', NULL, '2022-07-02 03:20:00', '2022-07-02 03:20:00');
-INSERT INTO `users` VALUES (2, 'Meisha Melyana Virlyani', 'meisha.virlyani24@gmail.com', NULL, '$2y$10$mDBD6OoWUsNG.UWlrIyayuJ/D6OuMtJJK7GZx/41BgBgU.XMrVIBC', NULL, '2022-07-02 03:49:03', '2022-07-02 03:49:03');
-INSERT INTO `users` VALUES (3, 'Adrianus Domi', 'adrianus195@student.untan.ac.id', NULL, '$2y$10$eUD.VSkwzyyqx3HrzQ8dAObz/pWHAeJhAYOUTPUqiEvEvePEt4ma6', NULL, '2022-07-02 05:52:00', '2022-07-02 05:52:00');
+INSERT INTO `users` VALUES (1, 'Arbi Yudatama', 'arbi.yudatama@student.untan.ac.id', NULL, '$2y$10$vCUhYckZcWluh8JF/fYVjOITpFDNjYdiKVPxzHO95EG9aXo4xGN/q', NULL, '2022-07-02 10:20:00', '2022-07-02 10:20:00');
+INSERT INTO `users` VALUES (2, 'Meisha Melyana Virlyani', 'meisha.virlyani24@gmail.com', NULL, '$2y$10$mDBD6OoWUsNG.UWlrIyayuJ/D6OuMtJJK7GZx/41BgBgU.XMrVIBC', NULL, '2022-07-02 10:49:03', '2022-07-02 10:49:03');
+INSERT INTO `users` VALUES (3, 'Adrianus Domi', 'adrianus195@student.untan.ac.id', NULL, '$2y$10$eUD.VSkwzyyqx3HrzQ8dAObz/pWHAeJhAYOUTPUqiEvEvePEt4ma6', NULL, '2022-07-02 12:52:00', '2022-07-02 12:52:00');
 
 SET FOREIGN_KEY_CHECKS = 1;

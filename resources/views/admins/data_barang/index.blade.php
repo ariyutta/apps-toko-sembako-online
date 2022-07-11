@@ -14,26 +14,35 @@
   </style>
 @endsection
 
+@section('title')
+    <div class="d-flex justify-content-between">
+        <h4 class="mt-2">{{ $title_admin }}</h4>
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="{{ url(''.Auth::user()->role_user->role->name.'') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active">{{ $title_admin }}</li>
+        </ol>
+    </div>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card-box shadow">
-                <h4>Data Barang</h4>
-                <hr>
+                {{-- <h4>Data Barang</h4>
+                <hr> --}}
                 <div class="row">
                     <div class="col-md-12">
                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambahBarang">
                             Tambah Data
                           </button>
                         <div class="table-responsive mt-3">
-                            <table id="datatable" class="table table-bordered nowrap table-sm">
+                            <table id="datatable" class="table table-bordered table-striped nowrap table-sm">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Gambar</th>
                                         <th>Kode Barang</th>
                                         <th>Nama Barang</th>
-                                        <th>Stok</th>
                                         <th>Kategori</th>
                                         <th>Harga Jual</th>
                                         <th>Harga Beli</th>
@@ -49,12 +58,11 @@
                                             </td>
                                             <td>{{ $item->kode_barang }}</td>
                                             <td>{{ $item->nama_barang }}</td>
-                                            <td>{{ $item->stok }}</td>
                                             <td>{{ $item->kategori->nama_kategori }}</td>
                                             <td>{{ 'Rp.'.number_format($item->harga_jual , 0, ",", "."); }}</td>
                                             <td>{{ 'Rp.'.number_format($item->harga_beli , 0, ",", "."); }}</td>
                                             <td class="text-center">
-                                                <a href="{{ url('dashboard/admins/data_barang/ubah_data', $item->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ url(''.Auth::user()->role_user->role->name.'/data_barang/ubah_data', $item->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                                 <button type="button" class="btn btn-danger btn-sm" onclick="hapus_data_barang({{ $item->id }})"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
@@ -79,13 +87,9 @@
           </button>
         </div>
         <div class="modal-body">
-            <form action="{{ url('dashboard/admins/data_barang/tambah_data') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url(''.Auth::user()->role_user->role->name.'/data_barang/tambah_data') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="row">
-                    <div class="form-group col-sm-12">
-                        <label for="kode_barang">Kode Barang</label>
-                        <input type="text" class="form-control" id="kode_barang" name="kode_barang" placeholder="Masukkan Kode Barang">
-                      </div>
                     <div class="form-group col-sm-12">
                       <label for="nama_barang">Nama Barang</label>
                       <input type="text" class="form-control" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Barang">

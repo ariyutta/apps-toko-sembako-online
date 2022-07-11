@@ -17,8 +17,8 @@
 @section('title')
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Rekomendasi</a></li>
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Status Pesanan</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('home') }}">Status Pesanan</a></li>
             <li class="breadcrumb-item active">{{ $title_user }}</li>
         </ol>
     </div>
@@ -55,6 +55,17 @@
                             @endif
                         </th>
                     </tr>
+                    <tr>
+                        <th colspan="5">Status Pesanan</th>
+                        <th style="text-indent: 20px">:</th>
+                        <th style="text-indent: 20px">
+                            @if($data_pesanan->status_pesanan == 0)
+                                Belum diterima
+                            @elseif($data_pesanan->status_pesanan == 1)
+                                Sudah diterima
+                            @endif
+                        </th>
+                    </tr>
                 </table>
                 <hr>
                     <div class="table-responsive mt-3">
@@ -83,17 +94,29 @@
                             </tbody>
                             <tfoot>
                                 <tr class="text-center">
-                                    <th colspan="4">TOTAL HARGA</th>
+                                    <th colspan="4">JUMLAH HARGA</th>
                                     <th>{{ 'Rp. '.number_format($total_pesanan , 0, ",", "."); }}</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th colspan="4">ONGKOS KIRIM</th>
+                                    <th>{{ 'Rp. '.number_format($data_pesanan->jumlah_ongkir , 0, ",", "."); }}</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th colspan="4">TOTAL HARGA</th>
+                                    <th>{{ 'Rp. '.number_format($data_pesanan->jumlah_total , 0, ",", "."); }}</th>
                                 </tr>
                             </tfoot>
                         </table>
                         <hr>
                         <div class="d-flex justify-content-end mb-2">
-                            @if($data_pesanan->status_pembayaran != 1)
-                                <a style="font-weight: bold" href="{{ url('dashboard/pembayaran_pesanan/'.$data_pesanan->id) }}" class="btn btn-success mr-1">Lanjutkan Pembayaran</a>
+                            @if($data_pesanan->status_pesanan != 1)
+                                <button style="font-weight: bold" class="btn btn-purple btn-sm mr-2" onclick="confirm_terima_pesanan({{ $data_pesanan->id }})">Konfirmasi Terima Barang</button>
                             @endif
-                            <a style="font-weight: bold" href="{{ url('dashboard/status_pesanan') }}" class="btn btn-secondary">Kembali</a>
+
+                            @if($data_pesanan->status_pembayaran != 1)
+                                <a style="font-weight: bold" href="{{ url('home/pembayaran_pesanan/'.$data_pesanan->id) }}" class="btn btn-success mr-2">Lanjutkan Pembayaran</a>
+                            @endif
+                            <a style="font-weight: bold" href="{{ url('home/status_pesanan') }}" class="btn btn-secondary">Kembali</a>
                         </div>
                     </div>
                 </div>

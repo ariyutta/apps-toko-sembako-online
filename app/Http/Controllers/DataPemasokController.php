@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DataPemasok;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -27,7 +28,7 @@ class DataPemasokController extends Controller
         DataPemasok::create($validatedData);
 
         Alert::success('Berhasil', 'Data Pemasok berhasil ditambahkan!');
-        return redirect('dashboard/admins/data_pemasok');
+        return redirect(''.Auth::user()->role_user->role->name.'/data_pemasok');
 
     }
 
@@ -42,13 +43,14 @@ class DataPemasokController extends Controller
         $data_pemasok = DataPemasok::find($id);
 
         $data_pemasok->update([
+            'nama_barang' => $request->nama_barang,
             'nama_pemasok' => $request->nama_pemasok,
             'alamat' => $request->alamat,
             'no_telp' => $request->no_telp,
         ]);
 
         Alert::success('Berhasil', 'Data Pemasok telah berhasil diperbarui!');
-        return redirect('dashboard/admins/data_pemasok');
+        return redirect(''.Auth::user()->role_user->role->name.'/data_pemasok');
     }
 
     public function hapus_data_pemasok($id) {
@@ -56,6 +58,6 @@ class DataPemasokController extends Controller
         $data_pemasok->delete();
 
         Alert::success('Berhasil', 'Data Pemasok berhasil dihapus!');
-        return redirect('dashboard/admins/data_pemasok');
+        return redirect(''.Auth::user()->role_user->role->name.'/data_pemasok');
     }
 }

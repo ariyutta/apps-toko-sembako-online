@@ -3,7 +3,7 @@
 @section('title')
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Rekomendasi</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
             <li class="breadcrumb-item active">{{ $title_user }}</li>
         </ol>
     </div>
@@ -17,7 +17,7 @@
                 <img class="card-img-top img-fluid" src="{{ asset('assets_us/images/gallery/5.jpg') }}" alt="Card image cap">
                 <h4 class="card-title mt-2">Special title treatment</h4>
                 <p class="card-text">Rp. 30.000</p>
-                <a href="{{ url('dashboard/detail') }}" class="btn btn-primary">Go somewhere</a>
+                <a href="{{ url('home/detail') }}" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
                 <img class="card-img-top img-fluid" src="{{ asset('assets_us/images/gallery/5.jpg') }}" alt="Card image cap">
                 <h4 class="card-title mt-2">Special title treatment</h4>
                 <p class="card-text">Rp. 30.000</p>
-                <a href="{{ url('dashboard/detail') }}" class="btn btn-primary">Go somewhere</a>
+                <a href="{{ url('home/detail') }}" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
 
@@ -35,7 +35,7 @@
                 <img class="card-img-top img-fluid" src="{{ asset('assets_us/images/gallery/5.jpg') }}" alt="Card image cap">
                 <h4 class="card-title mt-2">Special title treatment</h4>
                 <p class="card-text">Rp. 30.000</p>
-                <a href="{{ url('dashboard/detail') }}" class="btn btn-primary">Go somewhere</a>
+                <a href="{{ url('home/detail') }}" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
 
@@ -44,7 +44,7 @@
                 <img class="card-img-top img-fluid" src="{{ asset('assets_us/images/gallery/5.jpg') }}" alt="Card image cap">
                 <h4 class="card-title mt-2">Special title treatment</h4>
                 <p class="card-text">Rp. 30.000</p>
-                <a href="{{ url('dashboard/detail') }}" class="btn btn-primary">Go somewhere</a>
+                <a href="{{ url('home/detail') }}" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
     </div>

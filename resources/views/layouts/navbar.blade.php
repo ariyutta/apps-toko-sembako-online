@@ -15,48 +15,11 @@
                     </div>
                 </div>
             </form>
-        </li>
-
-
-        <li class="dropdown notification-list mt-1">
-            <a class="nav-link dropdown-toggle  waves-effect"href="" target="_blank">
-                <i class="fas fa-home fa-2x"></i>
-            </a>
-        </li>
-
-
-        <li class="dropdown notification-list mt-1">
-            <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="fas fa-bell fa-2x"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-lg">
-
-                <!-- item-->
-                <div class="dropdown-item noti-title">
-                    <h5 class="m-0">
-                        <span class="float-right">
-                            <a href="#" class="text-dark">
-                                <small>Tandai sudah dibaca</small>
-                            </a>
-                        </span>Notifikasi
-                    </h5>
-                </div>
-
-                {{-- Log Notifikasi --}}
-                <div class="slimscroll noti-scroll">
-                </div>
-                <!-- All-->
-                <a href="#" class="dropdown-item text-center text-primary notify-item notify-all">
-                    Tampilkan Semua
-                    <i class="fi-arrow-right"></i>
-                </a>
-
-            </div>
-        </li>
+        </li> 
 
         <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="{{ asset('assets/images/users/user-1.jpg') }}" alt="user-image" class="rounded-circle">
+                <img src="{{ asset('gambar_profil/'.Auth::user()->gambar_profil) }}" alt="user-image" class="rounded-circle">
                 <span class="pro-user-name ml-1">{{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i> 
                 </span>
             </a>
@@ -67,13 +30,13 @@
                 </div>
 
                 <!-- item-->
-                <a href="#" class="dropdown-item notify-item">
+                <a href="{{ url(''.Auth::user()->role_user->role->name.'/accounts') }}" class="dropdown-item notify-item">
                     <i class="fe-user"></i>
                     <span>My Account</span>
                 </a>
 
                 <!-- item-->
-                <a href="#" class="dropdown-item notify-item">
+                <a href="{{ url(''.Auth::user()->role_user->role->name.'/ubah_password') }}" class="dropdown-item notify-item">
                     <i class="fas fa-lock"></i>
                     <span>Ubah Password</span>
                 </a>
@@ -90,14 +53,14 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo text-center">
+        <a href="{{ url(''.Auth::user()->role_user->role->name.'') }}" class="logo text-center">
             <span class="logo-lg">
-                <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="16">
+                <img src="{{ asset('logo.png') }}" alt="" height="60">
                 <!-- <span class="logo-lg-text-light">Xeria</span> -->
             </span>
             <span class="logo-sm">
                 <!-- <span class="logo-sm-text-dark">X</span> -->
-                <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="16">
+                <img src="{{ asset('logo.png') }}" alt="" height="60">
             </span>
         </a>
     </div>

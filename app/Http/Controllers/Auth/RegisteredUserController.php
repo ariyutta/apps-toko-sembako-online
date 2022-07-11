@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisteredUserController extends Controller
 {
@@ -39,16 +40,30 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->status_verifikasi = 0;
+        $user->gambar_profil = 'default/default.png';
+        $user->role_id = $request->role_id;
+        $user->save();
+
         $user->attachRole($request->role_id);
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        Alert::success('Berhasil', 'Akun anda berhasil dibuat!');
+        
+        if(Auth::user()->role_user->role_id == 1) {
+            return redirect(RouteServiceProvider::DEVELOPER);
+        }
+        else if(Auth::user()->role_user->role_id == 2) {
+            return redirect(RouteServiceProvider::ADMINISTRATOR);
+        }
+        else if(Auth::user()->role_user->role_id == 3) {
+            return redirect(RouteServiceProvider::HOME);
+        }
     }
 }

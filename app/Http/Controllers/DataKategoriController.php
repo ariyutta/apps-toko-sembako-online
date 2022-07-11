@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DataKategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DataKategoriController extends Controller
@@ -24,7 +25,7 @@ class DataKategoriController extends Controller
         DataKategori::create($validatedData);
 
         Alert::success('Berhasil', 'Data Kategori berhasil ditambahkan!');
-        return redirect('dashboard/admins/data_kategori');
+        return redirect(''.Auth::user()->role_user->role->name.'/data_kategori');
 
     }
 
@@ -43,7 +44,7 @@ class DataKategoriController extends Controller
         ]);
 
         Alert::success('Berhasil', 'Data Kategori telah berhasil diperbarui!');
-        return redirect('dashboard/admins/data_kategori');
+        return redirect(''.Auth::user()->role_user->role->name.'/data_kategori');
     }
 
     public function hapus_data_kategori($id) {
@@ -51,6 +52,6 @@ class DataKategoriController extends Controller
         $data_kategori->delete();
 
         Alert::success('Berhasil', 'Data Kategori berhasil dihapus!');
-        return redirect('dashboard/admins/data_kategori');
+        return redirect(''.Auth::user()->role_user->role->name.'/data_kategori');
     }
 }

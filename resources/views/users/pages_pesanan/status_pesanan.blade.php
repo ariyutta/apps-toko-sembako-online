@@ -7,7 +7,7 @@
 @section('title')
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Rekomendasi</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
             <li class="breadcrumb-item active">{{ $title_user }}</li>
         </ol>
     </div>
@@ -26,8 +26,9 @@
                                 <th>No.</th>
                                 <th>Kode Pesanan</th>
                                 <th>Tanggal Pemesanan</th>
-                                <th>Total Harga</th>
+                                <th>Harga Total</th>
                                 <th>Status Pembayaran</th>
+                                <th>Status Pesanan</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -37,7 +38,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->kode_pesanan }}</td>
                                     <td>{{ $item->created_at->translatedFormat('d F Y | H:i').' WIB' }}</td>
-                                    <td>{{ $item->jumlah_harga }}</td>
+                                    <td>{{ 'Rp. '.number_format($item->jumlah_total , 0, ",", "."); }}</td>
                                     <td>
                                         @if($item->status_pembayaran == 0)
                                             <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
@@ -46,7 +47,14 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ url('dashboard/status_pesanan/detail/'. $item->id) }}" class="btn btn-primary btn-sm"><i class="far fa-eye mr-1"></i> Lihat</a>
+                                        @if($item->status_pesanan == 0)
+                                            <span style="font-size: 14px" class="badge badge-warning">Belum diterima</span>
+                                        @elseif($item->status_pesanan == 1)
+                                            <span style="font-size: 14px" class="badge badge-success">Sudah diterima</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a style="font-weight: bold" href="{{ url('home/status_pesanan/detail/'. $item->id) }}" class="btn btn-purple btn-sm"><i class="far fa-eye mr-1"></i> Lihat</a>
                                     </td>
                                 </tr>
                             @endforeach

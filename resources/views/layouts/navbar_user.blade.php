@@ -131,8 +131,11 @@
                 </li> --}}
 
                 <li class="dropdown notification-list mt-1">
-                    <a class="nav-link dropdown-toggle  waves-effect"href="{{ url('dashboard/keranjang') }}">
-                        <i class="fas fa-shopping-cart fa-2x"></i>
+                    <a class="nav-link dropdown-toggle  waves-effect"href="{{ url('home/keranjang') }}">
+                        <i class="ti-shopping-cart fa-2x"></i>
+                        @if($notif_cart != 0)
+                            <h4><span class="badge badge-danger rounded-circle noti-icon-badge" style="margin-top:-5px ">{{ $notif_cart }}</span></h4>
+                        @endif
                     </a>
                 </li>
 
@@ -155,7 +158,7 @@
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="{{ asset('assets_us/images/users/user-1.jpg') }}" alt="user-image" class="rounded-circle">
+                            <img src="{{ asset('gambar_profil/'. Auth::user()->gambar_profil) }}" alt="user-image" class="rounded-circle">
                             <span class="pro-user-name ml-1">
                                 {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
                             </span>
@@ -167,21 +170,21 @@
                             </div>
         
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="{{ url('home/accounts') }}" class="dropdown-item notify-item">
                                 <i class="fe-user"></i>
                                 <span>My Account</span>
                             </a>
         
                             @if(Auth::user()->role_user->role_id == 3)
                                 <!-- item-->
-                                <a href="{{ url('dashboard/status_pesanan') }}" class="dropdown-item notify-item">
+                                <a href="{{ url('home/status_pesanan') }}" class="dropdown-item notify-item">
                                     <i class="fas fa-comment-dollar"></i>
                                     <span>Status Pesanan</span>
                                 </a>
                             @endif
         
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="{{ url('home/ubah_password') }}" class="dropdown-item notify-item">
                                 <i class="fe-settings"></i>
                                 <span>Ubah Password</span>
                             </a>
@@ -200,7 +203,7 @@
             
             <!-- LOGO -->
             <div class="logo-box">
-                <a href="{{ url('/dashboard') }}" class="logo text-center">
+                <a href="{{ url('/home') }}" class="logo text-center">
                     <span class="logo-lg">
                         <img src="{{ asset('assets_us/images/logo-light.png') }}" alt="" height="16">
                         <!-- <span class="logo-lg-text-light">UBold</span> -->

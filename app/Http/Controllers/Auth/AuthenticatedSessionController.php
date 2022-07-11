@@ -34,7 +34,15 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         Alert::toast('Selamat anda berhasil Masuk!', 'success');
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if(Auth::user()->role_user->role_id == 1) {
+            return redirect(RouteServiceProvider::DEVELOPER);
+        }
+        else if(Auth::user()->role_user->role_id == 2) {
+            return redirect(RouteServiceProvider::ADMINISTRATOR);
+        }
+        else if(Auth::user()->role_user->role_id == 3) {
+            return redirect(RouteServiceProvider::HOME);
+        }
     }
 
     /**
@@ -51,7 +59,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        Alert::success('Success', 'Selamat akun anda berhasil logout!');
+        Alert::success('Success', 'Akun anda berhasil logout!');
         return redirect('/');
     }
 }

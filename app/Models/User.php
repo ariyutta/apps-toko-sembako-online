@@ -57,4 +57,12 @@ class User extends Authenticatable
     public function pesanan() {
         return $this->hasMany(DataPesanan::class, 'user_id','id');
     }
+
+    public function agama() {
+        return $this->belongsTo(DataAgama::class, 'agama_id', 'id');
+    }
+
+    public function pekerjaan() {
+        return $this->belongsTo(DataPekerjaan::class, 'pekerjaan_id', 'id');
+    }
 }

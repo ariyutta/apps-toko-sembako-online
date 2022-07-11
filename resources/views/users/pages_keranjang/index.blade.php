@@ -3,7 +3,7 @@
 @section('title')
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Rekomendasi</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
             <li class="breadcrumb-item active">{{ $title_user }}</li>
         </ol>
     </div>
@@ -62,7 +62,7 @@
                     @if($total_keranjang != Null)
                         <div class="d-flex justify-content-end mt-2 mb-2">
                             <button type="submit" style="font-weight: bold" onclick="confirm_checkout()" class="btn btn-success mr-1 mt-1">Checkout</button>
-                            <a style="font-weight: bold" href="{{ url('dashboard') }}" class="btn btn-secondary mt-1">Kembali</a>
+                            <a style="font-weight: bold" href="{{ url('home') }}" class="btn btn-secondary mt-1">Kembali</a>
                         </div>
                     @endif
                 </div>

@@ -85,12 +85,14 @@
 <!-- Init js-->
 <script src="{{ asset('assets/js/pages/form-xeditable.init.js') }}"></script>
 
+@yield('js')
+
 <script>
     $(".loading").hide();
     
     function hapus_data_pemasok(id_pemasok) {
         Swal.fire({
-                title: "Perhatian!",
+                title: "Hapus Pemasok",
                 text: "Apakah anda ingin menghapus Data Pemasok ini?",
                 icon: "warning",
                 showCancelButton: !0,
@@ -103,7 +105,7 @@
             .then(function(t) {
                 if (t.value) {
                     $(".loading").show();
-                    $.get("{{ url('dashboard/admins/data_pemasok/hapus_data') }}/" +id_pemasok);
+                    $.get("{{ url(''.Auth::user()->role_user->role->name.'/data_pemasok/hapus_data') }}/" +id_pemasok);
                     location.reload();
                 }
             })
@@ -111,7 +113,7 @@
 
     function hapus_data_kategori(id_kategori) {
         Swal.fire({
-                title: "Perhatian!",
+                title: "Hapus Kategori",
                 text: "Apakah anda ingin menghapus Data Kategori ini?",
                 icon: "warning",
                 showCancelButton: !0,
@@ -124,7 +126,7 @@
             .then(function(t) {
                 if (t.value) {
                     $(".loading").show();
-                    $.get("{{ url('dashboard/admins/data_kategori/hapus_data') }}/" +id_kategori);
+                    $.get("{{ url(''.Auth::user()->role_user->role->name.'/data_kategori/hapus_data') }}/" +id_kategori);
                     location.reload();
                 }
             })
@@ -132,7 +134,7 @@
     
     function hapus_data_barang(id_barang) {
         Swal.fire({
-                title: "Perhatian!",
+                title: "Hapus Barang",
                 text: "Apakah anda ingin menghapus Data Barang ini?",
                 icon: "warning",
                 showCancelButton: !0,
@@ -145,7 +147,7 @@
             .then(function(t) {
                 if (t.value) {
                     $(".loading").show();
-                    $.get("{{ url('dashboard/admins/data_barang/hapus_data') }}/" +id_barang);
+                    $.get("{{ url(''.Auth::user()->role_user->role->name.'/data_barang/hapus_data') }}/" +id_barang);
                     location.reload();
                 }
             })
@@ -171,6 +173,68 @@
             })
         }
 
+    function verifikasi_pembayaran(id_verif_bayar) {
+        Swal.fire({
+                title: "Verifikasi Pembayaran",
+                text: "Apakah anda ingin melakukan verifikasi pada Kode Pesanan ini?",
+                icon: "question",
+                showCancelButton: !0,
+                confirmButtonText: "Ya!",
+                cancelButtonText: "Batal!",
+                confirmButtonClass: "btn btn-xl btn-success",
+                cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                buttonsStyling: !1
+            })
+            .then(function(t) {
+                if (t.value) {
+                    $(".loading").show();
+                    $.get("{{ url(''.Auth::user()->role_user->role->name.'/verifikasi_pembayaran/verif') }}/" +id_verif_bayar);
+                    location.reload();
+                }
+            })
+        }
+    
+    function batalkan_pembayaran(id_batal_bayar) {
+        Swal.fire({
+                title: "Batalkan Pembayaran",
+                text: "Apakah anda ingin melakukan batal pembayaran pada Kode Pesanan ini?",
+                icon: "question",
+                showCancelButton: !0,
+                confirmButtonText: "Ya!",
+                cancelButtonText: "Batal!",
+                confirmButtonClass: "btn btn-xl btn-success",
+                cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                buttonsStyling: !1
+            })
+            .then(function(t) {
+                if (t.value) {
+                    $(".loading").show();
+                    $.get("{{ url(''.Auth::user()->role_user->role->name.'/verifikasi_pembayaran/batal') }}/" +id_batal_bayar);
+                    location.reload();
+                }
+            })
+        }
+
+    function hapus_data_payment(id_payment) {
+        Swal.fire({
+                title: "Hapus Payment",
+                text: "Apakah anda ingin menghapus Data Payment ini?",
+                icon: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Ya!",
+                cancelButtonText: "Batal!",
+                confirmButtonClass: "btn btn-xl btn-success",
+                cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                buttonsStyling: !1
+            })
+            .then(function(t) {
+                if (t.value) {
+                    $(".loading").show();
+                    $.get("{{ url(''.Auth::user()->role_user->role->name.'/data_payment/hapus_data') }}/" +id_payment);
+                    location.reload();
+                }
+            })
+        }
 </script>
 
 </body>

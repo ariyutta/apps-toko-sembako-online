@@ -9,7 +9,7 @@ class DataPesananController extends Controller
 {
     public function data_pesanan() {
         $title_admin = 'Data Pesanan';
-        $data_pesanan = DataPesanan::all();
+        $data_pesanan = DataPesanan::orderby('created_at','DESC')->get();
 
         return view('admins.data_pesanan.index', compact('title_admin','data_pesanan'));
     }

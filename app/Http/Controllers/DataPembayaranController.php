@@ -10,7 +10,7 @@ class DataPembayaranController extends Controller
 {
     public function verifikasi_pembayaran() {
         $title_admin = 'Verifikasi Pembayaran';
-        $data_pesanan = DataPesanan::all();
+        $data_pesanan = DataPesanan::orderby('created_at','DESC')->get();
 
         return view('admins.verifikasi_pembayaran.index', compact('title_admin','data_pesanan'));
     }
@@ -22,7 +22,7 @@ class DataPembayaranController extends Controller
             'status_pembayaran' => 1
         ]);
 
-        Alert::success('Berhasil', 'Pembayaran pada Kode Pesanan KDP-'.$data->kode_pesanan.' sudah berhasil diverifikasi!');
+        Alert::success('Berhasil', 'Pembayaran pada Kode Pesanan '.$data->kode_pesanan.' sudah berhasil diverifikasi!');
         return redirect()->back();
     }
 
@@ -33,7 +33,7 @@ class DataPembayaranController extends Controller
             'status_pembayaran' => 0
         ]);
 
-        Alert::success('Berhasil', 'Pembayaran pada Kode Pesanan KDP-'.$data->kode_pesanan.' sudah dibatalkan!');
+        Alert::success('Berhasil', 'Pembayaran pada Kode Pesanan '.$data->kode_pesanan.' sudah dibatalkan!');
         return redirect()->back();
     }
 }

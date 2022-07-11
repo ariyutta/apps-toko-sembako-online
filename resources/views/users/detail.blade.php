@@ -3,7 +3,7 @@
 @section('title')
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Rekomendasi</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
             <li class="breadcrumb-item active">{{ $title_user }}</li>
         </ol>
     </div>
@@ -24,37 +24,86 @@
                         <fieldset disabled="disabled">
                             <textarea class="form-control form-control-sm mt-1 mb-3" id="deskripsi_barang" name="deskripsi_barang" rows="5">{{ $data->keterangan }}</textarea>
                         </fieldset>
-                        <form action="{{ url('dashboard/tambah_keranjang/'.$data->id) }}" method="POST">
-                            {{ csrf_field() }}
-                            <fieldset disabled="disabled">
-                                <div class="form-group row">
-                                    <label for="stok_tersedia" class="col-sm-3 col-form-label">Stok Tersedia</label>
-                                    <div class="col-sm-2">
-                                    <input type="disabled" class="form-control form-control-sm" id="stok_tersedia" name="stok_tersedia" value="{{ $data->stok }}">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Masukkan Keranjang</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Beli Sekarang</a>
+                            </li>
+                          </ul>
+
+
+                          <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <form action="{{ url('home/tambah_keranjang/'.$data->id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <fieldset disabled="disabled">
+                                        <div class="form-group row">
+                                            <label for="stok_tersedia" class="col-sm-3 col-form-label">Stok Tersedia</label>
+                                            <div class="col-sm-2">
+                                            <input type="disabled" class="form-control form-control-sm" id="stok_tersedia" name="stok_tersedia" value="{{ $data->stok }}">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-group row">
+                                        <label for="jumlah_barang" class="col-sm-3 col-form-label">Tambah Pesanan</label>
+                                        <div class="col-sm-3">
+                                        <input type="number" class="form-control form-control-sm" id="jumlah_barang" name="jumlah_barang" placeholder="0 - 999">
+                                        </div>
                                     </div>
-                                </div>
-                            </fieldset>
-                            <div class="form-group row">
-                                <label for="jumlah_barang" class="col-sm-3 col-form-label">Tambah Pesanan</label>
-                                <div class="col-sm-3">
-                                <input type="number" class="form-control form-control-sm" id="jumlah_barang" name="jumlah_barang" placeholder="0 - 999">
-                                </div>
-                            </div>
-                            <fieldset disabled="disabled">
-                                <div class="form-group row">
-                                    <label for="terjual" class="col-sm-3 col-form-label">Terjual</label>
-                                    <div class="col-sm-2">
-                                    <input type="disabled" class="form-control form-control-sm" id="terjual" name="terjual" value="20">
+                                    <fieldset disabled="disabled">
+                                        <div class="form-group row">
+                                            <label for="terjual" class="col-sm-3 col-form-label">Terjual</label>
+                                            <div class="col-sm-2">
+                                            <input type="disabled" class="form-control form-control-sm" id="terjual" name="terjual" value="{{ $data->terjual }}">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <hr>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-purple mr-2"> <span style="font-weight: bold">Masukkan Keranjang</span> </button>  
+                                        <a href="{{ url('home') }}" class="btn btn-secondary"> <span style="font-weight: bold">Kembali</span> </a>  
                                     </div>
-                                </div>
-                            </fieldset>
-                            <hr>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-purple mr-2"> <span style="font-weight: bold">Masukkan Keranjang</span> </button>  
-                                <a href="#" class="btn btn-success  mr-2"> <span style="font-weight: bold">Beli Sekarang</span> </a>
-                                <a href="{{ url('dashboard') }}" class="btn btn-secondary"> <span style="font-weight: bold">Kembali</span> </a>  
+                                </form>
                             </div>
-                        </form>
+
+
+
+
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <form action="{{ url('home/beli_sekarang/checkout/'.$data->id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <fieldset disabled="disabled">
+                                        <div class="form-group row">
+                                            <label for="stok_tersedia" class="col-sm-3 col-form-label">Stok Tersedia</label>
+                                            <div class="col-sm-2">
+                                            <input type="disabled" class="form-control form-control-sm" id="stok_tersedia" name="stok_tersedia" value="{{ $data->stok }}">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-group row">
+                                        <label for="jumlah_barang" class="col-sm-3 col-form-label">Tambah Pesanan</label>
+                                        <div class="col-sm-3">
+                                        <input type="number" class="form-control form-control-sm" id="jumlah_barang" name="jumlah_barang" placeholder="0 - 999">
+                                        </div>
+                                    </div>
+                                    <fieldset disabled="disabled">
+                                        <div class="form-group row">
+                                            <label for="terjual" class="col-sm-3 col-form-label">Terjual</label>
+                                            <div class="col-sm-2">
+                                            <input type="disabled" class="form-control form-control-sm" id="terjual" name="terjual" value="{{ $data->terjual }}">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <hr>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-success mr-2"> <span style="font-weight: bold">Beli Sekarang</span> </button>
+                                        <a href="{{ url('home') }}" class="btn btn-secondary"> <span style="font-weight: bold">Kembali</span> </a>  
+                                    </div>
+                                </form>
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>

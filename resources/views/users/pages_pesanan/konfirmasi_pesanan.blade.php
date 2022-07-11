@@ -3,8 +3,8 @@
 @section('title')
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Rekomendasi</a></li>
-            <li class="breadcrumb-item"><a href="{{ url('dashboard/status_pesanan') }}">Status Pesanan</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('home/status_pesanan') }}">Status Pesanan</a></li>
             <li class="breadcrumb-item active">{{ $title_user }}</li>
         </ol>
     </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="d-flex justify-content-end">
                             <a href="#" class="btn btn-success mr-1 mt-2" style="font-weight: bold">Selesai</a>
-                            <a href="{{ url('dashboard/status_pesanan') }}" class="btn btn-secondary mt-2" style="font-weight: bold">Batalkan</a>
+                            <a href="{{ url('home/status_pesanan') }}" class="btn btn-secondary mt-2" style="font-weight: bold">Batalkan</a>
                         </div>
                     </form>
                 </div>

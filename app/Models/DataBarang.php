@@ -23,4 +23,8 @@ class DataBarang extends Model
     public function pesanan_detail() {
         return $this->hasMany(DataPesananDetail::class, 'barang_id', 'id');
     }
+
+    public function pemasok() {
+        return $this->belongsTo(DataPemasok::class, 'pemasok_id', 'id');
+    }
 }

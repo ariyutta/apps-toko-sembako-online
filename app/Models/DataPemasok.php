@@ -11,4 +11,8 @@ class DataPemasok extends Model
     protected $table = 'data_pemasok';
     protected $primarykey = 'id';
     protected $guarded = [];
+
+    public function barang() {
+        return $this->hasOne(DataBarang::class, 'id', 'pemasok_id');
+    }
 }

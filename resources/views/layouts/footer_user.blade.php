@@ -62,136 +62,118 @@
     <script src="{{ asset('assets_us/js/pages/datatables.init.js') }}"></script>
 
     <script>
+        $(".loading").hide();
+        
+        $('#modal_all').modal('show');
+
         $(document).ready(function() {
-            $('#provinsi').select2();
+            $('#origin').select2();
         });
 
         $(document).ready(function() {
-            $('#kota').select2();
+            $('#destination').select2();
         });
 
         function confirm_checkout() {
-        Swal.fire({
-                title: "Checkout",
-                text: "Apakah anda ingin melakukan Checkout pada Pembelian ini?",
-                icon: "question",
-                showCancelButton: !0,
-                confirmButtonText: "Ya!",
-                cancelButtonText: "Batal!",
-                confirmButtonClass: "btn btn-xl btn-success",
-                cancelButtonClass: "btn btn-xl btn-danger ml-2",
-                buttonsStyling: !1
-            })
-            .then(function(t) {
-                if (t.value) {
-                    $(".loading").show();
-                    location.href = "{{ url('dashboard/checkout') }}"
-                    var val = [];
-                    $('.check-item:checked').each(function(i){
-                        val[i] = $(this).val();
-                    });
-
-                    let data = {};
-                    data.id_keranjang = val;
-
-                    var numberOfChecked = $('.check-item:checked').length;
-
-                    if( numberOfChecked != 0 ) {
-                        // $.ajaxSetup({
-                        //     headers: {
-                        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        //     }
-                        // });
-                        // $.ajax({
-                        //     type: "POST",
-                        //     url: "{{ url('dashboard/submit_checkout') }}",
-                        //     data: data,
-                        //     dataType: "JSON",
-                        // })
-                        // location.reload();
+            Swal.fire({
+                    title: "Checkout",
+                    text: "Apakah anda ingin melakukan Checkout pada Pembelian ini?",
+                    icon: "question",
+                    showCancelButton: !0,
+                    confirmButtonText: "Ya!",
+                    cancelButtonText: "Batal!",
+                    confirmButtonClass: "btn btn-xl btn-success",
+                    cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                    buttonsStyling: !1
+                })
+                .then(function(t) {
+                    if (t.value) {
+                        $(".loading").show();
+                        location.href = "{{ url('home/checkout') }}"
                     }
-                }
-            })
-        }
-
-        function confirm_pembayaran() {
-        Swal.fire({
-                title: "Pembayaran",
-                text: "Apakah anda ingin melanjutkan Pembayaran pada Pembelian ini?",
-                icon: "question",
-                showCancelButton: !0,
-                confirmButtonText: "Ya!",
-                cancelButtonText: "Batal!",
-                confirmButtonClass: "btn btn-xl btn-success",
-                cancelButtonClass: "btn btn-xl btn-danger ml-2",
-                buttonsStyling: !1
-            })
-            .then(function(t) {
-                if (t.value) {
-                    $(".loading").show();
-                    location.href = "{{ url('/dashboard/pembayaran_pesanan') }}"
-                }
-            })
-        }
+                })
+            }
 
         function confirm_logout() {
-        Swal.fire({
-                title: "Logout",
-                text: "Apakah anda ingin logout dari halaman ini?",
-                icon: "question",
-                showCancelButton: !0,
-                confirmButtonText: "Ya!",
-                cancelButtonText: "Batal!",
-                confirmButtonClass: "btn btn-xl btn-success",
-                cancelButtonClass: "btn btn-xl btn-danger ml-2",
-                buttonsStyling: !1
-            })
-            .then(function(t) {
-                if (t.value) {
-                    $(".loading").show();
-                    location.href = "{{ url('/logout') }}"
-                }
-            })
-        }
+            Swal.fire({
+                    title: "Logout",
+                    text: "Apakah anda ingin logout dari halaman ini?",
+                    icon: "question",
+                    showCancelButton: !0,
+                    confirmButtonText: "Ya!",
+                    cancelButtonText: "Batal!",
+                    confirmButtonClass: "btn btn-xl btn-success",
+                    cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                    buttonsStyling: !1
+                })
+                .then(function(t) {
+                    if (t.value) {
+                        $(".loading").show();
+                        location.href = "{{ url('/logout') }}"
+                    }
+                })
+            }
 
         function confirm_hapus_keranjang(id_keranjang) {
-        Swal.fire({
-                title: "Hapus Barang",
-                text: "Apakah anda ingin menghapus barang ini dari daftar kerajang?",
-                icon: "warning",
-                showCancelButton: !0,
-                confirmButtonText: "Ya!",
-                cancelButtonText: "Batal!",
-                confirmButtonClass: "btn btn-xl btn-success",
-                cancelButtonClass: "btn btn-xl btn-danger ml-2",
-                buttonsStyling: !1
-            })
-            .then(function(t) {
-                if (t.value) {
-                    $(".loading").show();
-                    $.get("{{ url('dashboard/hapus_keranjang') }}/" +id_keranjang);
-                    location.reload();
-                }
-            })
-        }
+            Swal.fire({
+                    title: "Hapus Barang",
+                    text: "Apakah anda ingin menghapus barang ini dari daftar kerajang?",
+                    icon: "warning",
+                    showCancelButton: !0,
+                    confirmButtonText: "Ya!",
+                    cancelButtonText: "Batal!",
+                    confirmButtonClass: "btn btn-xl btn-success",
+                    cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                    buttonsStyling: !1
+                })
+                .then(function(t) {
+                    if (t.value) {
+                        $(".loading").show();
+                        $.get("{{ url('home/hapus_keranjang') }}/" +id_keranjang);
+                        location.reload();
+                    }
+                })
+            }
 
-        function submit_pembayaran() {
-        Swal.fire({
-                title: "Pembayaran",
-                text: "Apakah anda ingin melanjutkan Pembayaran pada Pembelian ini?",
-                icon: "question",
-                showCancelButton: !0,
-                confirmButtonText: "Ya!",
-                cancelButtonText: "Batal!",
-                confirmButtonClass: "btn btn-xl btn-success",
-                cancelButtonClass: "btn btn-xl btn-danger ml-2",
-                buttonsStyling: !1
-            })
-            .then(function(t) {
-                if (t.value) {
-                    $(".loading").show();
-                    location.href = "{{ url('/dashboard/submit_pembayaran') }}"
-                }
-            })
-        }
+        function submit_pembayaran(id_pembayaran) {
+            Swal.fire({
+                    title: "Bukti Pembayaran",
+                    text: "Apakah anda ingin mengirim bukti pembayaran?",
+                    icon: "warning",
+                    showCancelButton: !0,
+                    confirmButtonText: "Ya!",
+                    cancelButtonText: "Batal!",
+                    confirmButtonClass: "btn btn-xl btn-success",
+                    cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                    buttonsStyling: !1
+                })
+                .then(function(t) {
+                    if (t.value) {
+                        $(".loading").show();
+                        $.get("{{ url('home/submit_pembayaran') }}/" +id_pembayaran);
+                        location.reload();
+                    }
+                })
+            }
+
+        function confirm_terima_pesanan(id_pesanan) {
+            Swal.fire({
+                    title: "Pesanan diterima",
+                    text: "Apakah anda Barang pada pesana ini sudah diterima?",
+                    icon: "warning",
+                    showCancelButton: !0,
+                    confirmButtonText: "Ya!",
+                    cancelButtonText: "Batal!",
+                    confirmButtonClass: "btn btn-xl btn-success",
+                    cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                    buttonsStyling: !1
+                })
+                .then(function(t) {
+                    if (t.value) {
+                        $(".loading").show();
+                        $.get("{{ url('home/confirm_terima_pesanan') }}/" +id_pesanan);
+                        location.reload();
+                    }
+                })
+            }
     </script>

@@ -19,4 +19,8 @@ class DataPesanan extends Model
     public function pesanan_detail() {
         return $this->hasMany(DataPesananDetail::class, 'pesanan_id', 'id');
     }
+
+    public function payment() {
+        return $this->belongsTo(DataPayment::class, 'jenis_pembayaran_id', 'id');
+    }
 }

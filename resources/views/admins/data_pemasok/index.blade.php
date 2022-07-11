@@ -1,18 +1,28 @@
 @extends('layouts.main')
 
+@section('title')
+    <div class="d-flex justify-content-between">
+        <h4 class="mt-2">{{ $title_admin }}</h4>
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="{{ url(''.Auth::user()->role_user->role->name.'') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active">{{ $title_admin }}</li>
+        </ol>
+    </div>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card-box shadow">
-                <h4>Data Pemasok</h4>
-                <hr>
+                {{-- <h4>Data Pemasok</h4> --}}
+                {{-- <hr> --}}
                 <div class="row">
                     <div class="col-md-12">
                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#tambahPemasok">
                             Tambah Data
                           </button>
                         <div class="table-responsive mt-3">
-                            <table id="datatable" class="table table-bordered nowrap table-sm">
+                            <table id="datatable" class="table table-bordered table-striped nowrap table-sm">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -30,7 +40,7 @@
                                             <td>{{ $item->alamat }}</td>
                                             <td>{{ $item->no_telp }}</td>
                                             <td class="text-center">
-                                                <a href="{{ url('dashboard/admins/data_pemasok/ubah_data', $item->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pemasok/ubah_data', $item->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                                                 <button type="button" class="btn btn-danger btn-sm" onclick="hapus_data_pemasok({{ $item->id }})"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
@@ -55,8 +65,12 @@
           </button>
         </div>
         <div class="modal-body">
-            <form action="{{ url('dashboard/admins/data_pemasok/tambah_data') }}" method="POST">
+            <form action="{{ url(''.Auth::user()->role_user->role->name.'/data_pemasok/tambah_data') }}" method="POST">
                 {{ csrf_field() }}
+                <div class="form-group">
+                    <label for="nama_barang">Nama Barang</label>
+                    <input type="text" class="form-control" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Barang">
+                  </div>
                 <div class="form-group">
                   <label for="nama_pemasok">Nama Pemasok</label>
                   <input type="text" class="form-control" id="nama_pemasok" name="nama_pemasok" placeholder="Masukkan Nama Pemasok">

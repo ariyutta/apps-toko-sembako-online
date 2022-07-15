@@ -11,7 +11,7 @@
  Target Server Version : 100424
  File Encoding         : 65001
 
- Date: 15/07/2022 13:44:42
+ Date: 15/07/2022 19:13:08
 */
 
 SET NAMES utf8mb4;
@@ -592,7 +592,7 @@ INSERT INTO `data_barang` VALUES (8, 'MI-0024', 'Super Bubur', 8, 2, 98, 30, 300
 INSERT INTO `data_barang` VALUES (9, 'MR-0011', 'Monde Snack', 9, 3, 100, 100, 10000, 12000, 'Bebas', '1656851966_ac4ac31dfb659aa143c2bb3f4d49fb68.jpg_720x720q80.jpg_.webp', '2022-07-03 12:39:26', '2022-07-06 10:23:29');
 INSERT INTO `data_barang` VALUES (10, 'MR-0022', 'Nextar Choco', 5, 3, 96, 15, 5000, 7000, 'Bebas', '1656852004_Nextar-Choco-Brownies.jpg', '2022-07-03 12:40:04', '2022-07-08 21:06:09');
 INSERT INTO `data_barang` VALUES (11, 'M-0012', 'Pulpy Orange', 6, 4, 89, 111, 5000, 6000, 'Bebas', '1656852083_f7efa42cf4a260e2c6dbc25478a2fb8b.jfif', '2022-07-03 12:41:24', '2022-07-11 17:26:46');
-INSERT INTO `data_barang` VALUES (12, 'M-0029', 'Olatte', 7, 4, 60, 42, 6000, 7000, 'Bebas', '1656852115_20089805_1.jpg', '2022-07-03 12:41:56', '2022-07-09 09:40:51');
+INSERT INTO `data_barang` VALUES (12, 'M-0029', 'Olatte', 7, 4, 57, 45, 6000, 7000, 'Bebas', '1656852115_20089805_1.jpg', '2022-07-03 12:41:56', '2022-07-15 13:54:52');
 INSERT INTO `data_barang` VALUES (13, 'KR-0013', 'Soklin Lantai', 8, 5, 0, 200, 10000, 12000, 'Bebas', '1656852210_1631601937_61404511c88a8.png', '2022-07-03 12:43:30', '2022-07-07 19:34:40');
 INSERT INTO `data_barang` VALUES (14, 'KR-0025', 'Mama Lemon 500ml', 9, 5, 77, 96, 7000, 8000, 'Bebas', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', '2022-07-03 12:44:10', '2022-07-11 10:57:15');
 INSERT INTO `data_barang` VALUES (15, 'PT-0123', 'Joyce Parfume', 5, 6, 100, 2, 25000, 30000, 'Bebas', '1656852335_download.jfif', '2022-07-03 12:45:35', '2022-07-06 20:51:54');
@@ -676,7 +676,7 @@ CREATE TABLE `data_keranjang`  (
   INDEX `user_id`(`user_id`) USING BTREE,
   INDEX `barang_id`(`barang_id`) USING BTREE,
   CONSTRAINT `data_keranjang_ibfk_1` FOREIGN KEY (`barang_id`) REFERENCES `data_barang` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 133 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 134 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_keranjang
@@ -762,6 +762,7 @@ INSERT INTO `data_keranjang` VALUES (124, 6, 25, 'Telur Ayam', '1657161115_52506
 INSERT INTO `data_keranjang` VALUES (128, 2, 16, 'Noah Parfume', '1656852375_1646808353.jpg', 23, 1035000, 0, 0, '2022-07-11 15:38:36', '2022-07-11 17:26:46');
 INSERT INTO `data_keranjang` VALUES (129, 2, 11, 'Pulpy Orange', '1656852083_f7efa42cf4a260e2c6dbc25478a2fb8b.jfif', 3, 18000, 0, 0, '2022-07-11 16:26:03', '2022-07-11 17:26:46');
 INSERT INTO `data_keranjang` VALUES (132, 9, 2, 'Beras 30 Kg', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 9, 2070000, 1, 0, '2022-07-11 18:25:27', '2022-07-11 18:45:20');
+INSERT INTO `data_keranjang` VALUES (133, 2, 12, 'Olatte', '1656852115_20089805_1.jpg', 3, 21000, 0, 0, '2022-07-15 13:54:23', '2022-07-15 13:54:52');
 
 -- ----------------------------
 -- Table structure for data_payment
@@ -888,7 +889,7 @@ CREATE TABLE `data_pesanan`  (
   `created_at` datetime NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 76 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 77 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_pesanan
@@ -906,6 +907,7 @@ INSERT INTO `data_pesanan` VALUES (72, 2, 'KDP-803179', 'Berau', 'Kepulauan Sang
 INSERT INTO `data_pesanan` VALUES (73, 2, 'KDP-398258', 'Aceh Jaya', 'Barito Timur', 'Reguler', 'jne', 1, 1, NULL, 1053000, 74000, 1127000, NULL, 'dfsdfdfsd', '2022-07-11 17:26:46', '2022-07-13 12:57:24');
 INSERT INTO `data_pesanan` VALUES (74, 2, 'KDP-304807', 'Barito Kuala', 'Bukittinggi', 'Reguler', 'jne', 1, 1, NULL, 270000, 65000, 335000, NULL, 'fsdfds', '2022-07-11 17:30:12', '2022-07-13 12:57:11');
 INSERT INTO `data_pesanan` VALUES (75, 9, 'KDP-566063', 'Bekasi', 'Gorontalo Utara', 'Reguler', 'jne', 1, 1, 1, 2070000, 69000, 2139000, '1657538852_bukti-pembayaran-STAIM0002.jpg', 'kiki', '2022-07-11 18:26:30', '2022-07-11 18:29:04');
+INSERT INTO `data_pesanan` VALUES (76, 2, 'KDP-272875', 'Bangka Tengah', 'Banyuasin', 'Reguler', 'jne', 0, 0, NULL, 21000, 35000, 56000, NULL, 'test', '2022-07-15 13:54:52', '2022-07-15 13:54:52');
 
 -- ----------------------------
 -- Table structure for data_pesanan_detail
@@ -922,7 +924,7 @@ CREATE TABLE `data_pesanan_detail`  (
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `barang_id`(`barang_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 452 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 453 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_pesanan_detail
@@ -951,6 +953,7 @@ INSERT INTO `data_pesanan_detail` VALUES (448, 73, 16, 'Noah Parfume', 23, 10350
 INSERT INTO `data_pesanan_detail` VALUES (449, 73, 11, 'Pulpy Orange', 3, 18000, '2022-07-11 17:26:46', '2022-07-11 17:26:46');
 INSERT INTO `data_pesanan_detail` VALUES (450, 74, 16, 'Noah Parfume', 6, 270000, '2022-07-11 17:30:12', '2022-07-11 17:30:12');
 INSERT INTO `data_pesanan_detail` VALUES (451, 75, 2, 'Beras 30 Kg', 9, 2070000, '2022-07-11 18:26:30', '2022-07-11 18:26:30');
+INSERT INTO `data_pesanan_detail` VALUES (452, 76, 12, 'Olatte', 3, 21000, '2022-07-15 13:54:52', '2022-07-15 13:54:52');
 
 -- ----------------------------
 -- Table structure for data_wilayah
@@ -8937,6 +8940,25 @@ INSERT INTO `province` VALUES (33, 'Sumatera Selatan', '2022-07-08 17:45:35', '2
 INSERT INTO `province` VALUES (34, 'Sumatera Utara', '2022-07-08 17:45:35', '2022-07-08 17:45:35');
 
 -- ----------------------------
+-- Table structure for retur_penjualan
+-- ----------------------------
+DROP TABLE IF EXISTS `retur_penjualan`;
+CREATE TABLE `retur_penjualan`  (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `pesanan_id` bigint NULL DEFAULT NULL,
+  `user_id` bigint NULL DEFAULT NULL,
+  `barang_bukti` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kondisi` int NULL DEFAULT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of retur_penjualan
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for role_user
 -- ----------------------------
 DROP TABLE IF EXISTS `role_user`;
@@ -8962,6 +8984,9 @@ INSERT INTO `role_user` VALUES (3, 7, 'App\\Models\\User');
 INSERT INTO `role_user` VALUES (3, 8, 'App\\Models\\User');
 INSERT INTO `role_user` VALUES (3, 9, 'App\\Models\\User');
 INSERT INTO `role_user` VALUES (3, 10, 'App\\Models\\User');
+INSERT INTO `role_user` VALUES (5, 11, 'App\\Models\\User');
+INSERT INTO `role_user` VALUES (4, 12, 'App\\Models\\User');
+INSERT INTO `role_user` VALUES (2, 13, 'App\\Models\\User');
 
 -- ----------------------------
 -- Table structure for roles
@@ -8976,7 +9001,7 @@ CREATE TABLE `roles`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `roles_name_unique`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of roles
@@ -8984,6 +9009,8 @@ CREATE TABLE `roles`  (
 INSERT INTO `roles` VALUES (1, 'developer', 'Developer', 'Developer', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
 INSERT INTO `roles` VALUES (2, 'administrator', 'Administrator', 'Administrator', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
 INSERT INTO `roles` VALUES (3, 'user', 'User', 'User', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `roles` VALUES (4, 'storage', 'Gudang', 'Gudang', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
+INSERT INTO `roles` VALUES (5, 'pimpinan', 'Pimpinan', 'Pimpinan', '2022-07-02 09:47:29', '2022-07-02 09:47:29');
 
 -- ----------------------------
 -- Table structure for users
@@ -9011,7 +9038,7 @@ CREATE TABLE `users`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
@@ -9026,5 +9053,8 @@ INSERT INTO `users` VALUES (7, NULL, 'Hendrikus Andre', NULL, NULL, NULL, NULL, 
 INSERT INTO `users` VALUES (8, 447884835, 'Muhammad Dwi Cahyadi', 'Jl. Sungai Raya Dalam, Komplek Bumi Batara 2 No A.12', 1, 'Pontianak', '2000-07-17', 1, 9, 'dwichyd21@student.untan.ac.id', NULL, 'default/default.png', '081234567890', '$2y$10$B/Cght8f173O25IQ253Nbu09.hhl6nM2e7u93gSDq6.luDY2oMtCu', NULL, 'user', 1, '2022-07-07 17:38:13', '2022-07-07 21:41:12');
 INSERT INTO `users` VALUES (9, 385210078, 'Muhammad Fahrizal', 'yhyhyh', 1, 'Pontianak', '2022-07-12', 1, 9, 'muhammad.fahrizal@student.untan.ac.id', NULL, '1657538653_87940115_2433727493393856_8551197809510973440_n.jpg', '089633771396', '$2y$10$197jP7UNjoNFOIFi1mfgV.grzPd8Sqkh954r6CwtQkgDJT2tw/ol6', NULL, 'user', 1, '2022-07-07 18:04:09', '2022-07-11 18:24:30');
 INSERT INTO `users` VALUES (10, NULL, 'Widyaningsih', NULL, NULL, NULL, NULL, NULL, NULL, 'widyaningsih@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$kXxBzMmUJGuJUXRNIIv4DOluDJhCSEQ2nui.PfdeorQjVH5Zo6jFC', NULL, 'user', 0, '2022-07-07 21:44:18', '2022-07-07 21:44:18');
+INSERT INTO `users` VALUES (11, 826544669, 'User 01', '-', 8, 'Tidak Diisi', '1970-01-01', 1, 19, 'user.pimpinan01@gmail.com', NULL, '1657873547_default.png', '0', '$2y$10$scOMqSpcIoAjOR16aaJWP.DnHVRqYjh8iexf81q9phlLSdSWb.L1u', NULL, 'pimpinan', 1, '2022-07-15 15:08:41', '2022-07-15 15:55:44');
+INSERT INTO `users` VALUES (12, NULL, 'User 02', NULL, NULL, NULL, NULL, NULL, NULL, 'user.gudang02@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$MMPfgpYCGsWyjZwHa.7t9eDOr8tVNU5s.JvIyyuUjNBMscc4ziQ.6', NULL, 'gudang', 0, '2022-07-15 16:00:15', '2022-07-15 16:00:15');
+INSERT INTO `users` VALUES (13, NULL, 'User 03', NULL, NULL, NULL, NULL, NULL, NULL, 'user.admin03@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$clAHeQ1Gt9alkh5mhzD0gu7IWUPpUcnVZz16y97eBa1s8fRTvRuJK', NULL, 'administrator', 0, '2022-07-15 16:37:01', '2022-07-15 16:37:01');
 
 SET FOREIGN_KEY_CHECKS = 1;

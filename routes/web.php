@@ -55,10 +55,13 @@ Route::group(['middleware' =>['auth','role:developer']], function() {
     Route::get('developer/verifikasi_pembayaran/verif/{id_verif_bayar}', [App\Http\Controllers\DataPembayaranController::class, 'verif_bayar'])->name('verif_bayar');
     Route::get('developer/verifikasi_pembayaran/batal/{id_batal_bayar}', [App\Http\Controllers\DataPembayaranController::class, 'batal_verif'])->name('batal_verif');
 
+    Route::get('developer/retur_penjualan', [App\Http\Controllers\ReturPenjualanController::class, 'retur_penjualan'])->name('retur_penjualan');
+
     Route::get('developer/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
     Route::get('developer/laporan_pembelian', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian'])->name('laporan_pembelian');
     Route::get('developer/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
     Route::get('developer/daftar_pelanggan', [App\Http\Controllers\DataLaporanController::class, 'daftar_pelanggan'])->name('daftar_pelanggan');
+    Route::get('developer/laporan_retur_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan'])->name('laporan_retur_penjualan');
 
     Route::get('developer/accounts', [App\Http\Controllers\DataAccountController::class, 'accounts'])->name('accounts');
     Route::get('developer/edit_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'edit_accounts'])->name('edit_accounts');
@@ -71,25 +74,15 @@ Route::group(['middleware' =>['auth','role:developer']], function() {
 Route::group(['middleware' =>['auth','role:administrator']], function() {
     Route::get('administrator', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('administrator/data_pemasok', [App\Http\Controllers\DataPemasokController::class, 'data_pemasok'])->name('data_pemasok');
-    Route::post('administrator/data_pemasok/tambah_data', [App\Http\Controllers\DataPemasokController::class, 'tambah_data_pemasok'])->name('tambah_data_pemasok');
-    Route::get('administrator/data_pemasok/ubah_data/{id}', [App\Http\Controllers\DataPemasokController::class, 'ubah_data_pemasok'])->name('ubah_data_pemasok');
-    Route::get('administrator/data_pemasok/hapus_data/{id_pemasok}', [App\Http\Controllers\DataPemasokController::class, 'hapus_data_pemasok'])->name('hapus_data_pemasok');
-    Route::post('administrator/data_pemasok/simpan_data/{id}', [App\Http\Controllers\DataPemasokController::class, 'simpan_data_pemasok'])->name('simpan_data_pemasok');
-
-    Route::get('administrator/data_kategori', [App\Http\Controllers\DataKategoriController::class, 'data_kategori'])->name('data_kategori');
-    Route::post('administrator/data_kategori/tambah_data', [App\Http\Controllers\DataKategoriController::class, 'tambah_data_kategori'])->name('tambah_data_kategori');
-    Route::get('administrator/data_kategori/ubah_data/{id}', [App\Http\Controllers\DataKategoriController::class, 'ubah_data_kategori'])->name('ubah_data_kategori');
-    Route::get('administrator/data_kategori/hapus_data/{id_kategori}', [App\Http\Controllers\DataKategoriController::class, 'hapus_data_kategori'])->name('hapus_data_kategori');
-    Route::post('administrator/data_kategori/simpan_data/{id}', [App\Http\Controllers\DataKategoriController::class, 'simpan_data_kategori'])->name('simpan_data_kategori');
-
-    Route::get('administrator/data_barang', [App\Http\Controllers\DataBarangController::class, 'data_barang'])->name('data_barang');
-    Route::post('administrator/data_barang/tambah_data', [App\Http\Controllers\DataBarangController::class, 'tambah_data_barang'])->name('tambah_data_barang');
-    Route::get('administrator/data_barang/ubah_data/{id}', [App\Http\Controllers\DataBarangController::class, 'ubah_data_barang'])->name('ubah_data_barang');
-    Route::get('administrator/data_barang/hapus_data/{id_barang}', [App\Http\Controllers\DataBarangController::class, 'hapus_data_barang'])->name('hapus_data_barang');
-    Route::post('administrator/data_barang/simpan_data/{id}', [App\Http\Controllers\DataBarangController::class, 'simpan_data_barang'])->name('simpan_data_barang');
-
     Route::get('administrator/data_pesanan', [App\Http\Controllers\DataPesananController::class, 'data_pesanan'])->name('data_pesanan');
+
+    Route::get('administrator/data_pembelian', [App\Http\Controllers\DataPembelianController::class, 'data_pembelian'])->name('data_pembelian');
+    Route::post('administrator/data_pembelian/tambah_data', [App\Http\Controllers\DataPembelianController::class, 'tambah_data_pembelian'])->name('tambah_data_pembelian');
+    Route::get('administrator/data_pembelian/ubah_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'ubah_data_pembelian'])->name('ubah_data_pembelian');
+    Route::get('administrator/data_pembelian/hapus_data/{id_pembelian}', [App\Http\Controllers\DataPembelianController::class, 'hapus_data_pembelian'])->name('hapus_data_pembelian');
+    Route::post('administrator/data_pembelian/simpan_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'simpan_data_pembelian'])->name('simpan_data_pembelian');
+
+    Route::get('administrator/retur_penjualan', [App\Http\Controllers\ReturPenjualanController::class, 'retur_penjualan'])->name('retur_penjualan');
 
     Route::get('administrator/verifikasi_pembayaran', [App\Http\Controllers\DataPembayaranController::class, 'verifikasi_pembayaran'])->name('verifikasi_pembayaran');
     Route::get('administrator/verifikasi_pembayaran/verif/{id_verif_bayar}', [App\Http\Controllers\DataPembayaranController::class, 'verif_bayar'])->name('verif_bayar');
@@ -98,7 +91,7 @@ Route::group(['middleware' =>['auth','role:administrator']], function() {
     Route::get('administrator/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
     Route::get('administrator/laporan_pembelian', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian'])->name('laporan_pembelian');
     Route::get('administrator/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
-    Route::get('administrator/daftar_pelanggan', [App\Http\Controllers\DataLaporanController::class, 'daftar_pelanggan'])->name('daftar_pelanggan');
+    Route::get('administrator/laporan_retur_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan'])->name('laporan_retur_penjualan');
 
     Route::get('administrator/accounts', [App\Http\Controllers\DataAccountController::class, 'accounts'])->name('accounts');
     Route::get('administrator/edit_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'edit_accounts'])->name('edit_accounts');
@@ -178,6 +171,58 @@ Route::group(['middleware' =>['auth', 'role:user']], function() {
     Route::get('home/getcity', [App\Http\Controllers\OngkirAPIController::class, 'getcity'])->name('getcity');
     Route::get('home/checkshipping', [App\Http\Controllers\OngkirAPIController::class, 'checkshipping'])->name('checkshipping');
     Route::get('home/processShipping', [App\Http\Controllers\OngkirAPIController::class, 'processShipping'])->name('processShipping');
+});
+
+Route::group(['middleware' =>['auth','role:pimpinan']], function() {
+    Route::get('pimpinan', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('pimpinan/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
+    Route::get('pimpinan/laporan_pembelian', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian'])->name('laporan_pembelian');
+    Route::get('pimpinan/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
+    Route::get('pimpinan/daftar_pelanggan', [App\Http\Controllers\DataLaporanController::class, 'daftar_pelanggan'])->name('daftar_pelanggan');
+    Route::get('pimpinan/laporan_retur_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan'])->name('laporan_retur_penjualan');
+
+    Route::get('pimpinan/accounts', [App\Http\Controllers\DataAccountController::class, 'accounts'])->name('accounts');
+    Route::get('pimpinan/edit_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'edit_accounts'])->name('edit_accounts');
+    Route::post('pimpinan/simpan_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'simpan_accounts'])->name('simpan_accounts');
+    Route::get('pimpinan/ubah_password', [App\Http\Controllers\DataAuthController::class, 'ubah_password'])->name('ubah_password');
+    Route::put('pimpinan/update_password', [App\Http\Controllers\DataAuthController::class, 'update_password'])->name('update_password');
+});
+
+Route::group(['middleware' =>['auth','role:storage']], function() {
+    Route::get('storage', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('storage/data_pemasok', [App\Http\Controllers\DataPemasokController::class, 'data_pemasok'])->name('data_pemasok');
+    Route::post('storage/data_pemasok/tambah_data', [App\Http\Controllers\DataPemasokController::class, 'tambah_data_pemasok'])->name('tambah_data_pemasok');
+    Route::get('storage/data_pemasok/ubah_data/{id}', [App\Http\Controllers\DataPemasokController::class, 'ubah_data_pemasok'])->name('ubah_data_pemasok');
+    Route::get('storage/data_pemasok/hapus_data/{id_pemasok}', [App\Http\Controllers\DataPemasokController::class, 'hapus_data_pemasok'])->name('hapus_data_pemasok');
+    Route::post('storage/data_pemasok/simpan_data/{id}', [App\Http\Controllers\DataPemasokController::class, 'simpan_data_pemasok'])->name('simpan_data_pemasok');
+
+    Route::get('storage/data_kategori', [App\Http\Controllers\DataKategoriController::class, 'data_kategori'])->name('data_kategori');
+    Route::post('storage/data_kategori/tambah_data', [App\Http\Controllers\DataKategoriController::class, 'tambah_data_kategori'])->name('tambah_data_kategori');
+    Route::get('storage/data_kategori/ubah_data/{id}', [App\Http\Controllers\DataKategoriController::class, 'ubah_data_kategori'])->name('ubah_data_kategori');
+    Route::get('storage/data_kategori/hapus_data/{id_kategori}', [App\Http\Controllers\DataKategoriController::class, 'hapus_data_kategori'])->name('hapus_data_kategori');
+    Route::post('storage/data_kategori/simpan_data/{id}', [App\Http\Controllers\DataKategoriController::class, 'simpan_data_kategori'])->name('simpan_data_kategori');
+
+    Route::get('storage/data_barang', [App\Http\Controllers\DataBarangController::class, 'data_barang'])->name('data_barang');
+    Route::post('storage/data_barang/tambah_data', [App\Http\Controllers\DataBarangController::class, 'tambah_data_barang'])->name('tambah_data_barang');
+    Route::get('storage/data_barang/ubah_data/{id}', [App\Http\Controllers\DataBarangController::class, 'ubah_data_barang'])->name('ubah_data_barang');
+    Route::get('storage/data_barang/hapus_data/{id_barang}', [App\Http\Controllers\DataBarangController::class, 'hapus_data_barang'])->name('hapus_data_barang');
+    Route::post('storage/data_barang/simpan_data/{id}', [App\Http\Controllers\DataBarangController::class, 'simpan_data_barang'])->name('simpan_data_barang');
+
+    Route::get('storage/data_pembelian', [App\Http\Controllers\DataPembelianController::class, 'data_pembelian'])->name('data_pembelian');
+    Route::post('storage/data_pembelian/tambah_data', [App\Http\Controllers\DataPembelianController::class, 'tambah_data_pembelian'])->name('tambah_data_pembelian');
+    Route::get('storage/data_pembelian/ubah_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'ubah_data_pembelian'])->name('ubah_data_pembelian');
+    Route::get('storage/data_pembelian/hapus_data/{id_pembelian}', [App\Http\Controllers\DataPembelianController::class, 'hapus_data_pembelian'])->name('hapus_data_pembelian');
+    Route::post('storage/data_pembelian/simpan_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'simpan_data_pembelian'])->name('simpan_data_pembelian');
+
+    Route::get('storage/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
+
+    Route::get('storage/accounts', [App\Http\Controllers\DataAccountController::class, 'accounts'])->name('accounts');
+    Route::get('storage/edit_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'edit_accounts'])->name('edit_accounts');
+    Route::post('storage/simpan_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'simpan_accounts'])->name('simpan_accounts');
+    Route::get('storage/ubah_password', [App\Http\Controllers\DataAuthController::class, 'ubah_password'])->name('ubah_password');
+    Route::put('storage/update_password', [App\Http\Controllers\DataAuthController::class, 'update_password'])->name('update_password');
 });
 
 require __DIR__.'/auth.php';

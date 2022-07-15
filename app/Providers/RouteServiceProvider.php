@@ -20,6 +20,8 @@ class RouteServiceProvider extends ServiceProvider
     public const DEVELOPER = '/developer';
     public const ADMINISTRATOR = '/administrator';
     public const HOME = '/home';
+    public const GUDANG = '/storage';
+    public const PIMPINAN = '/pimpinan';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

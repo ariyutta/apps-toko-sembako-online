@@ -55,12 +55,12 @@
     <div class="logo-box">
         <a href="{{ url(''.Auth::user()->role_user->role->name.'') }}" class="logo text-center">
             <span class="logo-lg">
-                <img src="{{ asset('logo.png') }}" alt="" height="60">
+                <img src="{{ asset('assets_us/images/logo-light.png') }}" alt="" height="16">
                 <!-- <span class="logo-lg-text-light">Xeria</span> -->
             </span>
             <span class="logo-sm">
                 <!-- <span class="logo-sm-text-dark">X</span> -->
-                <img src="{{ asset('logo.png') }}" alt="" height="60">
+                <img src="{{ asset('assets_us/images/logo-sm.png') }}" alt="" height="24">
             </span>
         </a>
     </div>

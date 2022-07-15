@@ -6,7 +6,10 @@ use App\Models\DataBarang;
 use App\Models\DataKategori;
 use App\Models\DataKeranjang;
 use App\Models\DataPemasok;
+use App\Models\DataPembelian;
 use App\Models\DataPesanan;
+use App\Models\DataPesananDetail;
+use App\Models\ReturPenjualan;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +27,13 @@ class DashboardController extends Controller
         $jml_barang     = DataBarang::all()->count();
         $jml_pesanan    = DataPesanan::all()->count();
 
+        $jml_penjualan        = DataPesananDetail::orderby('created_at','DESC')->count();
+        $jml_pembelian        = DataPembelian::orderby('created_at','DESC')->count();
+        $jml_retur_penjualan  = ReturPenjualan::orderby('created_at','DESC')->count();
+
+        $jml_sudah_verif = DataPesanan::where('status_pembayaran', 1)->count();
+        $jml_belum_verif = DataPesanan::where('status_pembayaran', 0)->count();
+
         $data = DataBarang::orderby('terjual','DESC')->paginate(12);  
 
         if(Auth::user()->hasRole('user')) {
@@ -32,11 +42,19 @@ class DashboardController extends Controller
         }
         else if(Auth::user()->hasRole('administrator')) {
 
-            return view('admins.index', compact('title_admin','jml_pemasok','jml_kategori','jml_pelanggan','jml_barang','jml_pesanan','jml_pembayaran_masuk'));
+            return view('admins.index', compact('title_admin','jml_pembelian','jml_sudah_verif','jml_belum_verif','jml_pesanan','jml_pembayaran_masuk','jml_retur_penjualan'));
         }
         else if(Auth::user()->hasRole('developer')) {
 
             return view('admins.index', compact('title_admin','jml_pemasok','jml_kategori','jml_pelanggan','jml_barang','jml_pesanan','jml_pembayaran_masuk'));
+        }
+        else if(Auth::user()->hasRole('storage')) {
+
+            return view('admins.index', compact('title_admin','jml_pemasok','jml_kategori','jml_pelanggan','jml_barang','jml_penjualan','jml_pembayaran_masuk','jml_pembelian','jml_retur_penjualan'));
+        }
+        else if(Auth::user()->hasRole('pimpinan')) {
+
+            return view('admins.index', compact('title_admin','jml_pemasok','jml_kategori','jml_pelanggan','jml_barang','jml_penjualan','jml_pembayaran_masuk','jml_pembelian','jml_retur_penjualan'));
         }
     }
 }

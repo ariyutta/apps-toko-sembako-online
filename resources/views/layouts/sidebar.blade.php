@@ -50,6 +50,10 @@
                         <li class="menu-title">Admin Panel</li>
                     @elseif(Auth::user()->role_user->role_id == 3)
                         <li class="menu-title">User Panel</li>
+                    @elseif(Auth::user()->role_user->role_id == 4)
+                        <li class="menu-title">Storage Panel</li>
+                    @elseif(Auth::user()->role_user->role_id == 5)
+                        <li class="menu-title">Pimpinan Panel</li>
                     @endif
                         
                     @if(Auth::user()->role_user->role_id == 1)
@@ -70,6 +74,7 @@
                             </ul>
                         </li>
                         <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/verifikasi_pembayaran') }}"><i class="fas fa-money-check mr-2"></i> Verifikasi Pembayaran</a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/retur_penjualan') }}"><i class="fas fa-money-check mr-2"></i> Retur Penjualan</a></li>
                         <li>
                             <a href="javascript: void(0);">
                                 <i class="fas fa-chart-bar"></i>
@@ -81,12 +86,46 @@
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Penjualan</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_pembelian') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Pembelian</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_persediaan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Persediaan</a></li>
+                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_retur_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Retur Penjualan</a></li>
                             </ul>
                         </li>
                         <li><a href="#" onclick="confirm_logout()"><i class="fe-log-out"></i><span> Logout </span></a></li>
                     
                     @elseif(Auth::user()->role_user->role_id == 2)
                         <li><a href="{{ url(''.Auth::user()->role_user->role->name.'') }}"><i class="fas fa-tachometer-alt"></i><span> Dashboard </span></a></li>
+
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fas fa-chart-bar"></i>
+                                <span> Data Admin </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pesanan') }}"><i class="fas fa-window-restore mr-2"></i> Data Pesanan</a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pembelian') }}"><i class="fas fa-window-restore mr-2"></i> Data Pembelian</a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/verifikasi_pembayaran') }}"><i class="fas fa-money-check mr-2"></i> Verif Pembayaran</a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/retur_penjualan') }}"><i class="fas fa-money-check mr-2"></i> Retur Penjualan</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fas fa-chart-bar"></i>
+                                <span> Laporan </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Penjualan</a></li>
+                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_pembelian') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Pembelian</a></li>
+                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_retur_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Retur Penjualan</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#" onclick="confirm_logout()"><i class="fe-log-out"></i><span> Logout </span></a></li>
+
+                    @elseif(Auth::user()->role_user->role_id == 4)
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'') }}"><i class="fas fa-tachometer-alt"></i><span> Dashboard </span></a></li>
+
                         <li>
                             <a href="javascript: void(0);">
                                 <i class="fas fa-chart-bar"></i>
@@ -96,24 +135,21 @@
                             <ul class="nav-second-level" aria-expanded="false">
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pemasok') }}"><i class="fas fa-truck-loading mr-2"></i> Data Pemasok</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_kategori') }}"><i class="fas fa-tags mr-2"></i> Data Kategori</a></li>
+                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pembelian') }}"><i class="fas fa-window-restore mr-2"></i> Data Pembelian</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_barang') }}"><i class="fas fa-th-list mr-2"></i> Data Barang</a></li>
-                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pesanan') }}"><i class="fas fa-window-restore mr-2"></i> Data Pesanan</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/verifikasi_pembayaran') }}"><i class="fas fa-money-check mr-2"></i> Verifikasi Pembayaran</a></li>
-                        <li>
-                            <a href="javascript: void(0);">
-                                <i class="fas fa-chart-bar"></i>
-                                <span> Laporan </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/daftar_pelanggan') }}"><i class="fas fa-users mr-2"></i>Daftar Pelanggan</a></li>
-                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Penjualan</a></li>
-                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_pembelian') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Pembelian</a></li>
-                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_persediaan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Persediaan</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_persediaan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Persediaan</a></li>
+
+                        <li><a href="#" onclick="confirm_logout()"><i class="fe-log-out"></i><span> Logout </span></a></li>
+
+                    @elseif(Auth::user()->role_user->role_id == 5)
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'') }}"><i class="fas fa-tachometer-alt"></i><span> Dashboard </span></a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/daftar_pelanggan') }}"><i class="fas fa-users mr-2"></i>Daftar Pelanggan</a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Penjualan</a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_pembelian') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Pembelian</a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_persediaan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Persediaan</a></li>
+                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_retur_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Retur Penjualan</a></li>
                         <li><a href="#" onclick="confirm_logout()"><i class="fe-log-out"></i><span> Logout </span></a></li>
                     @endif
                 </ul>

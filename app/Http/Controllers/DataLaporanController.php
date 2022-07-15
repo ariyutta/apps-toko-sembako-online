@@ -6,6 +6,7 @@ use App\Models\DataBarang;
 use App\Models\DataKeranjang;
 use App\Models\DataPembelian;
 use App\Models\DataPesananDetail;
+use App\Models\ReturPenjualan;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -43,5 +44,12 @@ class DataLaporanController extends Controller
         $data_barang = DataBarang::orderby('kategori_id','ASC')->get();
 
         return view('admins.data_laporan.persediaan', compact('title_admin','data_barang'));
+    }
+
+    public function laporan_retur_penjualan() {
+        $title_admin = 'Laporan Retur Penjualan';
+        $retur_penjualan = ReturPenjualan::orderby('created_at','DESC')->get();
+
+        return view('admins.data_laporan.retur_penjualan', compact('title_admin','retur_penjualan'));
     }
 }

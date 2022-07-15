@@ -65,4 +65,8 @@ class User extends Authenticatable
     public function pekerjaan() {
         return $this->belongsTo(DataPekerjaan::class, 'pekerjaan_id', 'id');
     }
+
+    public function retur_penjualan() {
+        return $this->hasMany(ReturPenjualan::class, 'id','user_id');
+    }
 }

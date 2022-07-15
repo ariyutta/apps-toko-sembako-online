@@ -23,4 +23,8 @@ class DataPesanan extends Model
     public function payment() {
         return $this->belongsTo(DataPayment::class, 'jenis_pembayaran_id', 'id');
     }
+
+    public function retur_penjualan() {
+        return $this->hasOne(ReturPenjualan::class, 'id', 'pesanan_id');
+    }
 }

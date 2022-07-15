@@ -43,7 +43,6 @@ class DataPemasokController extends Controller
         $data_pemasok = DataPemasok::find($id);
 
         $data_pemasok->update([
-            'nama_barang' => $request->nama_barang,
             'nama_pemasok' => $request->nama_pemasok,
             'alamat' => $request->alamat,
             'no_telp' => $request->no_telp,

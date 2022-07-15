@@ -39,6 +39,7 @@
 
 <!-- Dashboard init js-->
 <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
+<script src="{{ asset('assets_us/libs/select2/select2.min.js') }}"></script>
 
 <!-- datatable js -->
 <script src="{{ asset('assets/libs/datatables/jquery.dataTables.min.js') }}"></script>
@@ -89,6 +90,14 @@
 
 <script>
     $(".loading").hide();
+
+    $(document).ready(function() {
+        $('#barang_id').select2();
+    });
+
+    $(document).ready(function() {
+        $('#pemasok_id').select2();
+    });
     
     function hapus_data_pemasok(id_pemasok) {
         Swal.fire({

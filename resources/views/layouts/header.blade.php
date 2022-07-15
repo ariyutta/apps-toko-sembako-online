@@ -36,6 +36,7 @@
 
         <!-- Plugins css -->
         <link href="{{ asset('assets/libs/x-editable/bootstrap-editable.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets_us/libs/select2/select2.min.css')}}" rel="stylesheet" type="text/css" />
 
         @yield('css')
     </head>

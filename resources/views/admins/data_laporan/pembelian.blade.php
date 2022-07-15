@@ -26,14 +26,21 @@
                                         <th>Kode Barang</th>
                                         <th>Nama Barang</th>
                                         <th>Nama Pemasok</th>
-                                        <th>Jumlah Item</th>
+                                        <th>Jumlah Pembelian</th>
                                         <th>Tanggal</th>
-                                        <th>Kondisi</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    @foreach ($data_pembelian as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->barang->kode_barang }}</td>
+                                            <td>{{ $item->barang->nama_barang }}</td>
+                                            <td>{{ $item->pemasok->nama_pemasok }}</td>
+                                            <td>{{ $item->jumlah_pembelian }}</td>
+                                            <td>{{ $item->created_at }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

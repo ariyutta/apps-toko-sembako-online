@@ -68,10 +68,6 @@
             <form action="{{ url(''.Auth::user()->role_user->role->name.'/data_pemasok/tambah_data') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="nama_barang">Nama Barang</label>
-                    <input type="text" class="form-control" id="nama_barang" name="nama_barang" placeholder="Masukkan Nama Barang">
-                  </div>
-                <div class="form-group">
                   <label for="nama_pemasok">Nama Pemasok</label>
                   <input type="text" class="form-control" id="nama_pemasok" name="nama_pemasok" placeholder="Masukkan Nama Pemasok">
                 </div>

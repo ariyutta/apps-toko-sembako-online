@@ -25,6 +25,12 @@ Route::group(['middleware' =>['auth','role:developer']], function() {
     Route::get('developer/data_pemasok/hapus_data/{id_pemasok}', [App\Http\Controllers\DataPemasokController::class, 'hapus_data_pemasok'])->name('hapus_data_pemasok');
     Route::post('developer/data_pemasok/simpan_data/{id}', [App\Http\Controllers\DataPemasokController::class, 'simpan_data_pemasok'])->name('simpan_data_pemasok');
 
+    Route::get('developer/data_pembelian', [App\Http\Controllers\DataPembelianController::class, 'data_pembelian'])->name('data_pembelian');
+    Route::post('developer/data_pembelian/tambah_data', [App\Http\Controllers\DataPembelianController::class, 'tambah_data_pembelian'])->name('tambah_data_pembelian');
+    Route::get('developer/data_pembelian/ubah_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'ubah_data_pembelian'])->name('ubah_data_pembelian');
+    Route::get('developer/data_pembelian/hapus_data/{id_pembelian}', [App\Http\Controllers\DataPembelianController::class, 'hapus_data_pembelian'])->name('hapus_data_pembelian');
+    Route::post('developer/data_pembelian/simpan_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'simpan_data_pembelian'])->name('simpan_data_pembelian');
+
     Route::get('developer/data_kategori', [App\Http\Controllers\DataKategoriController::class, 'data_kategori'])->name('data_kategori');
     Route::post('developer/data_kategori/tambah_data', [App\Http\Controllers\DataKategoriController::class, 'tambah_data_kategori'])->name('tambah_data_kategori');
     Route::get('developer/data_kategori/ubah_data/{id}', [App\Http\Controllers\DataKategoriController::class, 'ubah_data_kategori'])->name('ubah_data_kategori');

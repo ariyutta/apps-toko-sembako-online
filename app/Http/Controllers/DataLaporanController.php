@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DataBarang;
 use App\Models\DataKeranjang;
+use App\Models\DataPembelian;
 use App\Models\DataPesananDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -32,8 +33,9 @@ class DataLaporanController extends Controller
 
     public function laporan_pembelian() {
         $title_admin = 'Laporan Pembelian';
+        $data_pembelian = DataPembelian::orderby('created_at','DESC')->get();
 
-        return view('admins.data_laporan.pembelian', compact('title_admin'));
+        return view('admins.data_laporan.pembelian', compact('title_admin','data_pembelian'));
     }
 
     public function laporan_persediaan() {

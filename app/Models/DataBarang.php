@@ -27,4 +27,8 @@ class DataBarang extends Model
     public function pemasok() {
         return $this->belongsTo(DataPemasok::class, 'pemasok_id', 'id');
     }
+
+    public function pembelian() {
+        return $this->hasOne(DataPembelian::class, 'id', 'barang_id');
+    }
 }

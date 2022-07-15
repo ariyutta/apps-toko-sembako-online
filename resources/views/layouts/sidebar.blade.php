@@ -63,6 +63,7 @@
                             <ul class="nav-second-level" aria-expanded="false">
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pemasok') }}"><i class="fas fa-truck-loading mr-2"></i> Data Pemasok</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_kategori') }}"><i class="fas fa-tags mr-2"></i> Data Kategori</a></li>
+                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pembelian') }}"><i class="fas fa-window-restore mr-2"></i> Data Pembelian</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_barang') }}"><i class="fas fa-th-list mr-2"></i> Data Barang</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pesanan') }}"><i class="fas fa-window-restore mr-2"></i> Data Pesanan</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_payment') }}"><i class="fas fa-window-restore mr-2"></i> Data Payment</a></li>

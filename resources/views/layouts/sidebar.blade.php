@@ -102,7 +102,6 @@
                             </a>
                             <ul class="nav-second-level" aria-expanded="false">
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pesanan') }}"><i class="fas fa-window-restore mr-2"></i> Data Pesanan</a></li>
-                        <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pembelian') }}"><i class="fas fa-window-restore mr-2"></i> Data Pembelian</a></li>
                         <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/verifikasi_pembayaran') }}"><i class="fas fa-money-check mr-2"></i> Verif Pembayaran</a></li>
                         <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/retur_penjualan') }}"><i class="fas fa-money-check mr-2"></i> Retur Penjualan</a></li>
                             </ul>
@@ -116,7 +115,6 @@
                             </a>
                             <ul class="nav-second-level" aria-expanded="false">
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Penjualan</a></li>
-                                <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_pembelian') }}"><i class="fas fa-chart-bar mr-2"></i>Laporan Pembelian</a></li>
                                 <li><a href="{{ url(''.Auth::user()->role_user->role->name.'/laporan_retur_penjualan') }}"><i class="fas fa-chart-bar mr-2"></i>Retur Penjualan</a></li>
                             </ul>
                         </li>

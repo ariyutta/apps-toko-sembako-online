@@ -36,7 +36,21 @@
                                             <td>{{ $item->user->name }}</td>
                                             <td>{{ $item->pesanan->kode_pesanan }}</td>
                                             <td>{{ 'Rp. '.number_format($item->pesanan->jumlah_total , 0, ",", "."); }}</td>
-                                            <td>{{ $item->kondisi }}</td>
+                                            <td>
+                                                @if($item->kondisi == Null)
+                                                    Null
+                                                @elseif($item->kondisi == 'rusak')
+                                                    Rusak
+                                                @elseif($item->kondisi == 'lecet')
+                                                    Lecet
+                                                @elseif($item->kondisi == 'robek')
+                                                    Robek
+                                                @elseif($item->kondisi == 'pecah')
+                                                    Pecah
+                                                @elseif($item->kondisi == 'lainnya')
+                                                    Lainnya
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

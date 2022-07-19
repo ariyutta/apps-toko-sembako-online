@@ -48,7 +48,7 @@ class DataLaporanController extends Controller
 
     public function laporan_retur_penjualan() {
         $title_admin = 'Laporan Retur Penjualan';
-        $retur_penjualan = ReturPenjualan::orderby('created_at','DESC')->get();
+        $retur_penjualan = ReturPenjualan::where('status_aktif', 2)->orderby('created_at','DESC')->get();
 
         return view('admins.data_laporan.retur_penjualan', compact('title_admin','retur_penjualan'));
     }

@@ -38,7 +38,7 @@
                                 <th>Kode Pesanan</th>
                                 <th>Total Pembayaran</th>
                                 <th>Barang Bukti</th>
-                                <th>Status</th>
+                                <th>Kondisi</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -47,16 +47,38 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->user->name }}</td>
-                                    <td>{{ $item->kode_pesanan }}</td>
-                                    <td>{{ 'Rp. '.number_format($item->jumlah_total , 0, ",", "."); }}</td>
+                                    <td>{{ $item->pesanan->kode_pesanan }}</td>
+                                    <td>{{ 'Rp. '.number_format($item->total_harga_pesanan , 0, ",", "."); }}</td>
                                     <td>
-                                        <button class="btn btn-success btn-sm"><i class="fas fa-eye"></i></button>
+                                      @if(empty($item->bukti_barang))
+                                        <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
+                                      @elseif($item->bukti_barang)
+                                        <button id="set_dtl" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-detail"
+                                          data-bukti_barang="{{ $item->bukti_barang }}"    
+                                      ><i class="fas fa-eye"></i></button>
+                                      @endif 
                                     </td>
                                     <td>
-                                        Kondisi
+                                        @if($item->kondisi == Null)
+                                          Null
+                                        @elseif($item->kondisi == 'rusak')
+                                          Rusak
+                                        @elseif($item->kondisi == 'lecet')
+                                          Lecet
+                                        @elseif($item->kondisi == 'robek')
+                                          Robek
+                                        @elseif($item->kondisi == 'pecah')
+                                          Pecah
+                                        @elseif($item->kondisi == 'lainnya')
+                                          Lainnya
+                                        @endif
                                     </td>
                                     <td>
-                                        <button class="btn btn-purple btn-sm">Return</button>
+                                        @if($item->status_aktif == 1)
+                                          <button type="submit" class="btn btn-purple btn-sm" onclick="terima_retur({{ $item->id }})">Terima Retur</button>
+                                        @elseif($item->status_aktif == 2)
+                                          Berhasil dikembalikan
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -67,34 +89,55 @@
         </div>
     </div>
 
-    {{-- MODAL DETAIL BUKTI PEMBAYARAN --}}
-    {{-- <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Detail Bukti Pembayaran</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <img src="" id="bukti_bayar" width="400" height="450">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-            </div>
-          </div>
+  {{-- MODAL DETAIL BUKTI PEMBAYARAN --}}
+  <div class="modal fade" id="modal-detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Detail Kondisi Barang</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="" id="bukti_barang" width="400" height="450">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
         </div>
       </div>
+    </div>
+  </div>
 @endsection
 
 @section('js')
     <script>
-        $(document).ready(function () {
+      $(document).ready(function () {
             $(document).on('click','#set_dtl', function() {
-                var bukti = $(this).data('bukti_pembayaran');
-                $('#bukti_bayar').attr("src","{{ asset('bukti_pembayaran') }}/"+bukti);
+                var bukti = $(this).data('bukti_barang');
+                $('#bukti_barang').attr("src","{{ asset('bukti_barang') }}/"+bukti);
             })
         })
-    </script> --}}
+
+      function terima_retur(id_retur) {
+            Swal.fire({
+                    title: "Retur Pesanan",
+                    text: "Apakah anda ingin menghapus barang ini dari daftar kerajang?",
+                    icon: "warning",
+                    showCancelButton: !0,
+                    confirmButtonText: "Ya!",
+                    cancelButtonText: "Batal!",
+                    confirmButtonClass: "btn btn-xl btn-success",
+                    cancelButtonClass: "btn btn-xl btn-danger ml-2",
+                    buttonsStyling: !1
+                })
+                .then(function(t) {
+                    if (t.value) {
+                        $(".loading").show();
+                        $.get("{{ url( Auth::user()->role_user->role->name.'/terima_retur') }}/" +id_retur);
+                        location.reload();
+                    }
+                })
+            }
+    </script>
 @endsection

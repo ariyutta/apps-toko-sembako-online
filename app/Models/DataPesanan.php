@@ -25,6 +25,6 @@ class DataPesanan extends Model
     }
 
     public function retur_penjualan() {
-        return $this->hasOne(ReturPenjualan::class, 'id', 'pesanan_id');
+        return $this->hasOne(ReturPenjualan::class, 'pesanan_id');
     }
 }

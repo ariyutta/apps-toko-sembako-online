@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DataBarang;
 use App\Models\DataKategori;
 use App\Models\DataKeranjang;
+use App\Models\DataPayment;
 use App\Models\DataPemasok;
 use App\Models\DataPembelian;
 use App\Models\DataPesanan;
@@ -26,6 +27,7 @@ class DashboardController extends Controller
         $jml_kategori   = DataKategori::all()->count();
         $jml_barang     = DataBarang::all()->count();
         $jml_pesanan    = DataPesanan::all()->count();
+        $jml_payment    = DataPayment::all()->count();
 
         $jml_penjualan        = DataPesananDetail::orderby('created_at','DESC')->count();
         $jml_pembelian        = DataPembelian::orderby('created_at','DESC')->count();
@@ -46,7 +48,7 @@ class DashboardController extends Controller
         }
         else if(Auth::user()->hasRole('developer')) {
 
-            return view('admins.index', compact('title_admin','jml_pemasok','jml_kategori','jml_pelanggan','jml_barang','jml_pesanan','jml_pembayaran_masuk'));
+            return view('admins.index', compact('title_admin','jml_pemasok','jml_kategori','jml_pelanggan','jml_barang','jml_pesanan','jml_pembayaran_masuk','jml_pembelian','jml_payment'));
         }
         else if(Auth::user()->hasRole('storage')) {
 

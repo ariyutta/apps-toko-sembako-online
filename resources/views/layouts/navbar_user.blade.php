@@ -205,12 +205,13 @@
             <div class="logo-box">
                 <a href="{{ url('/home') }}" class="logo text-center">
                     <span class="logo-lg">
-                        <img src="{{ asset('assets_us/images/logo-light.png') }}" alt="" height="16">
-                        <!-- <span class="logo-lg-text-light">UBold</span> -->
+                        {{-- <img src="{{ asset('assets_us/images/logo-light.png') }}" alt="" height="16"> --}}
+                        <span style="font-size: 20px; color:rgb(211, 211, 211);">Panisitawati Hermina Paula</span>
                     </span>
                     <span class="logo-sm">
                         <!-- <span class="logo-sm-text-dark">U</span> -->
-                        <img src="{{ asset('assets_us/images/logo-sm.png') }}" alt="" height="24">
+                        {{-- <img src="{{ asset('assets_us/images/logo-sm.png') }}" alt="" height="24"> --}}
+                        <span style="font-size: 20px; color:rgb(48, 48, 48);">Panisitawati Hermina Paula</span>
                     </span>
                 </a>
             </div>

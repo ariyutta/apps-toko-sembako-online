@@ -14,6 +14,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card-box shadow">
+                <a href="{{ url( Auth::user()->role_user->role->name.'/cetak_laporan_persediaan') }}" class="btn btn-purple btn-sm" target="_blank"><i class="fas fa-print mr-1"></i> Cetak Laporan</a>
                 {{-- <h4>Laporan Persediaan</h4>
                 <hr> --}}
                 <div class="row">

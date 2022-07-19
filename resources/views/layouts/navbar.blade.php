@@ -55,12 +55,14 @@
     <div class="logo-box">
         <a href="{{ url(''.Auth::user()->role_user->role->name.'') }}" class="logo text-center">
             <span class="logo-lg">
-                <img src="{{ asset('assets_us/images/logo-light.png') }}" alt="" height="16">
+                {{-- <img src="{{ asset('assets_us/images/logo-light.png') }}" alt="" height="16"> --}}
                 <!-- <span class="logo-lg-text-light">Xeria</span> -->
+                <span style="font-size: 20px; color:rgb(211, 211, 211);">Panisitawati H.P</span>
             </span>
             <span class="logo-sm">
                 <!-- <span class="logo-sm-text-dark">X</span> -->
-                <img src="{{ asset('assets_us/images/logo-sm.png') }}" alt="" height="24">
+                {{-- <img src="{{ asset('assets_us/images/logo-sm.png') }}" alt="" height="24"> --}}
+                <span style="font-size: 20px; color:rgb(48, 48, 48);">Panisitawati Hermina Paula</span>
             </span>
         </a>
     </div>

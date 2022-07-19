@@ -61,6 +61,8 @@
     <!-- Datatables init -->
     <script src="{{ asset('assets_us/js/pages/datatables.init.js') }}"></script>
 
+    @yield('js')
+
     <script>
         $(".loading").hide();
         

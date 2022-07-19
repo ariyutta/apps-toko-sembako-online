@@ -29,7 +29,8 @@
                                 <th>Harga Total</th>
                                 <th>Status Pembayaran</th>
                                 <th>Status Pesanan</th>
-                                <th></th>
+                                <th>Lihat</th>
+                                <th>Retur Pesanan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,7 +55,16 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a style="font-weight: bold" href="{{ url('home/status_pesanan/detail/'. $item->id) }}" class="btn btn-purple btn-sm"><i class="far fa-eye mr-1"></i> Lihat</a>
+                                        <a style="font-weight: bold" href="{{ url('home/status_pesanan/detail/'. $item->id) }}" class="btn btn-purple btn-sm"><i class="far fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        @if($item->retur_penjualan == Null)
+                                            <a style="font-weight: bold" href="{{ url('home/retur_pesanan/'. $item->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-dumpster-fire mr-1"></i> Ajukan</a>
+                                        @elseif($item->retur_penjualan->status_aktif == 1)
+                                            Sedang diproses
+                                        @elseif($item->retur_penjualan->status_aktif == 2)
+                                            Pesanan dibatalkan
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

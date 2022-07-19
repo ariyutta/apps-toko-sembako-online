@@ -16,6 +16,7 @@
             <div class="card-box shadow">
                 {{-- <h4>Data Pelanggan</h4>
                 <hr> --}}
+                <a href="{{ url( Auth::user()->role_user->role->name.'/cetak_daftar_pelanggan') }}" class="btn btn-purple btn-sm" target="_blank"><i class="fas fa-print mr-1"></i> Cetak Laporan</a>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive mt-3">

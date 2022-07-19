@@ -56,6 +56,7 @@ Route::group(['middleware' =>['auth','role:developer']], function() {
     Route::get('developer/verifikasi_pembayaran/batal/{id_batal_bayar}', [App\Http\Controllers\DataPembayaranController::class, 'batal_verif'])->name('batal_verif');
 
     Route::get('developer/retur_penjualan', [App\Http\Controllers\ReturPenjualanController::class, 'retur_penjualan'])->name('retur_penjualan');
+    Route::get('developer/terima_retur/{id_retur}', [App\Http\Controllers\ReturPenjualanController::class, 'terima_retur'])->name('terima_retur');
 
     Route::get('developer/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
     Route::get('developer/laporan_pembelian', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian'])->name('laporan_pembelian');
@@ -68,6 +69,11 @@ Route::group(['middleware' =>['auth','role:developer']], function() {
     Route::post('developer/simpan_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'simpan_accounts'])->name('simpan_accounts');
     Route::get('developer/ubah_password', [App\Http\Controllers\DataAuthController::class, 'ubah_password'])->name('ubah_password');
     Route::put('developer/update_password', [App\Http\Controllers\DataAuthController::class, 'update_password'])->name('update_password');
+
+    Route::get('developer/cetak_daftar_pelanggan', [App\Http\Controllers\DataCetakController::class, 'cetak_daftar_pelanggan'])->name('cetak_daftar_pelanggan');
+    Route::get('developer/cetak_laporan_pembelian', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_pembelian'])->name('cetak_laporan_pembelian');
+    Route::get('developer/cetak_laporan_penjualan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_penjualan'])->name('cetak_laporan_penjualan');
+    Route::get('developer/cetak_laporan_persediaan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_persediaan'])->name('cetak_laporan_persediaan');
 });
 
 // Untuk Login Administrator
@@ -76,20 +82,14 @@ Route::group(['middleware' =>['auth','role:administrator']], function() {
 
     Route::get('administrator/data_pesanan', [App\Http\Controllers\DataPesananController::class, 'data_pesanan'])->name('data_pesanan');
 
-    Route::get('administrator/data_pembelian', [App\Http\Controllers\DataPembelianController::class, 'data_pembelian'])->name('data_pembelian');
-    Route::post('administrator/data_pembelian/tambah_data', [App\Http\Controllers\DataPembelianController::class, 'tambah_data_pembelian'])->name('tambah_data_pembelian');
-    Route::get('administrator/data_pembelian/ubah_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'ubah_data_pembelian'])->name('ubah_data_pembelian');
-    Route::get('administrator/data_pembelian/hapus_data/{id_pembelian}', [App\Http\Controllers\DataPembelianController::class, 'hapus_data_pembelian'])->name('hapus_data_pembelian');
-    Route::post('administrator/data_pembelian/simpan_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'simpan_data_pembelian'])->name('simpan_data_pembelian');
-
     Route::get('administrator/retur_penjualan', [App\Http\Controllers\ReturPenjualanController::class, 'retur_penjualan'])->name('retur_penjualan');
+    Route::get('administrator/terima_retur/{id_retur}', [App\Http\Controllers\ReturPenjualanController::class, 'terima_retur'])->name('terima_retur');
 
     Route::get('administrator/verifikasi_pembayaran', [App\Http\Controllers\DataPembayaranController::class, 'verifikasi_pembayaran'])->name('verifikasi_pembayaran');
     Route::get('administrator/verifikasi_pembayaran/verif/{id_verif_bayar}', [App\Http\Controllers\DataPembayaranController::class, 'verif_bayar'])->name('verif_bayar');
     Route::get('administrator/verifikasi_pembayaran/batal/{id_batal_bayar}', [App\Http\Controllers\DataPembayaranController::class, 'batal_verif'])->name('batal_verif');
 
     Route::get('administrator/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
-    Route::get('administrator/laporan_pembelian', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian'])->name('laporan_pembelian');
     Route::get('administrator/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
     Route::get('administrator/laporan_retur_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan'])->name('laporan_retur_penjualan');
 
@@ -171,6 +171,10 @@ Route::group(['middleware' =>['auth', 'role:user']], function() {
     Route::get('home/getcity', [App\Http\Controllers\OngkirAPIController::class, 'getcity'])->name('getcity');
     Route::get('home/checkshipping', [App\Http\Controllers\OngkirAPIController::class, 'checkshipping'])->name('checkshipping');
     Route::get('home/processShipping', [App\Http\Controllers\OngkirAPIController::class, 'processShipping'])->name('processShipping');
+
+    // Halaman Retur Pesanan
+    Route::get('home/retur_pesanan/{id_pesanan}', [App\Http\Controllers\PagesReturPesananController::class, 'retur_pesanan'])->name('retur_pesanan');
+    Route::post('home/ajukan_retur_pesanan', [App\Http\Controllers\PagesReturPesananController::class, 'tambah_retur'])->name('tambah_retur');
 });
 
 Route::group(['middleware' =>['auth','role:pimpinan']], function() {

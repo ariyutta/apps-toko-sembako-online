@@ -122,6 +122,28 @@
                     </div>
                 </a>
             </div>
+
+            <div class="col-sm-3">
+                <a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pembelian') }}">
+                    <div class="card-box shadow">
+                        <h4>Total Pembelian</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-8 mt-1">
+                                <i class="fas fa-window-restore fa-3x"></i>
+                            </div>
+                            <div class="col-4">
+                                <div class="d-flex justify-content-end">
+                                    <h1>{{ $jml_pembelian }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <h5>Item</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     
     @elseif(Auth::user()->role_user->role->name == 'administrator')
@@ -139,28 +161,6 @@
                             <div class="col-4">
                                 <div class="d-flex justify-content-end">
                                     <h1>{{ $jml_pesanan }}</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <h5>Item</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-sm-3">
-                <a href="{{ url(''.Auth::user()->role_user->role->name.'/data_pembelian') }}">
-                    <div class="card-box shadow">
-                        <h4>Total Pembelian</h4>
-                        <hr>
-                        <div class="row">
-                            <div class="col-8 mt-1">
-                                <i class="fas fa-truck-loading fa-3x"></i>
-                            </div>
-                            <div class="col-4">
-                                <div class="d-flex justify-content-end">
-                                    <h1>{{ $jml_pembelian }}</h1>
                                 </div>
                             </div>
                         </div>

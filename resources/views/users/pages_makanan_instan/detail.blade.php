@@ -27,15 +27,15 @@
                         </fieldset>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Masukkan Keranjang</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Masukkan Keranjang</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Beli Sekarang</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Beli Sekarang</a>
                             </li>
-                          </ul>
+                        </ul>
 
 
-                          <div class="tab-content" id="myTabContent">
+                        <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <form action="{{ url('home/tambah_keranjang/'.$data->id) }}" method="POST">
                                     {{ csrf_field() }}
@@ -104,9 +104,73 @@
                                     </div>
                                 </form>
                             </div>
-                          </div>
+                        </div>
+                    </div>
+                    <div class="container mt-3">
+                        <h4>Ulasan Komentar</h4>
+                        <div class="card-box">
+                            @foreach ($data_ulasan as $item)
+                                @if(!empty($data_ulasan))
+                                    <div class="row">
+                                        <div class="col-sm-1" style="margin-left: -20px">
+                                            <img src="{{ asset('gambar_profil/'.$item->user->gambar_profil) }}" alt="user-image" class="rounded-circle mt-2" height="40">
+                                        </div>
+                                        <div class="col-sm-11" style="margin-left: -20px">
+                                            <h5>{{ $item->user->name }} <br><span style="font-weight: 100">{{ $item->created_at }} <br></span>
+                                                <br> 
+                                                @if($item->rating == Null)
+                                                    ☆☆☆☆☆
+                                                @elseif($item->rating == 1)
+                                                    ★☆☆☆☆
+                                                @elseif($item->rating == 2)
+                                                    ★★☆☆☆
+                                                @elseif($item->rating == 3)
+                                                    ★★★☆☆
+                                                @elseif($item->rating == 4)
+                                                    ★★★★☆
+                                                @elseif($item->rating == 5)
+                                                    ★★★★★
+                                                @endif
+                                            </h5>
+                                            <p>{{ $item->komentar }}</p>
+                                        </div>
+                                    </div>
+                                @else
+                                    Tidak Ada Komentar    
+                                @endif
+                            @endforeach
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            {{ $data_ulasan->links() }}
+                        </div>
                     </div>
                 </div>
+                <form action="{{ url('home/tambah_ulasan') }}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" id="barang_id" name="barang_id" value="{{ $data->id }}" />
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="rating">Rating</label>
+                            <select class="form-control" id="rating" name="rating">
+                            <option value="">-- Silahkan Pilih Rating --</option>
+                            <option value="1">★ 1</option>
+                            <option value="2">★ 2</option>
+                            <option value="3">★ 3</option>
+                            <option value="4">★ 4</option>
+                            <option value="5">★ 5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="komentar">Tulis Komentar</label>
+                            <textarea class="form-control" id="komentar" name="komentar" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-success btn-sm">Kirim Komentar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

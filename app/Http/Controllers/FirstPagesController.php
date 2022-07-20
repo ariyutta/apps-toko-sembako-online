@@ -46,7 +46,9 @@ class FirstPagesController extends Controller
         $data = DataBarang::find($id);
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        return view('users.pages_bahan_pokok.detail', compact('title_user','data','notif_cart'));
+        $data_ulasan = DataUlasan::where('barang_id', $data->id)->paginate(10);
+
+        return view('users.pages_bahan_pokok.detail', compact('title_user','data','notif_cart','data_ulasan'));
     }
 
     public function makanan_instan() {
@@ -62,7 +64,9 @@ class FirstPagesController extends Controller
         $data = DataBarang::find($id);
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        return view('users.pages_makanan_instan.detail', compact('title_user','data','notif_cart'));
+        $data_ulasan = DataUlasan::where('barang_id', $data->id)->paginate(10);
+
+        return view('users.pages_makanan_instan.detail', compact('title_user','data','notif_cart','data_ulasan'));
     }
 
     public function makanan_ringan() {
@@ -78,7 +82,9 @@ class FirstPagesController extends Controller
         $data = DataBarang::find($id);
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        return view('users.pages_makanan_ringan.detail', compact('title_user','data','notif_cart'));
+        $data_ulasan = DataUlasan::where('barang_id', $data->id)->paginate(10);
+
+        return view('users.pages_makanan_ringan.detail', compact('title_user','data','notif_cart','data_ulasan'));
     }
 
     public function minuman() {
@@ -94,7 +100,9 @@ class FirstPagesController extends Controller
         $data = DataBarang::find($id);
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        return view('users.pages_minuman.detail', compact('title_user','data','notif_cart'));
+        $data_ulasan = DataUlasan::where('barang_id', $data->id)->paginate(10);
+
+        return view('users.pages_minuman.detail', compact('title_user','data','notif_cart','data_ulasan'));
     }
 
     public function kebersihan_rumah() {
@@ -110,7 +118,9 @@ class FirstPagesController extends Controller
         $data = DataBarang::find($id);
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        return view('users.pages_kebersihan_rumah.detail', compact('title_user','data','notif_cart'));
+        $data_ulasan = DataUlasan::where('barang_id', $data->id)->paginate(10);
+
+        return view('users.pages_kebersihan_rumah.detail', compact('title_user','data','notif_cart','data_ulasan'));
     }
 
     public function perawatan_tubuh() {
@@ -126,7 +136,9 @@ class FirstPagesController extends Controller
         $data = DataBarang::find($id);
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        return view('users.pages_perawatan_tubuh.detail', compact('title_user','data','notif_cart'));
+        $data_ulasan = DataUlasan::where('barang_id', $data->id)->paginate(10);
+
+        return view('users.pages_perawatan_tubuh.detail', compact('title_user','data','notif_cart','data_ulasan'));
     }
 
     public function perawatan_rambut() {
@@ -142,7 +154,9 @@ class FirstPagesController extends Controller
         $data = DataBarang::find($id);
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        return view('users.pages_perawatan_rambut.detail', compact('title_user','data','notif_cart'));
+        $data_ulasan = DataUlasan::where('barang_id', $data->id)->paginate(10);
+
+        return view('users.pages_perawatan_rambut.detail', compact('title_user','data','notif_cart','data_ulasan'));
     }
 
     public function tambah_ulasan(Request $request) {

@@ -74,6 +74,7 @@ Route::group(['middleware' =>['auth','role:developer']], function() {
     Route::get('developer/cetak_laporan_pembelian', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_pembelian'])->name('cetak_laporan_pembelian');
     Route::get('developer/cetak_laporan_penjualan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_penjualan'])->name('cetak_laporan_penjualan');
     Route::get('developer/cetak_laporan_persediaan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_persediaan'])->name('cetak_laporan_persediaan');
+    Route::get('developer/cetak_retur_penjualan', [App\Http\Controllers\DataCetakController::class, 'cetak_retur_penjualan'])->name('cetak_retur_penjualan');
 });
 
 // Untuk Login Administrator
@@ -92,6 +93,10 @@ Route::group(['middleware' =>['auth','role:administrator']], function() {
     Route::get('administrator/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
     Route::get('administrator/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
     Route::get('administrator/laporan_retur_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan'])->name('laporan_retur_penjualan');
+
+    Route::get('administrator/cetak_laporan_penjualan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_penjualan'])->name('cetak_laporan_penjualan');
+    Route::get('administrator/cetak_laporan_persediaan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_persediaan'])->name('cetak_laporan_persediaan');
+    Route::get('administrator/cetak_retur_penjualan', [App\Http\Controllers\DataCetakController::class, 'cetak_retur_penjualan'])->name('cetak_retur_penjualan');
 
     Route::get('administrator/accounts', [App\Http\Controllers\DataAccountController::class, 'accounts'])->name('accounts');
     Route::get('administrator/edit_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'edit_accounts'])->name('edit_accounts');
@@ -175,6 +180,9 @@ Route::group(['middleware' =>['auth', 'role:user']], function() {
     // Halaman Retur Pesanan
     Route::get('home/retur_pesanan/{id_pesanan}', [App\Http\Controllers\PagesReturPesananController::class, 'retur_pesanan'])->name('retur_pesanan');
     Route::post('home/ajukan_retur_pesanan', [App\Http\Controllers\PagesReturPesananController::class, 'tambah_retur'])->name('tambah_retur');
+
+    // Ulasan Komentar
+    Route::post('home/tambah_ulasan', [App\Http\Controllers\FirstPagesController::class, 'tambah_ulasan'])->name('tambah_ulasan');
 });
 
 Route::group(['middleware' =>['auth','role:pimpinan']], function() {
@@ -191,6 +199,12 @@ Route::group(['middleware' =>['auth','role:pimpinan']], function() {
     Route::post('pimpinan/simpan_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'simpan_accounts'])->name('simpan_accounts');
     Route::get('pimpinan/ubah_password', [App\Http\Controllers\DataAuthController::class, 'ubah_password'])->name('ubah_password');
     Route::put('pimpinan/update_password', [App\Http\Controllers\DataAuthController::class, 'update_password'])->name('update_password');
+
+    Route::get('pimpinan/cetak_daftar_pelanggan', [App\Http\Controllers\DataCetakController::class, 'cetak_daftar_pelanggan'])->name('cetak_daftar_pelanggan');
+    Route::get('pimpinan/cetak_laporan_pembelian', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_pembelian'])->name('cetak_laporan_pembelian');
+    Route::get('pimpinan/cetak_laporan_penjualan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_penjualan'])->name('cetak_laporan_penjualan');
+    Route::get('pimpinan/cetak_laporan_persediaan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_persediaan'])->name('cetak_laporan_persediaan');
+    Route::get('pimpinan/cetak_retur_penjualan', [App\Http\Controllers\DataCetakController::class, 'cetak_retur_penjualan'])->name('cetak_retur_penjualan');
 });
 
 Route::group(['middleware' =>['auth','role:storage']], function() {
@@ -221,6 +235,8 @@ Route::group(['middleware' =>['auth','role:storage']], function() {
     Route::post('storage/data_pembelian/simpan_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'simpan_data_pembelian'])->name('simpan_data_pembelian');
 
     Route::get('storage/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
+
+    Route::get('storage/cetak_laporan_persediaan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_persediaan'])->name('cetak_laporan_persediaan');
 
     Route::get('storage/accounts', [App\Http\Controllers\DataAccountController::class, 'accounts'])->name('accounts');
     Route::get('storage/edit_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'edit_accounts'])->name('edit_accounts');

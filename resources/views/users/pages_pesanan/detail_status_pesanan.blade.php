@@ -49,7 +49,11 @@
                         <th style="text-indent: 20px">:</th>
                         <th style="text-indent: 20px">
                             @if($data_pesanan->status_pembayaran == 0)
-                                Belum Lunas
+                                @if(empty($data_pesanan->bukti_pembayaran))
+                                    Belum Lunas
+                                @else
+                                    Pembayaran sedang diproses
+                                @endif
                             @elseif($data_pesanan->status_pembayaran == 1)
                                 Sudah Lunas
                             @endif
@@ -109,12 +113,16 @@
                         </table>
                         <hr>
                         <div class="d-flex justify-content-end mb-2">
-                            @if($data_pesanan->status_pesanan != 1)
-                                <button style="font-weight: bold" class="btn btn-purple btn-sm mr-2" onclick="confirm_terima_pesanan({{ $data_pesanan->id }})">Konfirmasi Terima Barang</button>
-                            @endif
-
-                            @if($data_pesanan->status_pembayaran != 1)
-                                <a style="font-weight: bold" href="{{ url('home/pembayaran_pesanan/'.$data_pesanan->id) }}" class="btn btn-success mr-2">Lanjutkan Pembayaran</a>
+                            @if($data_pesanan->status_pembayaran == 1)
+                                @if($data_pesanan->status_pesanan == 0)
+                                    <button style="font-weight: bold" class="btn btn-purple btn-sm mr-2" onclick="confirm_terima_pesanan({{ $data_pesanan->id }})">Konfirmasi Terima Barang</button>
+                                @else
+                                    {{--  --}}
+                                @endif
+                            @else
+                                @if(empty($data_pesanan->bukti_pembayaran))
+                                    <a style="font-weight: bold" href="{{ url('home/pembayaran_pesanan/'.$data_pesanan->id) }}" class="btn btn-success mr-2">Lanjutkan Pembayaran</a>
+                                @endif
                             @endif
                             <a style="font-weight: bold" href="{{ url('home/status_pesanan') }}" class="btn btn-secondary">Kembali</a>
                         </div>

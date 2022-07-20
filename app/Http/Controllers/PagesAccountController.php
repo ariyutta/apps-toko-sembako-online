@@ -29,12 +29,12 @@ class PagesAccountController extends Controller
         $data = User::where('id', $user)->first();
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        $agama = DataAgama::all();
-        $select_agama = DataAgama::find($data->agama_id);
-        $pekerjaan = DataPekerjaan::all();
-        $select_pekerjaan = DataPekerjaan::find($data->pekerjaan_id);
+        // $agama = DataAgama::all();
+        // $select_agama = DataAgama::find($data->agama_id);
+        // $pekerjaan = DataPekerjaan::all();
+        // $select_pekerjaan = DataPekerjaan::find($data->pekerjaan_id);
 
-        return view('users.pages_auth.edit_accounts', compact('title_user','data','agama','select_agama','pekerjaan','select_pekerjaan','notif_cart'));
+        return view('users.pages_auth.edit_accounts', compact('title_user','data','notif_cart'));
     }
 
     public function simpan_accounts(Request $request, $id) {
@@ -42,18 +42,18 @@ class PagesAccountController extends Controller
         $req = $request->all();
         $filename  = public_path('gambar_profil/').$get_accounts->gambar_profil;
 
-        if($request->agama_id == '*') {
-            Alert::warning('Perhatian', 'Form tidak boleh kosong!');
-            return redirect()->back();
-        }
-        else if($request->pekerjaan_id == '*') {
-            Alert::warning('Perhatian', 'Form tidak boleh kosong!');
-            return redirect()->back();
-        }
-        else if($request->jenis_kelamin == '*') {
-            Alert::warning('Perhatian', 'Form tidak boleh kosong!');
-            return redirect()->back();
-        }
+        // if($request->agama_id == '*') {
+        //     Alert::warning('Perhatian', 'Form tidak boleh kosong!');
+        //     return redirect()->back();
+        // }
+        // else if($request->pekerjaan_id == '*') {
+        //     Alert::warning('Perhatian', 'Form tidak boleh kosong!');
+        //     return redirect()->back();
+        // }
+        // else if($request->jenis_kelamin == '*') {
+        //     Alert::warning('Perhatian', 'Form tidak boleh kosong!');
+        //     return redirect()->back();
+        // }
 
         if(isset($req['gambar_profil'])) {
 
@@ -119,11 +119,11 @@ class PagesAccountController extends Controller
                 if($request->gambar_profil == Null) {
                     $get_accounts->pelanggan_id = mt_rand(100000000, 999999999);
                     $get_accounts->name = $request->name;
-                    $get_accounts->tempat_lahir = $request->tempat_lahir;
-                    $get_accounts->tgl_lahir = $request->tgl_lahir;
-                    $get_accounts->jenis_kelamin = $request->jenis_kelamin;
-                    $get_accounts->agama_id = $request->agama_id;
-                    $get_accounts->pekerjaan_id = $request->pekerjaan_id;
+                    // $get_accounts->tempat_lahir = $request->tempat_lahir;
+                    // $get_accounts->tgl_lahir = $request->tgl_lahir;
+                    // $get_accounts->jenis_kelamin = $request->jenis_kelamin;
+                    // $get_accounts->agama_id = $request->agama_id;
+                    // $get_accounts->pekerjaan_id = $request->pekerjaan_id;
                     $get_accounts->no_telp = $request->no_telp;
                     $get_accounts->alamat = $request->alamat;
                     $get_accounts->status_verifikasi = 1;
@@ -131,11 +131,11 @@ class PagesAccountController extends Controller
                 }
                 else {
                     $get_accounts->name = $request->name;
-                    $get_accounts->tempat_lahir = $request->tempat_lahir;
-                    $get_accounts->tgl_lahir = $request->tgl_lahir;
-                    $get_accounts->jenis_kelamin = $request->jenis_kelamin;
-                    $get_accounts->agama_id = $request->agama_id;
-                    $get_accounts->pekerjaan_id = $request->pekerjaan_id;
+                    // $get_accounts->tempat_lahir = $request->tempat_lahir;
+                    // $get_accounts->tgl_lahir = $request->tgl_lahir;
+                    // $get_accounts->jenis_kelamin = $request->jenis_kelamin;
+                    // $get_accounts->agama_id = $request->agama_id;
+                    // $get_accounts->pekerjaan_id = $request->pekerjaan_id;
                     $get_accounts->no_telp = $request->no_telp;
                     $get_accounts->alamat = $request->alamat;
                     $get_accounts->gambar_profil = $nama_foto;
@@ -146,11 +146,11 @@ class PagesAccountController extends Controller
            else {
                 if($request->gambar_profil == Null) {
                     $get_accounts->name = $request->name;
-                    $get_accounts->tempat_lahir = $request->tempat_lahir;
-                    $get_accounts->tgl_lahir = $request->tgl_lahir;
-                    $get_accounts->jenis_kelamin = $request->jenis_kelamin;
-                    $get_accounts->agama_id = $request->agama_id;
-                    $get_accounts->pekerjaan_id = $request->pekerjaan_id;
+                    // $get_accounts->tempat_lahir = $request->tempat_lahir;
+                    // $get_accounts->tgl_lahir = $request->tgl_lahir;
+                    // $get_accounts->jenis_kelamin = $request->jenis_kelamin;
+                    // $get_accounts->agama_id = $request->agama_id;
+                    // $get_accounts->pekerjaan_id = $request->pekerjaan_id;
                     $get_accounts->no_telp = $request->no_telp;
                     $get_accounts->alamat = $request->alamat;
                     $get_accounts->status_verifikasi = 1;
@@ -158,11 +158,11 @@ class PagesAccountController extends Controller
                 }
                 else {
                     $get_accounts->name = $request->name;
-                    $get_accounts->tempat_lahir = $request->tempat_lahir;
-                    $get_accounts->tgl_lahir = $request->tgl_lahir;
-                    $get_accounts->jenis_kelamin = $request->jenis_kelamin;
-                    $get_accounts->agama_id = $request->agama_id;
-                    $get_accounts->pekerjaan_id = $request->pekerjaan_id;
+                    // $get_accounts->tempat_lahir = $request->tempat_lahir;
+                    // $get_accounts->tgl_lahir = $request->tgl_lahir;
+                    // $get_accounts->jenis_kelamin = $request->jenis_kelamin;
+                    // $get_accounts->agama_id = $request->agama_id;
+                    // $get_accounts->pekerjaan_id = $request->pekerjaan_id;
                     $get_accounts->no_telp = $request->no_telp;
                     $get_accounts->alamat = $request->alamat;
                     $get_accounts->gambar_profil = $nama_foto;

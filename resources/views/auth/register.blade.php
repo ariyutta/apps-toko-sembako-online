@@ -46,7 +46,7 @@
             </div>
 
             {{-- select Option Rol Type --}}
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 <x-label for="role_id" value="{{ __('Register as:') }}" />
                 <select name="role_id" class="block mt-1 w-full border-gray-300
                 focus:border-indigo-300 focus:ring focus:ring-indigo-200
@@ -54,7 +54,7 @@
                 <option value="user">User</option>
                 <option value="administrator">Administrator</option>
             </select>
-            </div>
+            </div> --}}
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">

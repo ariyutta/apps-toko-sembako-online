@@ -69,4 +69,8 @@ class User extends Authenticatable
     public function retur_penjualan() {
         return $this->hasMany(ReturPenjualan::class, 'id','user_id');
     }
+
+    public function ulasan() {
+        return $this->hasOne(DataUlasan::class, 'id','user_id');
+    }
 }

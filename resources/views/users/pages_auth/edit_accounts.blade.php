@@ -62,7 +62,7 @@
                                                 @endif
                                             </td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <td width="35%">Tempat/Tanggal Lahir</td>
                                             <td width="65%">
                                                 @if($data->tempat_lahir == Null && $data->tanggal_lahir == Null)
@@ -109,7 +109,7 @@
                                                     @endforeach
                                                 </select>
                                             </td>
-                                        </tr>
+                                        </tr> --}}
                                         <tr>
                                             <td width="35%">Alamat</td>
                                             <td width="65%">

@@ -122,7 +122,7 @@
       function terima_retur(id_retur) {
             Swal.fire({
                     title: "Retur Pesanan",
-                    text: "Apakah anda ingin menghapus barang ini dari daftar kerajang?",
+                    text: "Apakah anda ingin mengembalikan pesanan ini?",
                     icon: "warning",
                     showCancelButton: !0,
                     confirmButtonText: "Ya!",

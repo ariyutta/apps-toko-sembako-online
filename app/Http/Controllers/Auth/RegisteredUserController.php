@@ -46,10 +46,10 @@ class RegisteredUserController extends Controller
         $user->password = Hash::make($request->password);
         $user->status_verifikasi = 0;
         $user->gambar_profil = 'default/default.png';
-        $user->role_id = $request->role_id;
+        $user->role_id = 'user';
         $user->save();
 
-        $user->attachRole($request->role_id);
+        $user->attachRole('user');
         event(new Registered($user));
 
         Auth::login($user);

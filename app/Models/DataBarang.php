@@ -31,4 +31,8 @@ class DataBarang extends Model
     public function pembelian() {
         return $this->hasOne(DataPembelian::class, 'id', 'barang_id');
     }
+
+    public function ulasan() {
+        return $this->hasOne(DataUlasan::class, 'id', 'barang_id');
+    }
 }

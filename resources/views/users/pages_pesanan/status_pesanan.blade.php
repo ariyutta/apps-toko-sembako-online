@@ -42,7 +42,11 @@
                                     <td>{{ 'Rp. '.number_format($item->jumlah_total , 0, ",", "."); }}</td>
                                     <td>
                                         @if($item->status_pembayaran == 0)
-                                            <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
+                                            @if(empty($item->bukti_pembayaran))
+                                                <span style="font-size: 14px" class="badge badge-warning">Belum Lunas</span>
+                                            @else
+                                                <span style="font-size: 14px" class="badge badge-primary">Sedang diproses</span>
+                                            @endif
                                         @elseif($item->status_pembayaran == 1)
                                             <span style="font-size: 14px" class="badge badge-success">Sudah Lunas</span>
                                         @endif
@@ -58,12 +62,16 @@
                                         <a style="font-weight: bold" href="{{ url('home/status_pesanan/detail/'. $item->id) }}" class="btn btn-purple btn-sm"><i class="far fa-eye"></i></a>
                                     </td>
                                     <td>
-                                        @if($item->retur_penjualan == Null)
-                                            <a style="font-weight: bold" href="{{ url('home/retur_pesanan/'. $item->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-dumpster-fire mr-1"></i> Ajukan</a>
-                                        @elseif($item->retur_penjualan->status_aktif == 1)
-                                            Sedang diproses
-                                        @elseif($item->retur_penjualan->status_aktif == 2)
-                                            Pesanan dibatalkan
+                                        @if($item->status_pesanan == 0)
+                                            Belum Tersedia
+                                        @else
+                                            @if($item->retur_penjualan == Null)
+                                                <a style="font-weight: bold" href="{{ url('home/retur_pesanan/'. $item->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-dumpster-fire mr-1"></i> Ajukan</a>
+                                            @elseif($item->retur_penjualan->status_aktif == 1)
+                                                Sedang diproses
+                                            @elseif($item->retur_penjualan->status_aktif == 2)
+                                                Pesanan dibatalkan
+                                            @endif
                                         @endif
                                     </td>
                                 </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DataBarang;
 use App\Models\DataKeranjang;
 use App\Models\DataPesanan;
+use App\Models\DataUlasan;
 use App\Models\DataWilayah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,9 @@ class FirstPagesController extends Controller
         $data = DataBarang::find($id);
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
-        return view('users.detail', compact('title_user','data','notif_cart'));
+        $data_ulasan = DataUlasan::where('barang_id', $data->id)->paginate(10);
+
+        return view('users.detail', compact('title_user','data','notif_cart','data_ulasan'));
     }
 
     public function bahan_pokok() {
@@ -140,6 +143,17 @@ class FirstPagesController extends Controller
         $notif_cart = DataKeranjang::where('status_notif','!=', 0)->count();
 
         return view('users.pages_perawatan_rambut.detail', compact('title_user','data','notif_cart'));
+    }
+
+    public function tambah_ulasan(Request $request) {
+        $data_ulasan = new DataUlasan();
+        $data_ulasan->user_id = Auth::user()->id;
+        $data_ulasan->barang_id = $request->barang_id;
+        $data_ulasan->komentar = $request->komentar;
+        $data_ulasan->rating = $request->rating;
+        $data_ulasan->save();
+
+        return redirect()->back();
     }
 
 }

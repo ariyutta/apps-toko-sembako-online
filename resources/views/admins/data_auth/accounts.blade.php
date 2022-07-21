@@ -42,9 +42,9 @@
                                             {{ $data->name }}
                                         </td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <td width="35%">Tempat/Tanggal Lahir</td>
-                                        {{-- <td width="65%"><a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username">{{ $data->nik }}</a></td> --}}
+                                        
                                         <td width="65%">
                                             @if($data->tempat_lahir == Null && $data->tgl_lahir == Null)
                                                 <span style="color: orange">Belum Diisi</span>
@@ -55,8 +55,7 @@
                                     </tr>
                                     <tr>
                                         <td width="35%">Jenis Kelamin</td>
-                                        {{-- <td width="65%"><a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username">{{ $data->nik }}</a></td> --}}
-                                        {{-- <td width="65%">Belum Tersedia</td> --}}
+                                       
                                         <td width="65%">
                                             @if($data->jenis_kelamin == Null)
                                                 <span style="color: orange">Belum Diisi</span>
@@ -71,7 +70,7 @@
                                     </tr>
                                     <tr>
                                         <td width="35%">Agama</td>
-                                        {{-- <td width="65%"><a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username">{{ $data->nik }}</a></td> --}}
+                                        
                                         <td width="65%">
                                             @if($data->agama == Null)
                                                 <span style="color: orange">Belum Diisi</span>
@@ -82,7 +81,7 @@
                                     </tr>
                                     <tr>
                                         <td width="35%">Pekerjaan</td>
-                                        {{-- <td width="65%"><a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username">{{ $data->nik }}</a></td> --}}
+                                        
                                         <td width="65%">
                                             @if($data->pekerjaan == Null)
                                                 <span style="color: orange">Belum Diisi</span>
@@ -90,7 +89,7 @@
                                                 {{ $data->pekerjaan->nama_pekerjaan }}
                                             @endif
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
                                         <td width="35%">Alamat</td>
                                         {{-- <td width="65%"><a href="#" id="inline-username" data-type="text" data-pk="1" data-title="Enter username">{{ $data->nik }}</a></td> --}}

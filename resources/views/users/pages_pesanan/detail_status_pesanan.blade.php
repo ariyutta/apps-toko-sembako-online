@@ -90,7 +90,7 @@
                                         <td>
                                             <img src="{{ asset('gambar_barang/'.$item->barang->gambar_barang) }}" alt="" height="100px">
                                         </td>
-                                        <td>{{ $item->barang->nama_barang }}</td>
+                                        <td><a href="{{ url('home/detail/'.$item->barang->id) }}">{{ $item->barang->nama_barang }}</a></td>
                                         <td>{{ $item->jumlah_item }}</td>
                                         <td>{{ 'Rp. '.number_format($item->total_harga_barang , 0, ",", "."); }}</td>
                                     </tr>

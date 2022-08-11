@@ -68,7 +68,8 @@ class PagesCheckoutController extends Controller
         try {
             $response = $client->request('POST','https://api.rajaongkir.com/starter/cost',
                 [
-                    'body' => 'origin='.$request->origin.'&destination='.$request->destination.'&weight=500&courier=jne',
+                    // 'body' => 'origin='.$request->origin.'&destination='.$request->destination.'&weight=500&courier=jne',
+                    'body' => 'origin=417&destination='.$request->destination.'&weight=500&courier=jne',
                     'headers' => [
                         'key' => '244aae4ed5aa56ef039c7c26c08bee2d',
                         'content-type' => 'application/x-www-form-urlencoded',

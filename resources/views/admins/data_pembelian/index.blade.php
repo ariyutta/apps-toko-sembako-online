@@ -38,7 +38,11 @@
                                     @foreach ($data_pembelian as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->barang->kode_barang }}</td>
+                                            <td>
+                                              @if( $item->barang != Null)
+                                                {{ $item->barang->kode_barang }}
+                                              @endif
+                                            </td>
                                             <td>{{ $item->barang->nama_barang }}</td>
                                             <td>{{ $item->pemasok->nama_pemasok }}</td>
                                             <td>{{ $item->jumlah_pembelian }}</td>

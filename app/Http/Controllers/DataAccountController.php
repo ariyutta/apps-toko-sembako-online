@@ -116,7 +116,16 @@ class DataAccountController extends Controller
         try {
             if($get_accounts->pelanggan_id == Null) {
                 if($request->gambar_profil == Null) {
-                    $get_accounts->pelanggan_id = mt_rand(100000000, 999999999);
+                    
+                    if(Auth::user()->id < 10) {
+                        $get_accounts->pelanggan_id = 'PID-000'.Auth::user()->id;
+                    } else if(Auth::user()->id > 10 ) {
+                        $get_accounts->pelanggan_id = 'PID-00'.Auth::user()->id;
+                    } else if(Auth::user()->id > 99 ) {
+                        $get_accounts->pelanggan_id = 'PID-0'.Auth::user()->id;
+                    } else if(Auth::user()->id > 999 ) {
+                        $get_accounts->pelanggan_id = 'PID-'.Auth::user()->id;
+                    }
                     $get_accounts->name = $request->name;
                     // $get_accounts->tempat_lahir = $request->tempat_lahir;
                     // $get_accounts->tgl_lahir = $request->tgl_lahir;

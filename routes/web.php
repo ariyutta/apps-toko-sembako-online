@@ -59,10 +59,15 @@ Route::group(['middleware' =>['auth','role:developer']], function() {
     Route::get('developer/terima_retur/{id_retur}', [App\Http\Controllers\ReturPenjualanController::class, 'terima_retur'])->name('terima_retur');
 
     Route::get('developer/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
+    Route::get('developer/laporan_penjualan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan_show'])->name('laporan_penjualan_show');
     Route::get('developer/laporan_pembelian', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian'])->name('laporan_pembelian');
+    Route::get('developer/laporan_pembelian/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian_show'])->name('laporan_pembelian_show');
     Route::get('developer/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
+    Route::get('developer/laporan_persediaan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan_show'])->name('laporan_persediaan_show');
     Route::get('developer/daftar_pelanggan', [App\Http\Controllers\DataLaporanController::class, 'daftar_pelanggan'])->name('daftar_pelanggan');
+    Route::get('developer/daftar_pelanggan/show', [App\Http\Controllers\DataLaporanController::class, 'daftar_pelanggan_show'])->name('daftar_pelanggan_show');
     Route::get('developer/laporan_retur_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan'])->name('laporan_retur_penjualan');
+    Route::get('developer/laporan_retur_penjualan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan_show'])->name('laporan_retur_penjualan_show');
 
     Route::get('developer/accounts', [App\Http\Controllers\DataAccountController::class, 'accounts'])->name('accounts');
     Route::get('developer/edit_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'edit_accounts'])->name('edit_accounts');

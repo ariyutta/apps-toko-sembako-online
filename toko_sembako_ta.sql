@@ -11,7 +11,7 @@
  Target Server Version : 100424
  File Encoding         : 65001
 
- Date: 21/07/2022 06:27:38
+ Date: 31/08/2022 11:41:42
 */
 
 SET NAMES utf8mb4;
@@ -554,8 +554,7 @@ CREATE TABLE `data_barang`  (
   `created_at` datetime NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `kategori_id`(`kategori_id`) USING BTREE,
-  CONSTRAINT `data_barang_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `data_kategori` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+  INDEX `kategori_id`(`kategori_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -652,7 +651,7 @@ CREATE TABLE `data_keranjang`  (
   INDEX `user_id`(`user_id`) USING BTREE,
   INDEX `barang_id`(`barang_id`) USING BTREE,
   CONSTRAINT `data_keranjang_ibfk_1` FOREIGN KEY (`barang_id`) REFERENCES `data_barang` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 141 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 144 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_keranjang
@@ -746,6 +745,9 @@ INSERT INTO `data_keranjang` VALUES (137, 10, 16, 'Noah Parfume', '1656852375_16
 INSERT INTO `data_keranjang` VALUES (138, 10, 14, 'Mama Lemon 500ml', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', 2, 16000, 0, 0, '2022-07-21 05:30:11', '2022-07-21 05:30:43');
 INSERT INTO `data_keranjang` VALUES (139, 10, 7, 'Indomie Goreng', '1656851837_0b951821-47f1-41cc-9329-9a53ac55b60e.jpg', 2, 7000, 0, 0, '2022-07-21 05:37:20', '2022-07-21 05:38:00');
 INSERT INTO `data_keranjang` VALUES (140, 10, 1, 'Minyak Goreng', '1656850712_117.jpg', 2, 50000, 0, 0, '2022-07-21 05:37:26', '2022-07-21 05:38:00');
+INSERT INTO `data_keranjang` VALUES (141, 19, 1, 'Minyak Goreng', '1656850712_117.jpg', 2, 50000, 1, 0, '2022-07-21 06:35:20', '2022-07-21 06:40:05');
+INSERT INTO `data_keranjang` VALUES (142, 2, 2, 'Beras 30 Kg', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 2, 460000, 1, 0, '2022-08-28 13:30:28', '2022-08-28 13:30:40');
+INSERT INTO `data_keranjang` VALUES (143, 2, 12, 'Olatte', '1656852115_20089805_1.jpg', 2, 14000, 1, 0, '2022-08-28 13:30:37', '2022-08-28 13:30:40');
 
 -- ----------------------------
 -- Table structure for data_payment
@@ -857,7 +859,7 @@ INSERT INTO `data_pesanan` VALUES (73, 2, 'KDP-398258', 'Aceh Jaya', 'Barito Tim
 INSERT INTO `data_pesanan` VALUES (74, 2, 'KDP-304807', 'Barito Kuala', 'Bukittinggi', 'Reguler', 'jne', 1, 1, NULL, 270000, 65000, 335000, NULL, 'fsdfds', '2022-07-11 17:30:12', '2022-07-13 12:57:11');
 INSERT INTO `data_pesanan` VALUES (75, 9, 'KDP-566063', 'Bekasi', 'Gorontalo Utara', 'Reguler', 'jne', 1, 1, 1, 2070000, 69000, 2139000, '1657538852_bukti-pembayaran-STAIM0002.jpg', 'kiki', '2022-07-11 18:26:30', '2022-07-19 11:30:11');
 INSERT INTO `data_pesanan` VALUES (76, 2, 'KDP-272875', 'Bangka Tengah', 'Banyuasin', 'Reguler', 'jne', 1, 0, NULL, 21000, 35000, 56000, NULL, 'test', '2022-07-15 13:54:52', '2022-07-15 20:02:05');
-INSERT INTO `data_pesanan` VALUES (77, 2, 'KDP-776906', 'Jakarta Pusat', 'Jayapura', 'Reguler', 'jne', 0, 0, NULL, 485000, 105000, 590000, NULL, 'rgreer', '2022-07-19 11:49:31', '2022-07-19 11:49:31');
+INSERT INTO `data_pesanan` VALUES (77, 2, 'KDP-776906', 'Jakarta Pusat', 'Jayapura', 'Reguler', 'jne', 1, 1, 1, 485000, 105000, 590000, '1658368986_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'rgreer', '2022-07-19 11:49:31', '2022-07-21 09:51:27');
 INSERT INTO `data_pesanan` VALUES (78, 10, 'KDP-270223', 'Aceh Jaya', 'Bandung', 'Reguler', 'jne', 1, 1, 1, 106000, 44000, 150000, '1658356908_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'test', '2022-07-21 05:30:43', '2022-07-21 05:43:55');
 INSERT INTO `data_pesanan` VALUES (79, 10, 'KDP-349944', 'Barito Utara', 'Banyuasin', 'Reguler', 'jne', 1, 1, 1, 57000, 69000, 126000, '1658356892_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'efw', '2022-07-21 05:38:00', '2022-07-21 05:42:28');
 INSERT INTO `data_pesanan` VALUES (80, 10, 'KDP-566676', 'Aceh Selatan', 'Banyuasin', 'Reguler', '*', 1, 1, 1, 50000, 66000, 116000, '1658357376_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'das', '2022-07-21 05:48:43', '2022-07-21 05:59:37');
@@ -929,7 +931,7 @@ CREATE TABLE `data_ulasan`  (
   `created_at` datetime NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_ulasan
@@ -941,6 +943,14 @@ INSERT INTO `data_ulasan` VALUES (4, 6, 16, 'mantap', 4, '2022-07-20 16:00:51', 
 INSERT INTO `data_ulasan` VALUES (5, 10, 16, 'barangnya joss.', 5, '2022-07-20 18:35:36', '2022-07-20 18:35:36');
 INSERT INTO `data_ulasan` VALUES (6, 10, 1, 'Barang Sampai', 5, '2022-07-20 20:36:38', '2022-07-20 20:36:38');
 INSERT INTO `data_ulasan` VALUES (7, 10, 11, 'test', 5, '2022-07-20 21:08:13', '2022-07-20 21:08:13');
+INSERT INTO `data_ulasan` VALUES (8, 19, 2, 'asa', 2, '2022-07-21 06:39:11', '2022-07-21 06:39:11');
+INSERT INTO `data_ulasan` VALUES (9, 19, 1, 'erre', 3, '2022-07-21 06:40:32', '2022-07-21 06:40:32');
+INSERT INTO `data_ulasan` VALUES (10, 19, 16, 'erwrew', 4, '2022-07-21 06:41:20', '2022-07-21 06:41:20');
+INSERT INTO `data_ulasan` VALUES (11, 19, 16, 'werwerwe', 1, '2022-07-21 06:41:29', '2022-07-21 06:41:29');
+INSERT INTO `data_ulasan` VALUES (12, 19, 16, 'wrewrwe', 3, '2022-07-21 06:41:39', '2022-07-21 06:41:39');
+INSERT INTO `data_ulasan` VALUES (13, 19, 16, 'rwerwerwe', 5, '2022-07-21 06:41:45', '2022-07-21 06:41:45');
+INSERT INTO `data_ulasan` VALUES (14, 19, 16, 'werrwerwe', 4, '2022-07-21 06:41:51', '2022-07-21 06:41:51');
+INSERT INTO `data_ulasan` VALUES (15, 19, 16, 'werwerwerwe', 4, '2022-07-21 06:41:59', '2022-07-21 06:41:59');
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -1104,7 +1114,7 @@ CREATE TABLE `retur_penjualan`  (
   `created_at` datetime NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of retur_penjualan
@@ -1113,6 +1123,7 @@ INSERT INTO `retur_penjualan` VALUES (1, 76, 2, '1657973039_078857800_1501055779
 INSERT INTO `retur_penjualan` VALUES (2, 74, 2, '1657973209_0b951821-47f1-41cc-9329-9a53ac55b60e.jpg', 2, 335000, 'robek', '2022-07-16 19:06:49', '2022-07-16 20:28:25');
 INSERT INTO `retur_penjualan` VALUES (3, 73, 2, '1657973934_096191675b3682f21f75d01c8c3ed6ac.jfif', 2, 1127000, 'rusak', '2022-07-16 19:18:54', '2022-07-16 20:12:27');
 INSERT INTO `retur_penjualan` VALUES (4, 78, 10, '1658357128_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 2, 150000, 'pecah', '2022-07-21 05:45:29', '2022-07-21 05:47:36');
+INSERT INTO `retur_penjualan` VALUES (5, 77, 2, '1658371915_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 1, 590000, 'lecet', '2022-07-21 09:51:55', '2022-07-21 09:51:55');
 
 -- ----------------------------
 -- Table structure for role_user
@@ -1145,6 +1156,11 @@ INSERT INTO `role_user` VALUES (4, 12, 'App\\Models\\User');
 INSERT INTO `role_user` VALUES (2, 13, 'App\\Models\\User');
 INSERT INTO `role_user` VALUES (3, 18, 'App\\Models\\User');
 INSERT INTO `role_user` VALUES (3, 19, 'App\\Models\\User');
+INSERT INTO `role_user` VALUES (3, 20, 'App\\Models\\User');
+INSERT INTO `role_user` VALUES (3, 21, 'App\\Models\\User');
+INSERT INTO `role_user` VALUES (3, 22, 'App\\Models\\User');
+INSERT INTO `role_user` VALUES (3, 23, 'App\\Models\\User');
+INSERT INTO `role_user` VALUES (3, 24, 'App\\Models\\User');
 
 -- ----------------------------
 -- Table structure for roles
@@ -1176,7 +1192,7 @@ INSERT INTO `roles` VALUES (5, 'pimpinan', 'Pimpinan', 'Pimpinan', '2022-07-02 0
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
-  `pelanggan_id` bigint NULL DEFAULT NULL,
+  `pelanggan_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1191,22 +1207,22 @@ CREATE TABLE `users`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 255 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 716060816, 'Arbi Yudatama, S.Kom.', 'Jl. Parit H, Muksin 2, Komplek Kapuas Mas A.16', 'arbi.yudatama@student.untan.ac.id', NULL, '1657249075_arbi_2x2.jpg', '089698424476', '$2y$10$vCUhYckZcWluh8JF/fYVjOITpFDNjYdiKVPxzHO95EG9aXo4xGN/q', NULL, 'developer', 1, '2022-07-02 10:20:00', '2022-07-19 11:31:05');
-INSERT INTO `users` VALUES (2, 260092732, 'Meisha Melyana Virlyani', 'Jl. Arteri Supadio, Pontianak', 'meisha.virlyani24@gmail.com', NULL, '1657192833_IMG-20220605-WA0029.jpg', '089698424475', '$2y$10$5wQdFDmAZpi4hGAZ0SimTOX5QLe8BKk1cZGlOlNj2JTcQqRl75A5W', NULL, 'user', 1, '2022-07-02 10:49:03', '2022-07-07 18:20:33');
+INSERT INTO `users` VALUES (1, NULL, 'Arbi Yudatama, S.Kom.', 'Jl. Parit H, Muksin 2, Komplek Kapuas Mas A.16', 'arbi.yudatama@student.untan.ac.id', NULL, '1657249075_arbi_2x2.jpg', '089698424476', '$2y$10$vCUhYckZcWluh8JF/fYVjOITpFDNjYdiKVPxzHO95EG9aXo4xGN/q', NULL, 'developer', 1, '2022-07-02 10:20:00', '2022-08-31 11:13:22');
+INSERT INTO `users` VALUES (2, NULL, 'Meisha Melyana Virlyani', 'Jl. Arteri Supadio, Pontianak', 'meisha.virlyani24@gmail.com', NULL, '1657192833_IMG-20220605-WA0029.jpg', '089698424475', '$2y$10$5wQdFDmAZpi4hGAZ0SimTOX5QLe8BKk1cZGlOlNj2JTcQqRl75A5W', NULL, 'user', 1, '2022-07-02 10:49:03', '2022-07-07 18:20:33');
 INSERT INTO `users` VALUES (3, NULL, 'Adrianus Domi', 'Jl. Arteri Supadio No. A3', 'adrianus195@student.untan.ac.id', NULL, 'default/default.png', '089698424474', '$2y$10$eUD.VSkwzyyqx3HrzQ8dAObz/pWHAeJhAYOUTPUqiEvEvePEt4ma6', NULL, 'administrator', 0, '2022-07-02 12:52:00', '2022-07-02 12:52:00');
-INSERT INTO `users` VALUES (4, NULL, 'Arbi Yudatama (User)', NULL, 'saradauchiha93@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$rmobXQ9D8v87XHzP01Fj0e5lcW3Yg/oO87dKD3SAlR0zrodzWVK0u', NULL, 'user', 0, '2022-07-07 08:33:11', '2022-07-07 08:33:11');
+INSERT INTO `users` VALUES (4, 'PID-0004', 'Arbi Yudatama (User)', 'Serdam', 'saradauchiha93@gmail.com', NULL, 'default/default.png', '089632771396', '$2y$10$rmobXQ9D8v87XHzP01Fj0e5lcW3Yg/oO87dKD3SAlR0zrodzWVK0u', NULL, 'user', 1, '2022-07-07 08:33:11', '2022-08-31 11:17:55');
 INSERT INTO `users` VALUES (5, NULL, 'Sera Anggun Santika', NULL, 'sera.anggun.santika@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$chXmBU2hcs4P48G8npddf.D5F4hC59ta18VUbL0jIcV4zNPyzXddm', NULL, 'user', 0, '2022-07-07 08:37:22', '2022-07-07 08:37:22');
-INSERT INTO `users` VALUES (6, 326476582, 'Salma Salsabila', 'Jl. Sungai Raya Dalam', 'salma.salsabila@student.untan.ac.id', NULL, '1658310347_IMG-20220605-WA0030.jpg', '089633771396', '$2y$10$Hf.uLiP/R1CN2vZKl6LrQewIjds4qAZUo7vfeQ09tZXuCdv.eBQaS', NULL, 'user', 1, '2022-07-07 08:39:47', '2022-07-20 16:45:48');
+INSERT INTO `users` VALUES (6, NULL, 'Salma Salsabila', 'Jl. Sungai Raya Dalam', 'salma.salsabila@student.untan.ac.id', NULL, '1658310347_IMG-20220605-WA0030.jpg', '089633771396', '$2y$10$Hf.uLiP/R1CN2vZKl6LrQewIjds4qAZUo7vfeQ09tZXuCdv.eBQaS', NULL, 'user', 1, '2022-07-07 08:39:47', '2022-07-20 16:45:48');
 INSERT INTO `users` VALUES (7, NULL, 'Hendrikus Andre', NULL, 'hendrikus.andre@student.untan.ac.id', NULL, 'default/default.png', NULL, '$2y$10$9EeIs7RJkeHIoFS6n3hly.6kFDbfsO2Qj1x.Sgnq/80Q9ef45SpZS', NULL, 'user', 0, '2022-07-07 08:43:09', '2022-07-07 08:43:09');
-INSERT INTO `users` VALUES (8, 447884835, 'Muhammad Dwi Cahyadi', 'Jl. Sungai Raya Dalam, Komplek Bumi Batara 2 No A.12', 'dwichyd21@student.untan.ac.id', NULL, 'default/default.png', '081234567890', '$2y$10$B/Cght8f173O25IQ253Nbu09.hhl6nM2e7u93gSDq6.luDY2oMtCu', NULL, 'user', 1, '2022-07-07 17:38:13', '2022-07-07 21:41:12');
-INSERT INTO `users` VALUES (9, 385210078, 'Muhammad Fahrizal', 'yhyhyh', 'muhammad.fahrizal@student.untan.ac.id', NULL, '1657538653_87940115_2433727493393856_8551197809510973440_n.jpg', '089633771396', '$2y$10$197jP7UNjoNFOIFi1mfgV.grzPd8Sqkh954r6CwtQkgDJT2tw/ol6', NULL, 'user', 1, '2022-07-07 18:04:09', '2022-07-11 18:24:30');
-INSERT INTO `users` VALUES (10, 369491136, 'Widyaningsih', 'Jl. Parit Haji Husin 2', 'widyaningsih@gmail.com', NULL, '1658310531_Paimon_Stiker002.png', '081234567890', '$2y$10$kXxBzMmUJGuJUXRNIIv4DOluDJhCSEQ2nui.PfdeorQjVH5Zo6jFC', NULL, 'user', 1, '2022-07-07 21:44:18', '2022-07-20 16:48:56');
-INSERT INTO `users` VALUES (11, 826544669, 'User 01', '-', 'user.pimpinan01@gmail.com', NULL, '1657873547_default.png', '0', '$2y$10$scOMqSpcIoAjOR16aaJWP.DnHVRqYjh8iexf81q9phlLSdSWb.L1u', NULL, 'pimpinan', 1, '2022-07-15 15:08:41', '2022-07-15 15:55:44');
+INSERT INTO `users` VALUES (8, NULL, 'Muhammad Dwi Cahyadi', 'Jl. Sungai Raya Dalam, Komplek Bumi Batara 2 No A.12', 'dwichyd21@student.untan.ac.id', NULL, 'default/default.png', '081234567890', '$2y$10$B/Cght8f173O25IQ253Nbu09.hhl6nM2e7u93gSDq6.luDY2oMtCu', NULL, 'user', 1, '2022-07-07 17:38:13', '2022-07-07 21:41:12');
+INSERT INTO `users` VALUES (9, 'PID-0009', 'Muhammad Fahrizal', 'yhyhyh', 'muhammad.fahrizal@student.untan.ac.id', NULL, '1657538653_87940115_2433727493393856_8551197809510973440_n.jpg', '089633771396', '$2y$10$197jP7UNjoNFOIFi1mfgV.grzPd8Sqkh954r6CwtQkgDJT2tw/ol6', NULL, 'user', 1, '2022-07-07 18:04:09', '2022-08-31 11:22:05');
+INSERT INTO `users` VALUES (10, 'PID-0010', 'Widyaningsih', 'Jl. Parit Haji Husin 2', 'widyaningsih@gmail.com', NULL, '1658310531_Paimon_Stiker002.png', '081234567890', '$2y$10$kXxBzMmUJGuJUXRNIIv4DOluDJhCSEQ2nui.PfdeorQjVH5Zo6jFC', NULL, 'user', 1, '2022-07-07 21:44:18', '2022-08-31 11:23:44');
+INSERT INTO `users` VALUES (11, NULL, 'User 01', '-', 'user.pimpinan01@gmail.com', NULL, '1657873547_default.png', '0', '$2y$10$scOMqSpcIoAjOR16aaJWP.DnHVRqYjh8iexf81q9phlLSdSWb.L1u', NULL, 'pimpinan', 1, '2022-07-15 15:08:41', '2022-07-15 15:55:44');
 INSERT INTO `users` VALUES (12, NULL, 'User 02', NULL, 'user.gudang02@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$MMPfgpYCGsWyjZwHa.7t9eDOr8tVNU5s.JvIyyuUjNBMscc4ziQ.6', NULL, 'gudang', 0, '2022-07-15 16:00:15', '2022-07-15 16:00:15');
 INSERT INTO `users` VALUES (13, NULL, 'User 03', NULL, 'user.admin03@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$clAHeQ1Gt9alkh5mhzD0gu7IWUPpUcnVZz16y97eBa1s8fRTvRuJK', NULL, 'administrator', 0, '2022-07-15 16:37:01', '2022-07-15 16:37:01');
 INSERT INTO `users` VALUES (14, NULL, 'Deni', NULL, 'deni@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$Z5u4ALtYYICHe8mAMDG34.2W9CKQ1aP7L5tPSBzEtYesXqPb1djZ2', NULL, 'user', 0, '2022-07-21 06:19:36', '2022-07-21 06:19:36');
@@ -1215,5 +1231,10 @@ INSERT INTO `users` VALUES (16, NULL, 'Shanty Melani', NULL, 'shanty.melani@gmai
 INSERT INTO `users` VALUES (17, NULL, 'Shanty Melani 2', NULL, 'shanty.melani2@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$D/mzQbKPIBbICJ7DmH6Dlu2u.EKckrMQyc8dwPFZuxIkpWAJyFh.G', NULL, 'user', 0, '2022-07-21 06:23:15', '2022-07-21 06:23:15');
 INSERT INTO `users` VALUES (18, NULL, 'Shanty Melani 3', NULL, 'shanty.melani3@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$vNG04JE/8FdQ1eyhSqtFTOxi5DeygjwlwRy5pXkaKcFg06Qf4hsNu', NULL, 'user', 0, '2022-07-21 06:24:29', '2022-07-21 06:24:29');
 INSERT INTO `users` VALUES (19, NULL, 'Adrianus Domi 2', NULL, 'adrianus1952@student.untan.ac.id', NULL, 'default/default.png', NULL, '$2y$10$KyhkmB8Hv9OeSt.MYExQIu8R0hiJedAbItrFpDesbZBBux3ddfXCW', NULL, 'user', 0, '2022-07-21 06:25:30', '2022-07-21 06:25:30');
+INSERT INTO `users` VALUES (20, NULL, 'Nadia 21', NULL, 'nadia21@gmail.com', NULL, 'default/default.png', NULL, '$2y$10$uyiWMOXv7lazxiq6OXBsJuYJPps04UmM2Ou3RjpB.8lZsvux5nhBG', NULL, 'user', 0, '2022-08-05 19:49:10', '2022-08-05 19:49:10');
+INSERT INTO `users` VALUES (21, NULL, 'Faisal', NULL, 'faisal@gmail.com', NULL, NULL, NULL, '$2y$10$CyVOkT73W.KngmrZHYqr0uMYi.G2vWZ82Smbf8bFfCjQrXmlJy0CO', NULL, NULL, NULL, '2022-08-17 11:25:05', '2022-08-17 11:25:05');
+INSERT INTO `users` VALUES (22, NULL, 'Muhammad Dwi Cahyadi', NULL, 'fonavo7343@steamoh.com', NULL, NULL, NULL, '$2y$10$NTnYh2D.K.pOzHwMVG0jDuYHzCYZ2k6usUF/p9o04I1jUEZWpl8D2', NULL, NULL, NULL, '2022-08-19 12:11:29', '2022-08-19 12:11:29');
+INSERT INTO `users` VALUES (23, NULL, 'Renata Felania', 'Jl. Sungai Raya Dalam', 'renata.felania@gmail.com', NULL, 'default/default.png', '089633771396', '$2y$10$7SggHTGkgQWgnoL2X2tmzOq77FlOpnQ1nXiEovKOnfDEbw6LjdOAC', NULL, 'user', 1, '2022-08-31 10:57:00', '2022-08-31 10:57:35');
+INSERT INTO `users` VALUES (24, 'PID-0024', 'Nindya Yulita Raharni', 'Jl. Ampera No 43', 'nindya.yulita25@gmail.com', NULL, 'default/default.png', '089633771391', '$2y$10$bmQ8o5wS9sg4JXF4aISMFuNJpWKNxayLfsZqx5xy4.6V1JxVM/f4K', NULL, 'user', 1, '2022-08-31 10:59:26', '2022-08-31 11:17:14');
 
 SET FOREIGN_KEY_CHECKS = 1;

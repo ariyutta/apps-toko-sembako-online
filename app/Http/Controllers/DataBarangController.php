@@ -78,7 +78,7 @@ class DataBarangController extends Controller
 
         DB::beginTransaction();
         try {
-            $count = DataBarang::count();
+            $count = DataBarang::where('kategori_id', $request->kategori_id)->count();
             $model = new DataBarang;
             
             if($count < 10) {

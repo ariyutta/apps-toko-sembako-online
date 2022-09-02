@@ -194,10 +194,15 @@ Route::group(['middleware' =>['auth','role:pimpinan']], function() {
     Route::get('pimpinan', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('pimpinan/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
+    Route::get('pimpinan/laporan_penjualan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan_show'])->name('laporan_penjualan_show');
     Route::get('pimpinan/laporan_pembelian', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian'])->name('laporan_pembelian');
+    Route::get('pimpinan/laporan_pembelian/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_pembelian_show'])->name('laporan_pembelian_show');
     Route::get('pimpinan/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
+    Route::get('pimpinan/laporan_persediaan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan_show'])->name('laporan_persediaan_show');
     Route::get('pimpinan/daftar_pelanggan', [App\Http\Controllers\DataLaporanController::class, 'daftar_pelanggan'])->name('daftar_pelanggan');
+    Route::get('pimpinan/daftar_pelanggan/show', [App\Http\Controllers\DataLaporanController::class, 'daftar_pelanggan_show'])->name('daftar_pelanggan_show');
     Route::get('pimpinan/laporan_retur_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan'])->name('laporan_retur_penjualan');
+    Route::get('pimpinan/laporan_retur_penjualan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan_show'])->name('laporan_retur_penjualan_show');
 
     Route::get('pimpinan/accounts', [App\Http\Controllers\DataAccountController::class, 'accounts'])->name('accounts');
     Route::get('pimpinan/edit_accounts/{id}', [App\Http\Controllers\DataAccountController::class, 'edit_accounts'])->name('edit_accounts');

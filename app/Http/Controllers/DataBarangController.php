@@ -78,8 +78,19 @@ class DataBarangController extends Controller
 
         DB::beginTransaction();
         try {
+            $count = DataBarang::count();
             $model = new DataBarang;
-            $model->kode_barang = $kat.'-'.mt_rand(1000, 9999);
+            
+            if($count < 10) {
+                $model->kode_barang = $kat.'-000'.$count +1;
+            } else if($count > 10 ) {
+                $model->kode_barang = $kat.'-00'.$count +1;
+            } else if($count > 99 ) {
+                $model->kode_barang = $kat.'-0'.$count +1;
+            } else if($count > 999 ) {
+                $model->kode_barang = $kat.'-'.$count +1;
+            }
+
             $model->nama_barang = $request->nama_barang;
             $model->kategori_id = $request->kategori_id;
             $model->stok = $request->stok;

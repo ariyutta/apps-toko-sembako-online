@@ -102,10 +102,18 @@ class PagesBeliSekarangController extends Controller
         $user_login = Auth::user();
 
         // return $request->all();
-
+        $count = DataPesanan::where('user_id', Auth::user()->id)->where('status_pesanan', 0)->count();
         $pesanan = new DataPesanan;
         $pesanan->user_id = $user_login->id;
-        $pesanan->kode_pesanan = 'KDP-'.mt_rand(100000, 999999);
+            if($count < 10) {
+                $pesanan->kode_pesanan = 'KDP-'.Auth::user()->id.'-000'.$count +1;
+            } else if($count > 10 ) {
+                $pesanan->kode_pesanan = 'KDP-'.Auth::user()->id.'-00'.$count +1;
+            } else if($count > 99 ) {
+                $pesanan->kode_pesanan = 'KDP-'.Auth::user()->id.'-0'.$count +1;
+            } else if($count > 999 ) {
+                $pesanan->kode_pesanan = 'KDP-'.Auth::user()->id.'-'.$count +1;
+            }
         $pesanan->loc_pengirim = $request->origin_hide;
         $pesanan->loc_penerima = $request->destination_hide;
         $pesanan->layanan = $request->layanan_hide;

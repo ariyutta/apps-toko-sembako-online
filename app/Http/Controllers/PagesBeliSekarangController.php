@@ -102,7 +102,7 @@ class PagesBeliSekarangController extends Controller
         $user_login = Auth::user();
 
         // return $request->all();
-        $count = DataPesanan::where('user_id', Auth::user()->id)->where('status_pesanan', 0)->count();
+        $count = DataPesanan::where('user_id', Auth::user()->id)->count();
         $pesanan = new DataPesanan;
         $pesanan->user_id = $user_login->id;
             if($count < 10) {

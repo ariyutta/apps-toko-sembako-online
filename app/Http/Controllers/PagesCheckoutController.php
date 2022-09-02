@@ -113,7 +113,7 @@ class PagesCheckoutController extends Controller
         $keranjang_get = DataKeranjang::where('user_id', Auth::user()->id)->where('status_keranjang', 1)->get();
 
         // return $request->all();
-        $count = DataPesanan::where('user_id', Auth::user()->id)->where('status_pesanan', 0)->count();
+        $count = DataPesanan::where('user_id', Auth::user()->id)->count();
         $pesanan = new DataPesanan;
         $pesanan->user_id = $user_login->id;
             if($count < 10) {

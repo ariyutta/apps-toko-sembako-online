@@ -124,6 +124,7 @@ class PagesBeliSekarangController extends Controller
         $pesanan->jumlah_ongkir = $request->harga_ongkir_hide;
         $pesanan->jumlah_total = $request->jumlah_seluruh_hide;
         $pesanan->keterangan = $request->pesan;
+        $pesanan->alamat = $request->alamat;
         $pesanan->save();
 
         // Simpan Data Inputan Keranjang ke Pesanan Detail

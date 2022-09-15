@@ -43,13 +43,10 @@
                   <input type="hidden" id="b_gambar_barang_hide" name="b_gambar_barang_hide" value="{{ $b_gambar_barang }}" />
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="origin">Lokasi Pengirim</label>
-                        <select id="origin" name="origin" class="form-control form-control-sm" required>
-                            <option value="*">-- Pilih Kota --</option>
-                            @foreach ($kota as $item)
-                              <option value="{{ $item->id }}">{{ $item->name }}</option>
-                            @endforeach
-                        </select>
+                        <fieldset disabled="disabled">
+                          <label for="origin">Lokasi Pengirim</label>
+                          <input class="form-control form-control-sm" value="Sintang (Lokasi Penjualan)" style="background-color: rgb(241, 241, 241)">
+                        </fieldset>
                       </div>
                       <div class="form-group col-md-6">
                         <label for="destination">Lokasi Penerima</label>
@@ -156,7 +153,7 @@
                                     </div>
                                   </div>
                                   <div class="form-group row">
-                                    <label for="ongkos_kirim" class="col-sm-2 col-form-label">Ongkos Kirim</label>
+                                    <label for="ongkos_kirim" class="col-sm-2 pesancol-form-label">Ongkos Kirim</label>
                                     <div class="col-sm-3">
                                         <input type="text" class="form-control form-control-sm" id="ongkos_kirim" name="ongkos_kirim" value="{{ 'Rp. '.number_format($harga_ongkir , 0, ",", "."); }}">
                                     </div>

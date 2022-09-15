@@ -37,13 +37,10 @@
                   <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="origin">Lokasi Pengirim</label>
-                        <select id="origin" name="origin" class="form-control form-control-sm" required>
-                            <option value="*">-- Pilih Kota --</option>
-                            @foreach ($kota as $item)
-                              <option value="{{ $item->id }}">{{ $item->name }}</option>
-                            @endforeach
-                        </select>
+                        <fieldset disabled="disabled">
+                          <label for="origin">Lokasi Pengirim</label>
+                          <input class="form-control form-control-sm" value="Sintang (Lokasi Penjualan)" style="background-color: rgb(241, 241, 241)">
+                        </fieldset>
                       </div>
                       <div class="form-group col-md-6">
                         <label for="destination">Lokasi Penerima</label>
@@ -104,6 +101,10 @@
                     <div class="form-group">
                         <label for="pesan">Pesan</label>
                         <textarea class="form-control form-control-sm" id="pesan" name="pesan" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <textarea class="form-control form-control-sm" id="alamat" name="alamat" rows="5" required></textarea>
                     </div>
 
                     <div class="form-group">

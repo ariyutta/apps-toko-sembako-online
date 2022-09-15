@@ -271,7 +271,7 @@ class DataLaporanController extends Controller
             }
         })
         ->addColumn('nama_pemasok', function($data_persediaan){
-            if($data_persediaan == Null) {
+            if($data_persediaan->pemasok == Null) {
                 return '';
             }
             else {

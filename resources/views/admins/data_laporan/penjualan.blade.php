@@ -108,7 +108,7 @@
                     }
                     ],
                     ajax: {
-                            url: "{{ route('laporan_penjualan_show') }}",
+                            url: "{{ url(''.Auth::user()->role_user->role->name.'/laporan_penjualan/show') }}",
                             type: 'GET',
                             data: {
                                 from_date: from_date, 

@@ -124,7 +124,7 @@
                     }
                     ],
                     ajax: {
-                            url: "{{ route('daftar_pelanggan_show') }}",
+                            url: "{{ url(''.Auth::user()->role_user->role->name.'/daftar_pelanggan/show') }}",
                             type: 'GET',
                             data: {
                                 from_date: from_date, 

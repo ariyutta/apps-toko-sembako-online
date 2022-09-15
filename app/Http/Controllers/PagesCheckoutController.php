@@ -135,6 +135,7 @@ class PagesCheckoutController extends Controller
         $pesanan->jumlah_ongkir = $request->ongkos_kirim_hide;
         $pesanan->jumlah_total = $request->total_harga_hide;
         $pesanan->keterangan = $request->pesan;
+        $pesanan->alamat = $request->alamat;
         $pesanan->save();
 
         // Simpan Data Inputan Keranjang ke Pesanan Detail

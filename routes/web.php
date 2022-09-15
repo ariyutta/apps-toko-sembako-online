@@ -96,8 +96,9 @@ Route::group(['middleware' =>['auth','role:administrator']], function() {
     Route::get('administrator/verifikasi_pembayaran/batal/{id_batal_bayar}', [App\Http\Controllers\DataPembayaranController::class, 'batal_verif'])->name('batal_verif');
 
     Route::get('administrator/laporan_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan'])->name('laporan_penjualan');
-    Route::get('administrator/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
+    Route::get('administrator/laporan_penjualan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_penjualan_show'])->name('laporan_penjualan_show');
     Route::get('administrator/laporan_retur_penjualan', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan'])->name('laporan_retur_penjualan');
+    Route::get('administrator/laporan_retur_penjualan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_retur_penjualan_show'])->name('laporan_retur_penjualan_show');
 
     Route::get('administrator/cetak_laporan_penjualan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_penjualan'])->name('cetak_laporan_penjualan');
     Route::get('administrator/cetak_laporan_persediaan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_persediaan'])->name('cetak_laporan_persediaan');
@@ -245,6 +246,7 @@ Route::group(['middleware' =>['auth','role:storage']], function() {
     Route::post('storage/data_pembelian/simpan_data/{id}', [App\Http\Controllers\DataPembelianController::class, 'simpan_data_pembelian'])->name('simpan_data_pembelian');
 
     Route::get('storage/laporan_persediaan', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan'])->name('laporan_persediaan');
+    Route::get('storage/laporan_persediaan/show', [App\Http\Controllers\DataLaporanController::class, 'laporan_persediaan_show'])->name('laporan_persediaan_show');
 
     Route::get('storage/cetak_laporan_persediaan', [App\Http\Controllers\DataCetakController::class, 'cetak_laporan_persediaan'])->name('cetak_laporan_persediaan');
 

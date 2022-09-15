@@ -11,7 +11,7 @@
  Target Server Version : 100424
  File Encoding         : 65001
 
- Date: 31/08/2022 11:41:42
+ Date: 15/09/2022 18:45:34
 */
 
 SET NAMES utf8mb4;
@@ -555,21 +555,21 @@ CREATE TABLE `data_barang`  (
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `kategori_id`(`kategori_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_barang
 -- ----------------------------
-INSERT INTO `data_barang` VALUES (1, 'BP-0012', 'Minyak Goreng', 7, 1, 28, 115, 20000, 25000, 'Test', '1656850712_117.jpg', '2022-07-03 10:10:55', '2022-07-21 05:48:43');
-INSERT INTO `data_barang` VALUES (2, 'BP-0024', 'Beras 30 Kg', 6, 1, 56, 46, 200000, 230000, 'sdasdad', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', '2022-07-03 10:16:57', '2022-07-19 11:49:31');
+INSERT INTO `data_barang` VALUES (1, 'BP-0012', 'Minyak Goreng', 7, 1, 26, 117, 20000, 25000, 'Test', '1656850712_117.jpg', '2022-07-03 10:10:55', '2022-09-02 14:15:37');
+INSERT INTO `data_barang` VALUES (2, 'BP-0024', 'Beras 30 Kg', 6, 1, 50, 52, 200000, 230000, 'sdasdad', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', '2022-07-03 10:16:57', '2022-09-15 18:41:10');
 INSERT INTO `data_barang` VALUES (7, 'MI-0018', 'Indomie Goreng', 7, 2, 98, 102, 3000, 3500, 'Bebas', '1656851837_0b951821-47f1-41cc-9329-9a53ac55b60e.jpg', '2022-07-03 12:37:18', '2022-07-21 05:38:00');
 INSERT INTO `data_barang` VALUES (8, 'MI-0024', 'Super Bubur', 8, 2, 98, 30, 3000, 4000, 'Bebas', '1656851877_bubur-instan.webp', '2022-07-03 12:37:57', '2022-07-09 19:06:56');
 INSERT INTO `data_barang` VALUES (9, 'MR-0011', 'Monde Snack', 9, 3, 100, 100, 10000, 12000, 'Bebas', '1656851966_ac4ac31dfb659aa143c2bb3f4d49fb68.jpg_720x720q80.jpg_.webp', '2022-07-03 12:39:26', '2022-07-06 10:23:29');
 INSERT INTO `data_barang` VALUES (10, 'MR-0022', 'Nextar Choco', 5, 3, 96, 15, 5000, 7000, 'Bebas', '1656852004_Nextar-Choco-Brownies.jpg', '2022-07-03 12:40:04', '2022-07-08 21:06:09');
-INSERT INTO `data_barang` VALUES (11, 'M-0012', 'Pulpy Orange', 6, 4, 89, 111, 5000, 6000, 'Bebas', '1656852083_f7efa42cf4a260e2c6dbc25478a2fb8b.jfif', '2022-07-03 12:41:24', '2022-07-11 17:26:46');
-INSERT INTO `data_barang` VALUES (12, 'M-0029', 'Olatte', 7, 4, 57, 45, 6000, 7000, 'Bebas', '1656852115_20089805_1.jpg', '2022-07-03 12:41:56', '2022-07-15 13:54:52');
+INSERT INTO `data_barang` VALUES (11, 'M-0012', 'Pulpy Orange', 6, 4, 85, 115, 5000, 6000, 'Bebas', '1656852083_f7efa42cf4a260e2c6dbc25478a2fb8b.jfif', '2022-07-03 12:41:24', '2022-09-15 18:43:07');
+INSERT INTO `data_barang` VALUES (12, 'M-0029', 'Olatte', 7, 4, 50, 52, 6000, 7000, 'Bebas', '1656852115_20089805_1.jpg', '2022-07-03 12:41:56', '2022-09-15 18:28:29');
 INSERT INTO `data_barang` VALUES (13, 'KR-0013', 'Soklin Lantai', 8, 5, 0, 200, 10000, 12000, 'Bebas', '1656852210_1631601937_61404511c88a8.png', '2022-07-03 12:43:30', '2022-07-07 19:34:40');
-INSERT INTO `data_barang` VALUES (14, 'KR-0025', 'Mama Lemon 500ml', 9, 5, 73, 100, 7000, 8000, 'Bebas', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', '2022-07-03 12:44:10', '2022-07-21 05:30:43');
+INSERT INTO `data_barang` VALUES (14, 'KR-0025', 'Mama Lemon 500ml', 9, 5, 18, 155, 7000, 8000, 'Bebas', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', '2022-07-03 12:44:10', '2022-09-15 18:41:10');
 INSERT INTO `data_barang` VALUES (15, 'PT-0123', 'Joyce Parfume', 5, 6, 100, 2, 25000, 30000, 'Bebas', '1656852335_download.jfif', '2022-07-03 12:45:35', '2022-07-06 20:51:54');
 INSERT INTO `data_barang` VALUES (16, 'PT-0435', 'Noah Parfume', 6, 6, 58, 142, 40000, 45000, 'Bebas', '1656852375_1646808353.jpg', '2022-07-03 12:46:15', '2022-07-21 05:30:43');
 INSERT INTO `data_barang` VALUES (17, 'PR-0875', 'Sampo Pantene Botol', 7, 7, 100, 0, 10000, 12000, 'Bebas', '1656852450_DMR_SH.png', '2022-07-03 12:47:32', '2022-07-04 05:32:55');
@@ -581,6 +581,11 @@ INSERT INTO `data_barang` VALUES (28, 'M-0445', 'Air Mineral Vit', 7, 4, 50, 0, 
 INSERT INTO `data_barang` VALUES (29, 'M-0234', 'Aqua 600 ml', 8, 4, 48, 2, 4000, 4500, 'Air Mineral Aqua', '1657161374_apotek_online_k24klik_20211206100212359225_AQUA-AIR-MINERAL-1500ML.jpg', '2022-07-07 09:36:14', '2022-07-19 11:49:31');
 INSERT INTO `data_barang` VALUES (30, 'M-1243', 'Le Mineral 600ml', 9, 4, 50, 0, 3500, 4000, 'Stok PT. Indo Farma', '1657161442_096191675b3682f21f75d01c8c3ed6ac.jfif', '2022-07-07 09:37:22', '2022-07-07 09:37:22');
 INSERT INTO `data_barang` VALUES (31, 'PR-3041', 'Ganci', 5, 7, 23, 0, 180000, 200000, 'Ganci Genshin', '1657264127_hydro.jpg', '2022-07-08 14:08:48', '2022-07-08 14:08:48');
+INSERT INTO `data_barang` VALUES (32, '-0022', 'Minyak Goreng', NULL, 1, 23, 0, 12312, 1232, 'ewr', '1662101428_SS-28.png', '2022-09-02 13:50:29', '2022-09-02 13:50:29');
+INSERT INTO `data_barang` VALUES (33, 'M-0023', 'Kecap Botol Pedas', 5, 4, 43, 0, 564456, 3454, '435', '1662101546_SS-25.png', '2022-09-02 13:52:26', '2022-09-02 13:52:26');
+INSERT INTO `data_barang` VALUES (34, 'PR-0004', 'Minyak Goreng56', 5, 7, 6456, 0, 54645, 546456, '46', '1662101973_SS-28.png', '2022-09-02 13:59:34', '2022-09-02 13:59:34');
+INSERT INTO `data_barang` VALUES (35, 'MI-0003', 'Beras', 5, 2, 4564, 0, 54645, 5654, 'trytry', '1662101995_SS-28.png', '2022-09-02 13:59:55', '2022-09-02 13:59:55');
+INSERT INTO `data_barang` VALUES (36, 'MI-0004', 'Kecap Botol Pedastyrt', 5, 2, 67, 0, 5756756, 67457, '7567', '1662102017_SS-28.png', '2022-09-02 14:00:17', '2022-09-02 14:00:17');
 
 -- ----------------------------
 -- Table structure for data_beli_sekarang
@@ -651,7 +656,7 @@ CREATE TABLE `data_keranjang`  (
   INDEX `user_id`(`user_id`) USING BTREE,
   INDEX `barang_id`(`barang_id`) USING BTREE,
   CONSTRAINT `data_keranjang_ibfk_1` FOREIGN KEY (`barang_id`) REFERENCES `data_barang` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 144 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 149 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_keranjang
@@ -746,8 +751,13 @@ INSERT INTO `data_keranjang` VALUES (138, 10, 14, 'Mama Lemon 500ml', '165685225
 INSERT INTO `data_keranjang` VALUES (139, 10, 7, 'Indomie Goreng', '1656851837_0b951821-47f1-41cc-9329-9a53ac55b60e.jpg', 2, 7000, 0, 0, '2022-07-21 05:37:20', '2022-07-21 05:38:00');
 INSERT INTO `data_keranjang` VALUES (140, 10, 1, 'Minyak Goreng', '1656850712_117.jpg', 2, 50000, 0, 0, '2022-07-21 05:37:26', '2022-07-21 05:38:00');
 INSERT INTO `data_keranjang` VALUES (141, 19, 1, 'Minyak Goreng', '1656850712_117.jpg', 2, 50000, 1, 0, '2022-07-21 06:35:20', '2022-07-21 06:40:05');
-INSERT INTO `data_keranjang` VALUES (142, 2, 2, 'Beras 30 Kg', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 2, 460000, 1, 0, '2022-08-28 13:30:28', '2022-08-28 13:30:40');
-INSERT INTO `data_keranjang` VALUES (143, 2, 12, 'Olatte', '1656852115_20089805_1.jpg', 2, 14000, 1, 0, '2022-08-28 13:30:37', '2022-08-28 13:30:40');
+INSERT INTO `data_keranjang` VALUES (142, 2, 2, 'Beras 30 Kg', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 2, 460000, 0, 0, '2022-08-28 13:30:28', '2022-09-02 14:16:49');
+INSERT INTO `data_keranjang` VALUES (143, 2, 12, 'Olatte', '1656852115_20089805_1.jpg', 2, 14000, 0, 0, '2022-08-28 13:30:37', '2022-09-02 14:16:49');
+INSERT INTO `data_keranjang` VALUES (144, 2, 14, 'Mama Lemon 500ml', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', 54, 432000, 0, 0, '2022-09-02 14:16:03', '2022-09-02 14:16:49');
+INSERT INTO `data_keranjang` VALUES (145, 2, 12, 'Olatte', '1656852115_20089805_1.jpg', 4, 28000, 0, 0, '2022-09-02 14:16:14', '2022-09-02 14:16:49');
+INSERT INTO `data_keranjang` VALUES (146, 2, 2, 'Beras 30 Kg', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 2, 460000, 0, 0, '2022-09-02 14:53:51', '2022-09-15 18:12:47');
+INSERT INTO `data_keranjang` VALUES (147, 2, 14, 'Mama Lemon 500ml', '1656852250_b280661e5f4dae1539cb2d66418ce7a5.jpg', 1, 8000, 0, 0, '2022-09-15 18:31:14', '2022-09-15 18:41:10');
+INSERT INTO `data_keranjang` VALUES (148, 2, 2, 'Beras 30 Kg', '1656851607_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 2, 460000, 0, 0, '2022-09-15 18:31:29', '2022-09-15 18:41:10');
 
 -- ----------------------------
 -- Table structure for data_payment
@@ -837,32 +847,39 @@ CREATE TABLE `data_pesanan`  (
   `jumlah_total` int NULL DEFAULT NULL,
   `bukti_pembayaran` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `keterangan` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `alamat` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `created_at` datetime NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 81 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 87 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_pesanan
 -- ----------------------------
-INSERT INTO `data_pesanan` VALUES (63, 2, 'KDP-141925', 'Aceh Jaya', 'Banjarmasin', 'Reguler', 'jne', 0, 1, NULL, 133000, 64000, 197000, NULL, 'dfsdfds', '2022-07-08 21:06:09', '2022-07-11 18:00:54');
-INSERT INTO `data_pesanan` VALUES (64, 2, 'KDP-852006', 'Barito Kuala', 'Bogor', 'Reguler', 'jne', 0, 1, NULL, 920000, 36000, 956000, NULL, 'eqwewqe', '2022-07-08 21:07:12', '2022-07-11 18:00:50');
-INSERT INTO `data_pesanan` VALUES (65, 2, 'KDP-299812', 'Banjar', 'Bekasi', 'Reguler', 'jne', 0, 1, NULL, 112000, 30000, 142000, '1657290143_bukti-pembayaran-STAIM0002.jpg', 'gghghj', '2022-07-08 21:21:34', '2022-07-08 21:23:03');
-INSERT INTO `data_pesanan` VALUES (66, 2, 'KDP-297392', 'Aceh Jaya', 'Bangkalan', 'Reguler', 'jne', 0, 1, NULL, 59000, 59000, 118000, '1657334517_bukti-pembayaran-STAIM0002.jpg', 'tettete', '2022-07-09 09:40:51', '2022-07-09 10:03:10');
-INSERT INTO `data_pesanan` VALUES (67, 2, 'KDP-118332', 'Jakarta Pusat', 'Pontianak', 'Reguler', 'jne', 0, 1, NULL, 738000, 50000, 788000, '1657336577_bukti-pembayaran-STAIM0002.jpg', 'Oleh-Oleh', '2022-07-09 10:15:45', '2022-07-09 10:16:45');
-INSERT INTO `data_pesanan` VALUES (68, 2, 'KDP-898731', 'Aceh Barat Daya', 'Banyumas', 'Reguler', 'jne', 0, 1, NULL, 12000, 52000, 64000, NULL, 'sdasdas', '2022-07-09 19:06:56', '2022-07-11 18:00:45');
-INSERT INTO `data_pesanan` VALUES (69, 2, 'KDP-156078', 'Aceh Selatan', 'Bandar Lampung', 'Reguler', 'jne', 1, 1, 1, 135000, 60000, 195000, '1657516620_bukti-pembayaran-STAIM0002.jpg', 'ggfb', '2022-07-10 18:24:14', '2022-07-11 18:00:40');
-INSERT INTO `data_pesanan` VALUES (70, 6, 'KDP-949744', 'Jakarta Pusat', 'Pontianak', 'Reguler', 'jne', 0, 1, NULL, 20000, 50000, 70000, '1657511874_bukti-pembayaran-STAIM0002.jpg', 'Oleh-Oleh', '2022-07-11 10:57:15', '2022-07-11 10:59:30');
-INSERT INTO `data_pesanan` VALUES (71, 2, 'KDP-843629', 'Berau', 'Kepulauan Sangihe', 'Reguler', 'jne', 1, 1, NULL, 1150000, 76000, 1226000, NULL, 'dvdsfsdf', '2022-07-11 17:15:27', '2022-07-13 12:57:42');
-INSERT INTO `data_pesanan` VALUES (72, 2, 'KDP-803179', 'Berau', 'Kepulauan Sangihe', 'Reguler', 'jne', 1, 1, NULL, 1150000, 76000, 1226000, NULL, 'dvdsfsdf', '2022-07-11 17:15:56', '2022-07-11 18:00:28');
-INSERT INTO `data_pesanan` VALUES (73, 2, 'KDP-398258', 'Aceh Jaya', 'Barito Timur', 'Reguler', 'jne', 1, 1, NULL, 1053000, 74000, 1127000, NULL, 'dfsdfdfsd', '2022-07-11 17:26:46', '2022-07-13 12:57:24');
-INSERT INTO `data_pesanan` VALUES (74, 2, 'KDP-304807', 'Barito Kuala', 'Bukittinggi', 'Reguler', 'jne', 1, 1, NULL, 270000, 65000, 335000, NULL, 'fsdfds', '2022-07-11 17:30:12', '2022-07-13 12:57:11');
-INSERT INTO `data_pesanan` VALUES (75, 9, 'KDP-566063', 'Bekasi', 'Gorontalo Utara', 'Reguler', 'jne', 1, 1, 1, 2070000, 69000, 2139000, '1657538852_bukti-pembayaran-STAIM0002.jpg', 'kiki', '2022-07-11 18:26:30', '2022-07-19 11:30:11');
-INSERT INTO `data_pesanan` VALUES (76, 2, 'KDP-272875', 'Bangka Tengah', 'Banyuasin', 'Reguler', 'jne', 1, 0, NULL, 21000, 35000, 56000, NULL, 'test', '2022-07-15 13:54:52', '2022-07-15 20:02:05');
-INSERT INTO `data_pesanan` VALUES (77, 2, 'KDP-776906', 'Jakarta Pusat', 'Jayapura', 'Reguler', 'jne', 1, 1, 1, 485000, 105000, 590000, '1658368986_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'rgreer', '2022-07-19 11:49:31', '2022-07-21 09:51:27');
-INSERT INTO `data_pesanan` VALUES (78, 10, 'KDP-270223', 'Aceh Jaya', 'Bandung', 'Reguler', 'jne', 1, 1, 1, 106000, 44000, 150000, '1658356908_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'test', '2022-07-21 05:30:43', '2022-07-21 05:43:55');
-INSERT INTO `data_pesanan` VALUES (79, 10, 'KDP-349944', 'Barito Utara', 'Banyuasin', 'Reguler', 'jne', 1, 1, 1, 57000, 69000, 126000, '1658356892_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'efw', '2022-07-21 05:38:00', '2022-07-21 05:42:28');
-INSERT INTO `data_pesanan` VALUES (80, 10, 'KDP-566676', 'Aceh Selatan', 'Banyuasin', 'Reguler', '*', 1, 1, 1, 50000, 66000, 116000, '1658357376_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'das', '2022-07-21 05:48:43', '2022-07-21 05:59:37');
+INSERT INTO `data_pesanan` VALUES (63, 2, 'KDP-141925', 'Aceh Jaya', 'Banjarmasin', 'Reguler', 'jne', 0, 1, NULL, 133000, 64000, 197000, NULL, 'dfsdfds', NULL, '2022-07-08 21:06:09', '2022-07-11 18:00:54');
+INSERT INTO `data_pesanan` VALUES (64, 2, 'KDP-852006', 'Barito Kuala', 'Bogor', 'Reguler', 'jne', 0, 1, NULL, 920000, 36000, 956000, NULL, 'eqwewqe', NULL, '2022-07-08 21:07:12', '2022-07-11 18:00:50');
+INSERT INTO `data_pesanan` VALUES (65, 2, 'KDP-299812', 'Banjar', 'Bekasi', 'Reguler', 'jne', 0, 1, NULL, 112000, 30000, 142000, '1657290143_bukti-pembayaran-STAIM0002.jpg', 'gghghj', NULL, '2022-07-08 21:21:34', '2022-07-08 21:23:03');
+INSERT INTO `data_pesanan` VALUES (66, 2, 'KDP-297392', 'Aceh Jaya', 'Bangkalan', 'Reguler', 'jne', 0, 1, NULL, 59000, 59000, 118000, '1657334517_bukti-pembayaran-STAIM0002.jpg', 'tettete', NULL, '2022-07-09 09:40:51', '2022-07-09 10:03:10');
+INSERT INTO `data_pesanan` VALUES (67, 2, 'KDP-118332', 'Jakarta Pusat', 'Pontianak', 'Reguler', 'jne', 0, 1, NULL, 738000, 50000, 788000, '1657336577_bukti-pembayaran-STAIM0002.jpg', 'Oleh-Oleh', NULL, '2022-07-09 10:15:45', '2022-07-09 10:16:45');
+INSERT INTO `data_pesanan` VALUES (68, 2, 'KDP-898731', 'Aceh Barat Daya', 'Banyumas', 'Reguler', 'jne', 0, 1, NULL, 12000, 52000, 64000, NULL, 'sdasdas', NULL, '2022-07-09 19:06:56', '2022-07-11 18:00:45');
+INSERT INTO `data_pesanan` VALUES (69, 2, 'KDP-156078', 'Aceh Selatan', 'Bandar Lampung', 'Reguler', 'jne', 1, 1, 1, 135000, 60000, 195000, '1657516620_bukti-pembayaran-STAIM0002.jpg', 'ggfb', NULL, '2022-07-10 18:24:14', '2022-07-11 18:00:40');
+INSERT INTO `data_pesanan` VALUES (70, 6, 'KDP-949744', 'Jakarta Pusat', 'Pontianak', 'Reguler', 'jne', 0, 1, NULL, 20000, 50000, 70000, '1657511874_bukti-pembayaran-STAIM0002.jpg', 'Oleh-Oleh', NULL, '2022-07-11 10:57:15', '2022-07-11 10:59:30');
+INSERT INTO `data_pesanan` VALUES (71, 2, 'KDP-843629', 'Berau', 'Kepulauan Sangihe', 'Reguler', 'jne', 1, 1, NULL, 1150000, 76000, 1226000, NULL, 'dvdsfsdf', NULL, '2022-07-11 17:15:27', '2022-07-13 12:57:42');
+INSERT INTO `data_pesanan` VALUES (72, 2, 'KDP-803179', 'Berau', 'Kepulauan Sangihe', 'Reguler', 'jne', 1, 1, NULL, 1150000, 76000, 1226000, NULL, 'dvdsfsdf', NULL, '2022-07-11 17:15:56', '2022-07-11 18:00:28');
+INSERT INTO `data_pesanan` VALUES (73, 2, 'KDP-398258', 'Aceh Jaya', 'Barito Timur', 'Reguler', 'jne', 1, 1, NULL, 1053000, 74000, 1127000, NULL, 'dfsdfdfsd', NULL, '2022-07-11 17:26:46', '2022-07-13 12:57:24');
+INSERT INTO `data_pesanan` VALUES (74, 2, 'KDP-304807', 'Barito Kuala', 'Bukittinggi', 'Reguler', 'jne', 1, 1, NULL, 270000, 65000, 335000, NULL, 'fsdfds', NULL, '2022-07-11 17:30:12', '2022-07-13 12:57:11');
+INSERT INTO `data_pesanan` VALUES (75, 9, 'KDP-566063', 'Bekasi', 'Gorontalo Utara', 'Reguler', 'jne', 1, 1, 1, 2070000, 69000, 2139000, '1657538852_bukti-pembayaran-STAIM0002.jpg', 'kiki', NULL, '2022-07-11 18:26:30', '2022-07-19 11:30:11');
+INSERT INTO `data_pesanan` VALUES (76, 2, 'KDP-272875', 'Bangka Tengah', 'Banyuasin', 'Reguler', 'jne', 1, 0, NULL, 21000, 35000, 56000, NULL, 'test', NULL, '2022-07-15 13:54:52', '2022-07-15 20:02:05');
+INSERT INTO `data_pesanan` VALUES (77, 2, 'KDP-776906', 'Jakarta Pusat', 'Jayapura', 'Reguler', 'jne', 1, 1, 1, 485000, 105000, 590000, '1658368986_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'rgreer', NULL, '2022-07-19 11:49:31', '2022-07-21 09:51:27');
+INSERT INTO `data_pesanan` VALUES (78, 10, 'KDP-270223', 'Aceh Jaya', 'Bandung', 'Reguler', 'jne', 1, 1, 1, 106000, 44000, 150000, '1658356908_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'test', NULL, '2022-07-21 05:30:43', '2022-07-21 05:43:55');
+INSERT INTO `data_pesanan` VALUES (79, 10, 'KDP-349944', 'Barito Utara', 'Banyuasin', 'Reguler', 'jne', 1, 1, 1, 57000, 69000, 126000, '1658356892_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'efw', NULL, '2022-07-21 05:38:00', '2022-07-21 05:42:28');
+INSERT INTO `data_pesanan` VALUES (80, 10, 'KDP-566676', 'Aceh Selatan', 'Banyuasin', 'Reguler', 'jne', 1, 1, 1, 50000, 66000, 116000, '1658357376_078857800_1501055779-4370282_9a01a2a1-cf58-45c2-9080-17ce5207a37a.jpg', 'das', NULL, '2022-07-21 05:48:43', '2022-07-21 05:59:37');
+INSERT INTO `data_pesanan` VALUES (81, 2, 'KDP-2-0007', 'Sintang', 'Bengkulu Selatan', 'Reguler', 'jne', 0, 0, NULL, 50000, 67000, 117000, NULL, 'sdsaa', NULL, '2022-09-02 14:15:37', '2022-09-02 14:15:37');
+INSERT INTO `data_pesanan` VALUES (82, 2, 'KDP-2-0008', 'Sintang', 'Banyuasin', 'Reguler', 'jne', 0, 0, NULL, 934000, 59000, 993000, NULL, 'rte', NULL, '2022-09-02 14:16:49', '2022-09-02 14:16:49');
+INSERT INTO `data_pesanan` VALUES (83, 2, 'KDP-2-0016', 'Sintang', 'Biak Numfor', 'Reguler', 'jne', 0, 0, 1, 460000, 152000, 612000, '1663240549_301524796_4973350072764906_7532266878161849981_n.jpg', 'Untuk kamu', 'Jl. ayani 2', '2022-09-15 18:12:47', '2022-09-15 18:15:49');
+INSERT INTO `data_pesanan` VALUES (84, 2, 'KDP-2-0017', 'Sintang', 'Barito Utara', 'Reguler', 'jne', 0, 0, NULL, 7000, 69000, 76000, NULL, 'werrrr', 'ghjghjkghkghjkhkhk', '2022-09-15 18:28:29', '2022-09-15 18:28:29');
+INSERT INTO `data_pesanan` VALUES (85, 2, 'KDP-2-0018', 'Sintang', 'Aceh Jaya', 'Reguler', 'jne', 0, 0, NULL, 468000, 77000, 545000, NULL, 'yrtyrtyrtytr', '34534534634', '2022-09-15 18:41:10', '2022-09-15 18:41:10');
+INSERT INTO `data_pesanan` VALUES (86, 2, 'KDP-2-0019', 'Sintang', 'Aceh Selatan', 'Reguler', 'jne', 0, 0, NULL, 24000, 77000, 101000, NULL, 'yuyuuuu', 'ghjhgkhjkjklkl;', '2022-09-15 18:43:07', '2022-09-15 18:43:07');
 
 -- ----------------------------
 -- Table structure for data_pesanan_detail
@@ -879,7 +896,7 @@ CREATE TABLE `data_pesanan_detail`  (
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `barang_id`(`barang_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 461 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 471 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_pesanan_detail
@@ -917,6 +934,16 @@ INSERT INTO `data_pesanan_detail` VALUES (457, 78, 14, 'Mama Lemon 500ml', 2, 16
 INSERT INTO `data_pesanan_detail` VALUES (458, 79, 7, 'Indomie Goreng', 2, 7000, '2022-07-21 05:38:00', '2022-07-21 05:38:00');
 INSERT INTO `data_pesanan_detail` VALUES (459, 79, 1, 'Minyak Goreng', 2, 50000, '2022-07-21 05:38:00', '2022-07-21 05:38:00');
 INSERT INTO `data_pesanan_detail` VALUES (460, 80, 1, 'Minyak Goreng', 2, 50000, '2022-07-21 05:48:43', '2022-07-21 05:48:43');
+INSERT INTO `data_pesanan_detail` VALUES (461, 81, 1, 'Minyak Goreng', 2, 50000, '2022-09-02 14:15:37', '2022-09-02 14:15:37');
+INSERT INTO `data_pesanan_detail` VALUES (462, 82, 2, 'Beras 30 Kg', 2, 460000, '2022-09-02 14:16:49', '2022-09-02 14:16:49');
+INSERT INTO `data_pesanan_detail` VALUES (463, 82, 12, 'Olatte', 2, 14000, '2022-09-02 14:16:49', '2022-09-02 14:16:49');
+INSERT INTO `data_pesanan_detail` VALUES (464, 82, 14, 'Mama Lemon 500ml', 54, 432000, '2022-09-02 14:16:49', '2022-09-02 14:16:49');
+INSERT INTO `data_pesanan_detail` VALUES (465, 82, 12, 'Olatte', 4, 28000, '2022-09-02 14:16:49', '2022-09-02 14:16:49');
+INSERT INTO `data_pesanan_detail` VALUES (466, 83, 2, 'Beras 30 Kg', 2, 460000, '2022-09-15 18:12:47', '2022-09-15 18:12:47');
+INSERT INTO `data_pesanan_detail` VALUES (467, 84, 12, 'Olatte', 1, 7000, '2022-09-15 18:28:29', '2022-09-15 18:28:29');
+INSERT INTO `data_pesanan_detail` VALUES (468, 85, 14, 'Mama Lemon 500ml', 1, 8000, '2022-09-15 18:41:10', '2022-09-15 18:41:10');
+INSERT INTO `data_pesanan_detail` VALUES (469, 85, 2, 'Beras 30 Kg', 2, 460000, '2022-09-15 18:41:10', '2022-09-15 18:41:10');
+INSERT INTO `data_pesanan_detail` VALUES (470, 86, 11, 'Pulpy Orange', 4, 24000, '2022-09-15 18:43:07', '2022-09-15 18:43:07');
 
 -- ----------------------------
 -- Table structure for data_ulasan
@@ -1207,7 +1234,7 @@ CREATE TABLE `users`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 255 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 256 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
